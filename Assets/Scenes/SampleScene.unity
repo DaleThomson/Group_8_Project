@@ -174,7 +174,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 21589bdb139afd44c9c2c103a8dd045a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableTag: Selectable
-  highLightMaterial: {fileID: 2100000, guid: cba87fd431b71e74bb7c94a7662c4288, type: 2}
+  highLightMaterial: {fileID: 2100000, guid: 27468d37538ca2a4c88f36e8f3054455, type: 2}
   defaultMaterial: {fileID: 2100000, guid: d718cce422f901c4f9714befc19aef55, type: 2}
 --- !u!4 &803026410
 Transform:

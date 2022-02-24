@@ -834,8 +834,9 @@ MonoBehaviour:
   mouseMaxY: 90
   walkSpeed: 6
   sprintSpeed: 12
-  grav: -13
-  slopeGrav: 100
+  gravScale: 5
+  jumpForce: 20
+  slopeGrav: 0
   slopeGravRay: 1.5
   camSmooth: 0.3
   moveSmooth: 0.03

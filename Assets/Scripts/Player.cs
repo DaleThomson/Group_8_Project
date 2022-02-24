@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] float mouseMaxY = 90.0f;
     [SerializeField] float walkSpeed = 6.0f;
     [SerializeField] float sprintSpeed = 9.0f;
-    [SerializeField] float grav = -13.0f;
+    [SerializeField] float gravScale = -.0f;
+    [SerializeField] float jumpForce = 20.0f;
     [SerializeField] float slopeGrav;
     [SerializeField] float slopeGravRay;
     [SerializeField] [Range(0.0f, 0.5f)] float camSmooth = 0.3f;
@@ -28,6 +29,8 @@ public class Player : MonoBehaviour
 
     Vector2 currMouseDelta = Vector2.zero;
     Vector2 currMouseDeltaVel = Vector2.zero;
+
+    Vector3 velocity;
     // Start is called before the first frame update
     void Start()
     {
@@ -92,19 +95,27 @@ public class Player : MonoBehaviour
 
         currDirection = Vector2.SmoothDamp(currDirection, target, ref currDirectionVel, moveSmooth);
 
-        if (player.isGrounded)
-        {
-            velY = 0.0f;
-        }
 
         if ((currDirection.x != 0 || currDirection.y != 0) && onSlope())
         {
             player.Move(Vector3.down * player.height / 2 * slopeGrav * Time.deltaTime);
         }
 
-        velY += grav * Time.deltaTime;
 
-        Vector3 velocity = (transform.forward * currDirection.y + transform.right * currDirection.x) * walkSpeed + Vector3.up * velY;
+        float velY = velocity.y;
+        velocity = (transform.forward * currDirection.y + transform.right * currDirection.x) * walkSpeed;
+        velocity.y = velY;
+        
+        if (player.isGrounded)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                velocity.y = jumpForce;
+            }
+        }
+        
+
+        //velY += Physics.gravity.y * Time.deltaTime;
 
         stamina = Mathf.Clamp(stamina, 0f, 10f);
 
@@ -134,6 +145,12 @@ public class Player : MonoBehaviour
                 exhaustion = 20.0f;
             }
         }
+
+        if (!player.isGrounded)
+        {
+            velocity.y = velocity.y + (Physics.gravity.y * 5 * Time.deltaTime);
+        }
+
 
         player.Move(velocity * Time.deltaTime);
     }

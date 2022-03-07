@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Selectable
   - Ground
+  - Worker
   layers:
   - Default
   - TransparentFX

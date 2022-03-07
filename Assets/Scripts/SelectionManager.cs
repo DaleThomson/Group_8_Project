@@ -4,40 +4,114 @@ using UnityEngine;
 
 public class SelectionManager : MonoBehaviour
 {
-    [SerializeField] string selectableTag = "Selectable";
-    [SerializeField] Material highLightMaterial;
-    [SerializeField] Material defaultMaterial;
+    public float pickUpRange = 5;
+    public float moveForce = 250;
+    public Transform holdParent;
+    private GameObject heldObj;
 
-    private Transform _selection;
-    // Start is called before the first frame update
+    void Start()
+    {
 
-    // Update is called once per frame
+    }
+
     void Update()
     {
-        if (_selection != null)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            var selectionRenderer = _selection.GetComponent<Renderer>();
-            selectionRenderer.material = defaultMaterial;
-            _selection = null;
+            if (heldObj == null)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+                {
+                    PickupObject(hit.transform.gameObject);
+                }
+            }
+            else
+            {
+                DropObject();
+            }
+
         }
 
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (heldObj != null)
         {
-            var selection = hit.transform;
+            MoveObject();
+        }
 
-            if (selection.CompareTag(selectableTag))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            RaycastHit hit;
+           
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
             {
-                var selectionRenderer = selection.GetComponent<Renderer>();
-                if (selectionRenderer != null)
+                var selection = hit.transform;
+                var worker = selection.gameObject;
+                if (selection.CompareTag("Worker"))
                 {
-                    defaultMaterial = selectionRenderer.material;
-                    selectionRenderer.material = highLightMaterial;
+                    Debug.Log("Insult");
                 }
-
-                _selection = selection;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+            {
+                Debug.Log("Berate");
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+            {
+                Debug.Log("Praise");
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+            {
+                Debug.Log("Congratulate");
+            }
+        }
+    }
+
+    void MoveObject()
+    {
+        if (Vector3.Distance(heldObj.transform.position, holdParent.position) > 0.1f)
+        {
+            Vector3 moveDirection = (holdParent.position - heldObj.transform.position);
+            heldObj.GetComponent<Rigidbody>().AddForce(moveDirection * moveForce);
+        }
+    }
+
+    void PickupObject(GameObject pickObj)
+    {
+        if (pickObj.GetComponent<Rigidbody>())
+        {
+            Rigidbody objRig = pickObj.GetComponent<Rigidbody>();
+            objRig.useGravity = false;
+            objRig.freezeRotation = true;
+            objRig.drag = 10;
+
+            objRig.transform.parent = holdParent;
+            heldObj = pickObj;
+        }
+    }
+
+    void DropObject()
+    {
+        Rigidbody heldRig = heldObj.GetComponent<Rigidbody>();
+        heldRig.useGravity = true;
+        heldRig.freezeRotation = false;
+        heldRig.drag = 1;
+
+        heldObj.transform.parent = null;
+        heldObj = null;
     }
 }

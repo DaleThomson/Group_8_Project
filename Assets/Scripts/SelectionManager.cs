@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class SelectionManager : MonoBehaviour
 {
+    [SerializeField] string grabbableTag = "Grabbable";
+    [SerializeField] string UITag = "Itext";
+    [SerializeField] Material highLightMaterial;
+    [SerializeField] Material defaultMaterial;
+
     public float pickUpRange = 5;
     public float moveForce = 250;
     public Transform holdParent;
+    public GameObject UIText;
     private GameObject heldObj;
+    private Transform _selection;
 
     void Start()
     {
@@ -16,69 +23,101 @@ public class SelectionManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+
+        if (_selection != null)
         {
-            if (heldObj == null)
+            var selectionRenderer = _selection.GetComponent<Renderer>();
+            selectionRenderer.material = defaultMaterial;
+            _selection = null;
+        }
+
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, pickUpRange))
+        {
+            var selection = hit.transform;
+
+            if (selection.CompareTag(grabbableTag))
             {
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+                UIText.SetActive(true);
+                var selectionRenderer = selection.GetComponent<Renderer>();
+                if (selectionRenderer != null)
                 {
-                    PickupObject(hit.transform.gameObject);
+                    defaultMaterial = selectionRenderer.material;
+                    selectionRenderer.material = highLightMaterial;
                 }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (heldObj == null)
+                    {
+                        UIText.SetActive(false);
+                        PickupObject(hit.transform.gameObject);
+                    }
+                    else
+                    {
+                        DropObject();
+                    }
+                }
+                _selection = selection;
             }
             else
             {
-                DropObject();
+                UIText.SetActive(false);
             }
-
         }
+        else
+        {
+            UIText.SetActive(false);
+        }
+
 
         if (heldObj != null)
         {
+            UIText.SetActive(false);
             MoveObject();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            RaycastHit hit;
-           
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
-            {
-                var selection = hit.transform;
-                var worker = selection.gameObject;
-                if (selection.CompareTag("Worker"))
-                {
-                    Debug.Log("Insult");
-                }
-            }
-        }
+        //    if (Input.GetKeyDown(KeyCode.Alpha1))
+        //    {
+        //        RaycastHit hit;
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
-            {
-                Debug.Log("Berate");
-            }
-        }
+        //        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+        //        {
+        //            var selection = hit.transform;
+        //            var worker = selection.gameObject;
+        //            if (selection.CompareTag("Worker"))
+        //            {
+        //                Debug.Log("Insult");
+        //            }
+        //        }
+        //    }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
-            {
-                Debug.Log("Praise");
-            }
-        }
+        //    if (Input.GetKeyDown(KeyCode.Alpha2))
+        //    {
+        //        RaycastHit hit;
+        //        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+        //        {
+        //            Debug.Log("Berate");
+        //        }
+        //    }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
-            {
-                Debug.Log("Congratulate");
-            }
-        }
+        //    if (Input.GetKeyDown(KeyCode.Alpha3))
+        //    {
+        //        RaycastHit hit;
+        //        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+        //        {
+        //            Debug.Log("Praise");
+        //        }
+        //    }
+
+        //    if (Input.GetKeyDown(KeyCode.Alpha4))
+        //    {
+        //        RaycastHit hit;
+        //        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+        //        {
+        //            Debug.Log("Congratulate");
+        //        }
+        //    }
     }
 
     void MoveObject()

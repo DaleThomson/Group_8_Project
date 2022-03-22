@@ -9,6 +9,10 @@ TagManager:
   - Worker
   - Grabbable
   - HireUI
+  - ConveyorN
+  - ConveyorE
+  - ConveyorW
+  - ConveyorS
   - Conveyor
   layers:
   - Default

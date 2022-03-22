@@ -36,6 +36,26 @@ public class Package : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "ConveyorN")
+        {
+            conveyorN = true;
+        }
+        if (other.tag == "ConveyorE")
+        {
+            conveyorE = true;
+        }
+        if (other.tag == "ConveyorS")
+        {
+            conveyorS = true;
+        }
+        if (other.tag == "ConveyorW")
+        {
+            conveyorW = true;
+        }
+    }
+
     private void OnTriggerExit()
     {
         conveyorN = false;
@@ -43,6 +63,7 @@ public class Package : MonoBehaviour
         conveyorS = false;
         conveyorW = false;
     }
+
 
     // Update is called once per frame
     void FixedUpdate()

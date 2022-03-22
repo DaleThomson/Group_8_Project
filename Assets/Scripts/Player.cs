@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] float exhaustion = 20.0f;
     [SerializeField] bool exhausted = false;
 
+    public GameObject hireUI;
     float camPitch = 0.0f;
     float velY = 0.0f;
     CharacterController player;
@@ -36,13 +37,31 @@ public class Player : MonoBehaviour
     {
         player = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        Screen.lockCursor = true;
+    }
+
+    void hireMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if(hireUI.active)
+            {
+                hireUI.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else if(!hireUI.active)
+            {
+                hireUI.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+            }
+            
+            
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        hireMenu();
         updateMouseLook();
         updatePlayerMovement();
     }

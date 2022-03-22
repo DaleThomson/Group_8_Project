@@ -9,6 +9,7 @@ TagManager:
   - Worker
   - Grabbable
   - HireUI
+  - Conveyor
   layers:
   - Default
   - TransparentFX

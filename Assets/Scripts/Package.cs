@@ -6,6 +6,7 @@ public class Package : MonoBehaviour
 {
     Rigidbody m_Rigidbody;
     float m_thrust = 20f;
+    public Transform teleporterNExit;
     bool conveyorN = false;
     bool conveyorE = false;
     bool conveyorS = false;
@@ -33,6 +34,10 @@ public class Package : MonoBehaviour
         if (other.tag == "ConveyorW")
         {
             conveyorW = true;
+        }
+        if (other.tag == "TeleporterN")
+        {
+            gameObject.transform.position = teleporterNExit.position;
         }
     }
 

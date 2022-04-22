@@ -7,6 +7,9 @@ public class Package : MonoBehaviour
     Rigidbody m_Rigidbody;
     float m_thrust = 20f;
     public Transform teleporterNExit;
+    public Transform teleporterWExit;
+    public Transform teleporterEExit;
+    public Transform teleporterSExit;
     bool conveyorN = false;
     bool conveyorE = false;
     bool conveyorS = false;
@@ -37,7 +40,31 @@ public class Package : MonoBehaviour
         }
         if (other.tag == "TeleporterN")
         {
+            teleporterNExit = GameObject.Find("TeleporterNExit").transform;
             gameObject.transform.position = teleporterNExit.position;
+            m_Rigidbody.velocity = new Vector3(0, 0, 0);
+        }
+        if (other.tag == "TeleporterN" && gameObject.tag == "Finished")
+        {
+            Destroy(gameObject);
+        }
+        if (other.tag == "TeleporterW")
+        {
+            teleporterWExit = GameObject.Find("TeleporterWExit").transform;
+            gameObject.transform.position = teleporterWExit.position;
+            m_Rigidbody.velocity = new Vector3(0, 0, 0);
+        }
+        if (other.tag == "TeleporterE")
+        {
+            teleporterEExit = GameObject.Find("TeleporterEExit").transform;
+            gameObject.transform.position = teleporterEExit.position;
+            m_Rigidbody.velocity = new Vector3(0, 0, 0);
+        }
+        if (other.tag == "TeleporterS")
+        {
+            teleporterSExit = GameObject.Find("TeleporterSExit").transform;
+            gameObject.transform.position = teleporterSExit.position;
+            m_Rigidbody.velocity = new Vector3(0, 0, 0);
         }
     }
 

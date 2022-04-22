@@ -14,6 +14,13 @@ TagManager:
   - ConveyorW
   - ConveyorS
   - Conveyor
+  - TeleporterN
+  - TeleporterW
+  - TeleporterE
+  - TeleporterS
+  - LineWorker
+  - Package
+  - Finished
   layers:
   - Default
   - TransparentFX

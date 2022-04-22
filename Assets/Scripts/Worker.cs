@@ -6,7 +6,11 @@ public class Worker : MonoBehaviour
 {
     public int morale;
     public int productivity;
-    public Timer workTimer = 10;
+    public float workTimer = 10;
+    public float packageTimer = 5;
+    public GameObject package;
+    public bool working = false;
+    private Rigidbody packBody;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +26,41 @@ public class Worker : MonoBehaviour
         {
             DecreaseMoraleTimer();
             workTimer = 10;
+        }
+        if (morale <= 30)
+        {
+            Destroy(gameObject);
+        }
+        if (working)
+        {
+            packageTimer -= Time.deltaTime;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Grabbable")
+        {
+            package = other.gameObject;
+            working = true;
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Grabbable")
+        {
+            if (working)
+            {
+                packBody = package.GetComponent<Rigidbody>();
+                packBody.velocity = new Vector3(0, 0, 0);
+            }
+            if (packageTimer <= 0)
+            {
+                package.tag = "Finished";
+                working = false;
+                packageTimer = 5;
+            }
         }
     }
 

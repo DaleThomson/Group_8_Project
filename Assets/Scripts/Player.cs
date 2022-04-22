@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] float stamina = 10.0f;
     [SerializeField] float exhaustion = 20.0f;
     [SerializeField] bool exhausted = false;
+    [SerializeField] bool camera = true;
 
     public GameObject hireUI;
     float camPitch = 0.0f;
@@ -45,11 +46,13 @@ public class Player : MonoBehaviour
         {
             if(hireUI.active)
             {
+                camera = true;
                 hireUI.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
             }
             else if(!hireUI.active)
             {
+                camera = false;
                 hireUI.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
             }
@@ -94,17 +97,20 @@ public class Player : MonoBehaviour
 
     void updateMouseLook()
     {
-        Vector2 target = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        if (camera)
+        {
+            Vector2 target = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-        currMouseDelta = Vector2.SmoothDamp(currMouseDelta, target, ref currMouseDeltaVel, camSmooth);
+            currMouseDelta = Vector2.SmoothDamp(currMouseDelta, target, ref currMouseDeltaVel, camSmooth);
 
-        camPitch -= target.y * mouseSens;
+            camPitch -= target.y * mouseSens;
 
-        camPitch = Mathf.Clamp(camPitch, mouseMinY, mouseMaxY);
+            camPitch = Mathf.Clamp(camPitch, mouseMinY, mouseMaxY);
 
-        playerCam.localEulerAngles = Vector3.right * camPitch;
+            playerCam.localEulerAngles = Vector3.right * camPitch;
 
-        transform.Rotate(Vector3.up * target.x * mouseSens);
+            transform.Rotate(Vector3.up * target.x * mouseSens);
+        }
     }
 
     void updatePlayerMovement()

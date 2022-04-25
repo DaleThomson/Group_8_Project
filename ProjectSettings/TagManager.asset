@@ -21,6 +21,8 @@ TagManager:
   - LineWorker
   - Package
   - Finished
+  - ConveyorSE
+  - Point1
   layers:
   - Default
   - TransparentFX

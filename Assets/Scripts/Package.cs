@@ -5,7 +5,7 @@ using UnityEngine;
 public class Package : MonoBehaviour
 {
     Rigidbody m_Rigidbody;
-    float m_thrust = 20f;
+    public float m_thrust = 20f;
     public Transform teleporterNExit;
     public Transform teleporterWExit;
     public Transform teleporterEExit;

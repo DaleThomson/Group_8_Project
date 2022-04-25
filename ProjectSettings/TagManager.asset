@@ -23,6 +23,7 @@ TagManager:
   - Finished
   - ConveyorSE
   - Point1
+  - Movable
   layers:
   - Default
   - TransparentFX

@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectionManager : MonoBehaviour
 {
     [SerializeField] string grabbableTag = "Grabbable";
-    [SerializeField] string UITag = "Itext";
+    [SerializeField] string workerTag = "Worker";
     [SerializeField] Material highLightMaterial;
     [SerializeField] Material defaultMaterial;
 
@@ -13,6 +14,8 @@ public class SelectionManager : MonoBehaviour
     public float moveForce = 250;
     public Transform holdParent;
     public GameObject UIText;
+    public Text workerText;
+    public GameObject worker;
     private GameObject heldObj;
     private Transform _selection;
 
@@ -60,13 +63,30 @@ public class SelectionManager : MonoBehaviour
                 }
                 _selection = selection;
             }
+            if (selection.CompareTag(workerTag))
+            {
+                workerText.gameObject.SetActive(true);
+                worker = hit.collider.gameObject;
+                workerText.text = "Name: " + worker.GetComponent<Worker>().returnName() + "\nMorale: " + worker.GetComponent<Worker>().returnMorale().ToString() + "\nProductivity: " + worker.GetComponent<Worker>().returnProductivity().ToString();
+                var selectionRenderer = selection.GetComponent<Renderer>();
+                if (selectionRenderer != null)
+                {
+                    defaultMaterial = selectionRenderer.material;
+                    selectionRenderer.material = highLightMaterial;
+                }
+                _selection = selection;
+            }
             else
             {
+                worker = null;
+                workerText.gameObject.SetActive(false);
                 UIText.SetActive(false);
             }
         }
         else
         {
+            worker = null;
+            workerText.gameObject.SetActive(false);
             UIText.SetActive(false);
         }
 
@@ -77,38 +97,41 @@ public class SelectionManager : MonoBehaviour
             MoveObject();
         }
 
-        //    if (Input.GetKeyDown(KeyCode.Alpha1))
-        //    {
-        //        RaycastHit hit;
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+            {
+                var selection = hit.transform;
+                var worker = selection.gameObject;
+                if (selection.CompareTag("Worker"))
+                {
+                    worker.GetComponent<Worker>().ReduceMorale();
+                }
+            }
+        }
 
-        //        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
-        //        {
-        //            var selection = hit.transform;
-        //            var worker = selection.gameObject;
-        //            if (selection.CompareTag("Worker"))
-        //            {
-        //                Debug.Log("Insult");
-        //            }
-        //        }
-        //    }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
 
-        //    if (Input.GetKeyDown(KeyCode.Alpha2))
-        //    {
-        //        RaycastHit hit;
-        //        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
-        //        {
-        //            Debug.Log("Berate");
-        //        }
-        //    }
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+            {
+                var selection = hit.transform;
+                var worker = selection.gameObject;
+                if (selection.CompareTag("Worker"))
+                {
+                    worker.GetComponent<Worker>().IncreaseMorale();
+                }
+            }
+        }
 
-        //    if (Input.GetKeyDown(KeyCode.Alpha3))
+        //if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    RaycastHit hit;
+        //    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
         //    {
-        //        RaycastHit hit;
-        //        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
-        //        {
-        //            Debug.Log("Praise");
-        //        }
+        //        Debug.Log("Praise");
         //    }
+        //}
 
         //    if (Input.GetKeyDown(KeyCode.Alpha4))
         //    {

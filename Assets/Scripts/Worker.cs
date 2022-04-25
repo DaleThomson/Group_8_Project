@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Worker : MonoBehaviour
 {
+    public string name;
     public int morale;
     public int productivity;
     public float workTimer = 10;
@@ -11,11 +12,13 @@ public class Worker : MonoBehaviour
     public GameObject package;
     public bool working = false;
     private Rigidbody packBody;
+    Collider m_collider;
     // Start is called before the first frame update
     void Start()
     {
         morale = 100;
         productivity = 100;
+        m_collider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -54,14 +57,31 @@ public class Worker : MonoBehaviour
             {
                 packBody = package.GetComponent<Rigidbody>();
                 packBody.velocity = new Vector3(0, 0, 0);
+                m_collider.enabled = !m_collider.enabled;
             }
             if (packageTimer <= 0)
             {
                 package.tag = "Finished";
                 working = false;
+                m_collider.enabled = true;
                 packageTimer = 5;
             }
         }
+    }
+
+    public int returnMorale()
+    {
+        return morale;
+    }
+
+    public string returnName()
+    {
+        return name;
+    }
+
+    public int returnProductivity()
+    {
+        return productivity;
     }
 
     public void ReduceMorale()

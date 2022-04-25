@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    public GameObject lineWorker;
-    private GameObject lineWorker1;
-    private GameObject lineWorker2;
-    private GameObject lineWorker3;
-    private GameObject lineWorker4;
+
+    public GameObject lineWorker1;
+    public GameObject lineWorker2;
+    public GameObject lineWorker3;
+    public GameObject lineWorker4;
 
     public GameObject deliveryWorker;
     private GameObject deliveryWorker1;
@@ -46,19 +46,19 @@ public class Manager : MonoBehaviour
             switch (lineWorkerCount)
             {
                 case 0:
-                    lineWorker1 = Instantiate(lineWorker, lineWorkerPos1);
+                    lineWorker1 = Instantiate(lineWorker1, lineWorkerPos1);
                     lineWorkerCount++;
                     break;
                 case 1:
-                    lineWorker2 = Instantiate(lineWorker, lineWorkerPos2);
+                    lineWorker2 = Instantiate(lineWorker2, lineWorkerPos2);
                     lineWorkerCount++;
                     break;
                 case 2:
-                    lineWorker3 = Instantiate(lineWorker, lineWorkerPos3);
+                    lineWorker3 = Instantiate(lineWorker3, lineWorkerPos3);
                     lineWorkerCount++;
                     break;
                 case 3:
-                    lineWorker4 = Instantiate(lineWorker, lineWorkerPos4);
+                    lineWorker4 = Instantiate(lineWorker4, lineWorkerPos4);
                     lineWorkerCount++;
                     break;
             }

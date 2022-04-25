@@ -54,17 +54,29 @@ public class Package : MonoBehaviour
             gameObject.transform.position = teleporterWExit.position;
             m_Rigidbody.velocity = new Vector3(0, 0, 0);
         }
+        if (other.tag == "TeleporterW" && gameObject.tag == "Finished")
+        {
+            Destroy(gameObject);
+        }
         if (other.tag == "TeleporterE")
         {
             teleporterEExit = GameObject.Find("TeleporterEExit").transform;
             gameObject.transform.position = teleporterEExit.position;
             m_Rigidbody.velocity = new Vector3(0, 0, 0);
         }
+        if (other.tag == "TeleporterE" && gameObject.tag == "Finished")
+        {
+            Destroy(gameObject);
+        }
         if (other.tag == "TeleporterS")
         {
             teleporterSExit = GameObject.Find("TeleporterSExit").transform;
             gameObject.transform.position = teleporterSExit.position;
             m_Rigidbody.velocity = new Vector3(0, 0, 0);
+        }
+        if (other.tag == "TeleporterS" && gameObject.tag == "Finished")
+        {
+            Destroy(gameObject);
         }
     }
 

@@ -8,10 +8,11 @@ public class Worker : MonoBehaviour
     public int morale;
     public int productivity;
     public float workTimer = 10;
-    public float packageTimer = 5;
+    public float setTime = 5f;
     public GameObject package;
     public bool working = false;
     private Rigidbody packBody;
+    private float packageTimer;
     Collider m_collider;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class Worker : MonoBehaviour
         morale = 100;
         productivity = 100;
         m_collider = GetComponent<Collider>();
+        packageTimer = setTime;
     }
 
     // Update is called once per frame
@@ -64,7 +66,7 @@ public class Worker : MonoBehaviour
                 package.tag = "Finished";
                 working = false;
                 m_collider.enabled = true;
-                packageTimer = 5;
+                packageTimer = setTime;
             }
         }
     }

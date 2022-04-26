@@ -4337,6 +4337,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5946367265383801371, guid: cec66393eced59d4e916acf2933d2039, type: 3}
+      propertyPath: setTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946367265383801371, guid: cec66393eced59d4e916acf2933d2039, type: 3}
       propertyPath: packageTimer
       value: 0.1
       objectReference: {fileID: 0}

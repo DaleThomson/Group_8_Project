@@ -18,7 +18,6 @@ public class Package : MonoBehaviour
     bool conveyorW = false;
     public GameObject package;
     public Transform spawnLocation;
-    private GameObject package2;
     // Start is called before the first frame update
     void Start()
     {

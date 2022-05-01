@@ -105,7 +105,7 @@ public class SelectionManager : MonoBehaviour
                 var worker = selection.gameObject;
                 if (selection.CompareTag("Worker"))
                 {
-                    worker.GetComponent<Worker>().ReduceMorale();
+                    worker.GetComponent<Worker>().bully();
                 }
             }
         }
@@ -119,7 +119,7 @@ public class SelectionManager : MonoBehaviour
                 var worker = selection.gameObject;
                 if (selection.CompareTag("Worker"))
                 {
-                    worker.GetComponent<Worker>().IncreaseMorale();
+                    worker.GetComponent<Worker>().encourage();
                 }
             }
         }

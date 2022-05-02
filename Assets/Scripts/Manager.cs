@@ -10,6 +10,11 @@ public class Manager : MonoBehaviour
     public GameObject lineWorker3;
     public GameObject lineWorker4;
 
+    private GameObject lineWorker1Instance;
+    private GameObject lineWorker2Instance;
+    private GameObject lineWorker3Instance;
+    private GameObject lineWorker4Instance;
+
     public GameObject deliveryWorker;
     private GameObject deliveryWorker1;
     private GameObject deliveryWorker2;
@@ -31,7 +36,8 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
+        lineWorkerCount++;
     }
 
     // Update is called once per frame
@@ -46,21 +52,41 @@ public class Manager : MonoBehaviour
             switch (lineWorkerCount)
             {
                 case 0:
-                    lineWorker1 = Instantiate(lineWorker1, lineWorkerPos1);
+                    lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
                     lineWorkerCount++;
                     break;
                 case 1:
-                    lineWorker2 = Instantiate(lineWorker2, lineWorkerPos2);
+                    lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
                     lineWorkerCount++;
                     break;
                 case 2:
-                    lineWorker3 = Instantiate(lineWorker3, lineWorkerPos3);
+                    lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
                     lineWorkerCount++;
                     break;
                 case 3:
-                    lineWorker4 = Instantiate(lineWorker4, lineWorkerPos4);
+                    lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
                     lineWorkerCount++;
                     break;
+            }
+        }
+
+        if (lineWorkerCount == 4)
+        {
+            if (lineWorker1Instance == null)
+            {
+                lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
+            }
+            if (lineWorker2Instance == null)
+            {
+                lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
+            }
+            if (lineWorker3Instance == null)
+            {
+                lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
+            }
+            if (lineWorker4Instance == null)
+            {
+                lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
             }
         }
     }
@@ -72,19 +98,19 @@ public class Manager : MonoBehaviour
             switch (lineWorkerCount)
             {
                 case 1:
-                    Destroy(lineWorker1);
+                    Destroy(lineWorker1Instance);
                     lineWorkerCount--;
                     break;
                 case 2:
-                    Destroy(lineWorker2);
+                    Destroy(lineWorker2Instance);
                     lineWorkerCount--;
                     break;
                 case 3:
-                    Destroy(lineWorker3);
+                    Destroy(lineWorker3Instance);
                     lineWorkerCount--;
                     break;
                 case 4:
-                    Destroy(lineWorker4);
+                    Destroy(lineWorker4Instance);
                     lineWorkerCount--;
                     break;
             }

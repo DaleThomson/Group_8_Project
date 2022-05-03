@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class Manager : MonoBehaviour
 
     public int money;
     public int AICounter;
+    public Text moneyText;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,7 @@ public class Manager : MonoBehaviour
             Application.Quit();
             Debug.Log("Exit");
         }
+        moneyText.text = "Money: £" + money;
     }
 
     public void hireLineWorker()

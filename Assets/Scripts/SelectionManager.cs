@@ -67,7 +67,7 @@ public class SelectionManager : MonoBehaviour
             {
                 workerText.gameObject.SetActive(true);
                 worker = hit.collider.gameObject;
-                workerText.text = "Name: " + worker.GetComponent<Worker>().returnName() + "\nMorale: " + worker.GetComponent<Worker>().returnMorale().ToString() + "\nProductivity: " + worker.GetComponent<Worker>().returnProductivity().ToString();
+                workerText.text = "Name: " + worker.GetComponent<Worker>().returnName() + "\nMorale: " + worker.GetComponent<Worker>().returnMorale().ToString() + "\nProductivity: " + worker.GetComponent<Worker>().returnProductivity().ToString() + "\n1. Bully\n2. Encourage\n3. Fire\n4. Upgrade";
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
                 {

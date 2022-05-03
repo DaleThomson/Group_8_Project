@@ -33,6 +33,7 @@ public class Worker : MonoBehaviour
     private float[] workT;
     public GameObject player;
     public int money;
+    public int AICounter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +77,7 @@ public class Worker : MonoBehaviour
         }
         if (morale < 10 || productivity <= 0)
         {
+            AICounter = player.GetComponent<Manager>().setAICounter(AICounter += 1);
             Destroy(gameObject);
         }
         if (working)
@@ -119,6 +121,7 @@ public class Worker : MonoBehaviour
         }
 
         money = player.GetComponent<Manager>().returnMoney();
+        AICounter = player.GetComponent<Manager>().returnAICounter();
     }
 
     void OnTriggerEnter(Collider other)

@@ -34,6 +34,7 @@ public class Manager : MonoBehaviour
     private int deliveryWorkerCount = 0;
 
     public int money;
+    public int AICounter;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,11 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (AICounter >= 10)
+        {
+            Application.Quit();
+            Debug.Log("Exit");
+        }
     }
 
     public void hireLineWorker()
@@ -197,9 +203,20 @@ public class Manager : MonoBehaviour
         return money;
     }
 
+    public int returnAICounter()
+    {
+        return AICounter;
+    }
+
     public int setMoney(int newMoney)
     {
         money = newMoney;
         return money;
+    }
+
+    public int setAICounter(int newAICounter)
+    {
+        AICounter = newAICounter;
+        return AICounter;
     }
 }

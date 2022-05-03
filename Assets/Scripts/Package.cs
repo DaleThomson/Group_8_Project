@@ -18,10 +18,18 @@ public class Package : MonoBehaviour
     bool conveyorW = false;
     public GameObject package;
     public Transform spawnLocation;
+    public GameObject player;
+    private int money;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         m_Rigidbody = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        money = player.GetComponent<Manager>().returnMoney();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -67,6 +75,7 @@ public class Package : MonoBehaviour
         {
             GameObject clone = (GameObject)Instantiate(package, spawnLocation.position, Quaternion.identity);
             clone.tag = "Grabbable";
+            player.GetComponent<Manager>().setMoney(money += 50);
             Destroy(gameObject);
         }
         if (other.tag == "TeleporterN" && gameObject.tag == "Grabbable")

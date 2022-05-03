@@ -404,3 +404,4 @@ MonoBehaviour:
   deliveryWorkerPos2: {fileID: 0}
   deliveryWorkerPos3: {fileID: 0}
   deliveryWorkerPos4: {fileID: 0}
+  money: 500

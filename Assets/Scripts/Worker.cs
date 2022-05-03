@@ -31,9 +31,12 @@ public class Worker : MonoBehaviour
     bool change = false;
     bool change2 = false;
     private float[] workT;
+    public GameObject player;
+    public int money;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         workT = new float[6];
         setTime = new float[6];
         workT[1] = 10f;
@@ -55,6 +58,7 @@ public class Worker : MonoBehaviour
         productivity = 100;
         packageTimer = setTime[level];
         rend.material = material1;
+        money = player.GetComponent<Manager>().returnMoney();
     }
 
     // Update is called once per frame
@@ -113,6 +117,8 @@ public class Worker : MonoBehaviour
                 change2 = true;
             }
         }
+
+        money = player.GetComponent<Manager>().returnMoney();
     }
 
     void OnTriggerEnter(Collider other)
@@ -178,24 +184,52 @@ public class Worker : MonoBehaviour
     {
         if (level < 5)
         {
-            level++;
             switch (level)
             {
+                case 1:
+                    if (money >= 100)
+                    {
+                        level++;
+                        morale += 10;
+                        productivity += 10;
+                        player.GetComponent<Manager>().setMoney(money -= 100);
+                    }
+                    break;
                 case 2:
-                    morale += 10;
-                    productivity += 10;
+                    if (money >= 100)
+                    {
+                        level++;
+                        morale += 10;
+                        productivity += 10;
+                        money = player.GetComponent<Manager>().setMoney((money -= 100));
+                    }
                     break;
                 case 3:
-                    morale += 10;
-                    productivity += 10;
+                    if (money >= 100)
+                    {
+                        level++;
+                        morale += 10;
+                        productivity += 10;
+                        money = player.GetComponent<Manager>().setMoney(money -= 100);
+                    }
                     break;
                 case 4:
-                    morale += 10;
-                    productivity += 10;
+                    if (money >= 100)
+                    {
+                        level++;
+                        morale += 10;
+                        productivity += 10;
+                        money = player.GetComponent<Manager>().setMoney(money -= 100);
+                    }
                     break;
                 case 5:
-                    morale += 10;
-                    productivity += 10;
+                    if (money >= 100)
+                    {
+                        level++;
+                        morale += 10;
+                        productivity += 10;
+                        money = player.GetComponent<Manager>().setMoney(money -= 100);
+                    }
                     break;
             }
         }

@@ -51044,6 +51044,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2443714534167421359, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2443714534327548411, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: UIText
       value: 
@@ -51056,6 +51060,10 @@ PrefabInstance:
       propertyPath: highLightMaterial
       value: 
       objectReference: {fileID: 2100000, guid: d718cce422f901c4f9714befc19aef55, type: 2}
+    - target: {fileID: 2443714534512168975, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2443714534512169009, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: hireUI
       value: 

@@ -131,7 +131,7 @@ MonoBehaviour:
   morale: 100
   productivity: 100
   workTimer: 15
-  setTime: 15
+  setTime: []
   package: {fileID: 0}
   working: 0
   packageTimer: 15
@@ -146,8 +146,11 @@ MonoBehaviour:
   material1: {fileID: 2100000, guid: 63fc583837b549c4fb2f909e0c7bd0e9, type: 2}
   material2: {fileID: 2100000, guid: bf72df861cd42fe4d875dc0a4a71660d, type: 2}
   material3: {fileID: 2100000, guid: 74b05651798cc504aac5a9c21d691431, type: 2}
+  level: 0
   lerp: 0
   check: 0
+  player: {fileID: 2443714534167421359, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+  money: 0
 --- !u!114 &4693080580622927973
 MonoBehaviour:
   m_ObjectHideFlags: 0

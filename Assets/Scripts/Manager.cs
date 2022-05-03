@@ -33,9 +33,12 @@ public class Manager : MonoBehaviour
     private int lineWorkerCount = 0;
     private int deliveryWorkerCount = 0;
 
+    public int money;
+
     // Start is called before the first frame update
     void Start()
     {
+        money = 500;
         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
         lineWorkerCount++;
     }
@@ -47,26 +50,33 @@ public class Manager : MonoBehaviour
 
     public void hireLineWorker()
     {
-        if (lineWorkerCount < 4)
+        if (money >= 100)
         {
-            switch (lineWorkerCount)
+            if (lineWorkerCount < 4)
             {
-                case 0:
-                    lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
-                    lineWorkerCount++;
-                    break;
-                case 1:
-                    lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
-                    lineWorkerCount++;
-                    break;
-                case 2:
-                    lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
-                    lineWorkerCount++;
-                    break;
-                case 3:
-                    lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
-                    lineWorkerCount++;
-                    break;
+                switch (lineWorkerCount)
+                {
+                    case 0:
+                        lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
+                        lineWorkerCount++;
+                        money -= 100;
+                        break;
+                    case 1:
+                        lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
+                        lineWorkerCount++;
+                        money -= 100;
+                        break;
+                    case 2:
+                        lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
+                        lineWorkerCount++;
+                        money -= 100;
+                        break;
+                    case 3:
+                        lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
+                        lineWorkerCount++;
+                        money -= 100;
+                        break;
+                }
             }
         }
 
@@ -109,18 +119,22 @@ public class Manager : MonoBehaviour
                 case 1:
                     Destroy(lineWorker1Instance);
                     lineWorkerCount--;
+                    money += 50;
                     break;
                 case 2:
                     Destroy(lineWorker2Instance);
                     lineWorkerCount--;
+                    money += 50;
                     break;
                 case 3:
                     Destroy(lineWorker3Instance);
                     lineWorkerCount--;
+                    money += 50;
                     break;
                 case 4:
                     Destroy(lineWorker4Instance);
                     lineWorkerCount--;
+                    money += 50;
                     break;
             }
         }
@@ -176,5 +190,16 @@ public class Manager : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public int returnMoney()
+    {
+        return money;
+    }
+
+    public int setMoney(int newMoney)
+    {
+        money = newMoney;
+        return money;
     }
 }

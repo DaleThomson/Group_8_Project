@@ -137,6 +137,19 @@ public class SelectionManager : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+            {
+                var selection = hit.transform;
+                var worker = selection.gameObject;
+                if (selection.CompareTag("Worker"))
+                {
+                    worker.GetComponent<Worker>().upgrade();
+                }
+            }
+        }
+
         //if (Input.GetKeyDown(KeyCode.Alpha3))
         //{
         //    RaycastHit hit;

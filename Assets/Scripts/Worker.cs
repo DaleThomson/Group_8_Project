@@ -8,7 +8,7 @@ public class Worker : MonoBehaviour
     public int morale;
     public int productivity;
     public float workTimer = 10f;
-    public float setTime = 15f;
+    public float[] setTime;
     public GameObject package;
     public bool working = false;
     private Rigidbody packBody;
@@ -23,22 +23,37 @@ public class Worker : MonoBehaviour
     public Material material1;
     public Material material2;
     public Material material3;
+    public int level;
     float duration = 20.0f;
     Renderer rend;
     public float lerp;
     public float check = 0.0f;
     bool change = false;
     bool change2 = false;
+    private float[] workT;
     // Start is called before the first frame update
     void Start()
     {
+        workT = new float[6];
+        setTime = new float[6];
+        workT[1] = 10f;
+        workT[2] = 12f;
+        workT[3] = 14f;
+        workT[4] = 16f;
+        workT[5] = 18f;
+        setTime[1] = 15f;
+        setTime[2] = 14f;
+        setTime[3] = 13f;
+        setTime[4] = 12f;
+        setTime[5] = 11f;
+        level = 1;
         rend = GetComponent<Renderer>();
         counter = 0;
         moraleDecreaser = 1;
         productivityDecreaser = 2;
         morale = 100;
         productivity = 100;
-        packageTimer = setTime;
+        packageTimer = setTime[level];
         rend.material = material1;
     }
 
@@ -53,7 +68,7 @@ public class Worker : MonoBehaviour
         if (workTimer <= 0)
         {
             DecreaseMoraleTimer();
-            workTimer = 10;
+            workTimer = workT[level];
         }
         if (morale < 10 || productivity <= 0)
         {
@@ -68,7 +83,7 @@ public class Worker : MonoBehaviour
             package.tag = "Finished";
             working = false;
             m_collider.enabled = true;
-            packageTimer = setTime;
+            packageTimer = setTime[level];
             package.transform.position = returnPoint.position;
             packageFinish();
         }
@@ -157,6 +172,33 @@ public class Worker : MonoBehaviour
     public void fire()
     {
         Destroy(gameObject);
+    }
+
+    public void upgrade()
+    {
+        if (level < 5)
+        {
+            level++;
+            switch (level)
+            {
+                case 2:
+                    morale += 10;
+                    productivity += 10;
+                    break;
+                case 3:
+                    morale += 10;
+                    productivity += 10;
+                    break;
+                case 4:
+                    morale += 10;
+                    productivity += 10;
+                    break;
+                case 5:
+                    morale += 10;
+                    productivity += 10;
+                    break;
+            }
+        }
     }
 
     public void DecreaseMoraleTimer()

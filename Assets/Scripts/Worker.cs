@@ -154,6 +154,11 @@ public class Worker : MonoBehaviour
         }
     }
 
+    public void fire()
+    {
+        Destroy(gameObject);
+    }
+
     public void DecreaseMoraleTimer()
     {
         morale -= moraleDecreaser;

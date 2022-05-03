@@ -72,21 +72,30 @@ public class Manager : MonoBehaviour
 
         if (lineWorkerCount == 4)
         {
-            if (lineWorker1Instance == null)
+            switch (lineWorkerCount)
             {
-                lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
-            }
-            if (lineWorker2Instance == null)
-            {
-                lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
-            }
-            if (lineWorker3Instance == null)
-            {
-                lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
-            }
-            if (lineWorker4Instance == null)
-            {
-                lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
+                case 4:
+                    if (lineWorker1Instance == null)
+                    {
+                        lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
+                        break;
+                    }
+                    if (lineWorker2Instance == null)
+                    {
+                        lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
+                        break;
+                    }
+                    if (lineWorker3Instance == null)
+                    {
+                        lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
+                        break;
+                    }
+                    if (lineWorker4Instance == null)
+                    {
+                        lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
+                        break;
+                    }
+                    break;
             }
         }
     }

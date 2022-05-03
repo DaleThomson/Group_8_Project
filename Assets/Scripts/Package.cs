@@ -69,6 +69,12 @@ public class Package : MonoBehaviour
             clone.tag = "Grabbable";
             Destroy(gameObject);
         }
+        if (other.tag == "TeleporterN" && gameObject.tag == "Grabbable")
+        {
+            GameObject clone = (GameObject)Instantiate(package, spawnLocation.position, Quaternion.identity);
+            clone.tag = "Grabbable";
+            Destroy(gameObject);
+        }
         if (other.tag == "TeleporterW")
         {
             teleporterWExit = GameObject.Find("TeleporterWExit").transform;

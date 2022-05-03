@@ -136,7 +136,7 @@ MonoBehaviour:
   working: 0
   packageTimer: 15
   packagePoint: {fileID: 8448037743405693852, guid: a397be07bdb0dee47b8dbcab99a2f322, type: 3}
-  returnPoint: {fileID: 0}
+  returnPoint: {fileID: 5435991006224075749, guid: 5bc7a7267aad7b64da5573d9392f259f, type: 3}
   m_collider: {fileID: 4693080581355559316}
   moraleDecreaser: 0
   productivityDecreaser: 0

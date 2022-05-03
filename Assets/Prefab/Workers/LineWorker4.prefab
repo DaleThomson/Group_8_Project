@@ -30,13 +30,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5632492860860645425}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5632492860860645431
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -135,14 +135,19 @@ MonoBehaviour:
   package: {fileID: 0}
   working: 0
   packageTimer: 15
-  packagePoint: {fileID: 0}
-  returnPoint: {fileID: 0}
+  packagePoint: {fileID: 9190355491736736997, guid: c67152fc543bad34a9d9e5891ef7550e, type: 3}
+  returnPoint: {fileID: 5435991006224075749, guid: 5bc7a7267aad7b64da5573d9392f259f, type: 3}
   m_collider: {fileID: 5632492860603290051}
   moraleDecreaser: 0
   productivityDecreaser: 0
   counter: 0
   minX: 0
   maxX: 100
+  material1: {fileID: 2100000, guid: 63fc583837b549c4fb2f909e0c7bd0e9, type: 2}
+  material2: {fileID: 2100000, guid: bf72df861cd42fe4d875dc0a4a71660d, type: 2}
+  material3: {fileID: 2100000, guid: 74b05651798cc504aac5a9c21d691431, type: 2}
+  lerp: 0
+  check: 0
 --- !u!114 &5632492860860645426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,5 +178,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2350099, y: 1.6655068, z: 0.71682864}
-  m_Center: {x: 3.078054, y: 1.3161662, z: -1.1773376}
+  m_Size: {x: 1.2350099, y: 1.6655068, z: 0.7906826}
+  m_Center: {x: 3.078054, y: 1.3161662, z: 1.4937112}

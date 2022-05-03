@@ -35,7 +35,7 @@ public class Manager : MonoBehaviour
     private int deliveryWorkerCount = 0;
 
     public int money;
-    public int AICounter;
+    public int fireCounter;
     public Text moneyText;
 
     // Start is called before the first frame update
@@ -49,7 +49,7 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (AICounter >= 10)
+        if (fireCounter >= 10)
         {
             Application.Quit();
             Debug.Log("Exit");
@@ -126,24 +126,24 @@ public class Manager : MonoBehaviour
             switch (lineWorkerCount)
             {
                 case 1:
+                    money += 50;
                     Destroy(lineWorker1Instance);
                     lineWorkerCount--;
-                    money += 50;
                     break;
                 case 2:
+                    money += 50;
                     Destroy(lineWorker2Instance);
                     lineWorkerCount--;
-                    money += 50;
                     break;
                 case 3:
+                    money += 50;
                     Destroy(lineWorker3Instance);
                     lineWorkerCount--;
-                    money += 50;
                     break;
                 case 4:
+                    money += 50;
                     Destroy(lineWorker4Instance);
                     lineWorkerCount--;
-                    money += 50;
                     break;
             }
         }
@@ -206,9 +206,9 @@ public class Manager : MonoBehaviour
         return money;
     }
 
-    public int returnAICounter()
+    public int returnFireCounter()
     {
-        return AICounter;
+        return fireCounter;
     }
 
     public int setMoney(int newMoney)
@@ -217,9 +217,9 @@ public class Manager : MonoBehaviour
         return money;
     }
 
-    public int setAICounter(int newAICounter)
+    public int setFireCounter(int newFireCounter)
     {
-        AICounter = newAICounter;
-        return AICounter;
+        fireCounter = newFireCounter;
+        return fireCounter;
     }
 }

@@ -20,15 +20,26 @@ public class Worker : MonoBehaviour
     public int productivityDecreaser;
     public int counter;
     public int minX = 0, maxX = 100;
+    public Material material1;
+    public Material material2;
+    public Material material3;
+    float duration = 20.0f;
+    Renderer rend;
+    public float lerp;
+    public float check = 0.0f;
+    bool change = false;
+    bool change2 = false;
     // Start is called before the first frame update
     void Start()
     {
+        rend = GetComponent<Renderer>();
         counter = 0;
         moraleDecreaser = 1;
         productivityDecreaser = 2;
         morale = 100;
         productivity = 100;
         packageTimer = setTime;
+        rend.material = material1;
     }
 
     // Update is called once per frame
@@ -60,6 +71,32 @@ public class Worker : MonoBehaviour
             packageTimer = setTime;
             package.transform.position = returnPoint.position;
             packageFinish();
+        }
+        if (productivity <= 75 && !change)
+        {
+            check += 0.01f;
+            lerp = Mathf.PingPong(check, duration) / duration;
+            rend.material.Lerp(material1, material2, lerp);
+            if (lerp >= 0.99f)
+            {
+                check = 0;
+                lerp = 0;
+                rend.material = material2;
+                change = true;
+            }
+        }
+        if (productivity <= 40 && !change2)
+        {
+            check += 0.01f;
+            lerp = Mathf.PingPong(check, duration) / duration;
+            rend.material.Lerp(material2, material3, lerp);
+            if (lerp >= 0.99f)
+            {
+                check = 0;
+                lerp = 0;
+                rend.material = material3;
+                change2 = true;
+            }
         }
     }
 

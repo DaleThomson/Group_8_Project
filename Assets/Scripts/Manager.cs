@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Manager : MonoBehaviour
@@ -87,8 +88,7 @@ public class Manager : MonoBehaviour
     {
         if (fireCounter >= 10)
         {
-            Application.Quit();
-            Debug.Log("Exit");
+            SceneManager.LoadScene("EndScene");
         }
         moneyText.text = "Money: £" + money;
     }
@@ -183,6 +183,9 @@ public class Manager : MonoBehaviour
             case 0:
                 if (lineWorker1Instance != null)
                 {
+                    fireCounter++;
+                    names[stringCount].text = stringCount + ". " + lineWorker1Instance.GetComponent<Worker>().returnName();
+                    stringCount++;
                     money += 50;
                     Destroy(lineWorker1Instance);
                     lineWorkerCount--;
@@ -192,6 +195,9 @@ public class Manager : MonoBehaviour
             case 1:
                 if (lineWorker2Instance != null)
                 {
+                    fireCounter++;
+                    names[stringCount].text = stringCount + ". " + lineWorker2Instance.GetComponent<Worker>().returnName();
+                    stringCount++;
                     money += 50;
                     Destroy(lineWorker2Instance);
                     lineWorkerCount--;
@@ -201,6 +207,9 @@ public class Manager : MonoBehaviour
             case 2:
                 if (lineWorker3Instance != null)
                 {
+                    fireCounter++;
+                    names[stringCount].text = stringCount + ". " + lineWorker3Instance.GetComponent<Worker>().returnName();
+                    stringCount++;
                     money += 50;
                     Destroy(lineWorker3Instance);
                     lineWorkerCount--;
@@ -210,6 +219,9 @@ public class Manager : MonoBehaviour
             case 3:
                 if (lineWorker4Instance != null)
                 {
+                    fireCounter++;
+                    names[stringCount].text = stringCount + ". " + lineWorker4Instance.GetComponent<Worker>().returnName();
+                    stringCount++;
                     money += 50;
                     Destroy(lineWorker4Instance);
                     lineWorkerCount--;

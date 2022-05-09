@@ -61,7 +61,9 @@ public class Worker : MonoBehaviour
         packageTimer = setTime[level];
         rend.material = material1;
         money = player.GetComponent<Manager>().returnMoney();
-        name = player.GetComponent<Manager>().getWorkerDetails();
+        name = player.GetComponent<Manager>().getWorkerName();
+        morale = player.GetComponent<Manager>().getWorkerMorale();
+        productivity = player.GetComponent<Manager>().getWorkerProductivity();
         player.GetComponent<Manager>().generateWorker();
     }
 

@@ -45,6 +45,8 @@ public class Manager : MonoBehaviour
     GameObject CSV;
     string workerName;
     int randomWorker;
+    int workerMorale;
+    int workerProductivity;
 
     public TextMesh Pos1;
     public TextMesh Pos2;
@@ -315,7 +317,7 @@ public class Manager : MonoBehaviour
     public void generateWorker()
     {
         generateRandom();
-        employeeText.text = CSV.GetComponent<WorkerStats>().GetAt(randomWorker).Name;
+        employeeText.text = CSV.GetComponent<WorkerStats>().GetAt(randomWorker).Name + "\nMorale: " + CSV.GetComponent<WorkerStats>().GetAt(randomWorker).Morale + " /100\nProductivity: " + CSV.GetComponent<WorkerStats>().GetAt(randomWorker).Loyalty + "/100";
     }
 
     public int generateRandom()
@@ -324,10 +326,22 @@ public class Manager : MonoBehaviour
         return randomWorker;
     }
 
-    public string getWorkerDetails()
+    public string getWorkerName()
     {
         workerName = CSV.GetComponent<WorkerStats>().GetAt(randomWorker).Name;
         return workerName;
+    }
+
+    public int getWorkerMorale()
+    {
+        workerMorale = int.Parse(CSV.GetComponent<WorkerStats>().GetAt(randomWorker).Morale);
+        return workerMorale;
+    }
+
+    public int getWorkerProductivity()
+    {
+        workerProductivity = int.Parse(CSV.GetComponent<WorkerStats>().GetAt(randomWorker).Loyalty);
+        return workerProductivity;
     }
 
     public int returnWorkerNumber()

@@ -18,31 +18,10 @@ public class SelectionManager : MonoBehaviour
     public GameObject worker;
     private GameObject heldObj;
     private Transform _selection;
-    public TextMesh Pos1;
-    public TextMesh Pos2;
-    public TextMesh Pos3;
-    public TextMesh Pos4;
-    public TextMesh Pos5;
-    public TextMesh Pos6;
-    public TextMesh Pos7;
-    public TextMesh Pos8;
-    public TextMesh Pos9;
-    public TextMesh Pos10;
-    private TextMesh[] names = new TextMesh[11];
-    int stringCount = 1;
 
     void Start()
     {
-        names[1] = Pos1;
-        names[2] = Pos2;
-        names[3] = Pos3;
-        names[4] = Pos4;
-        names[5] = Pos5;
-        names[6] = Pos6;
-        names[7] = Pos7;
-        names[8] = Pos8;
-        names[9] = Pos9;
-        names[10] = Pos10;
+
     }
 
     void Update()
@@ -157,8 +136,6 @@ public class SelectionManager : MonoBehaviour
                 }
             }
         }
-
-
 
         //if (Input.GetKeyDown(KeyCode.Alpha3))
         //{

@@ -51682,6 +51682,46 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7743215216692659208}
     - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: Pos1
+      value: 
+      objectReference: {fileID: 1500668683}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: Pos2
+      value: 
+      objectReference: {fileID: 203822843}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: Pos3
+      value: 
+      objectReference: {fileID: 1865610186}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: Pos4
+      value: 
+      objectReference: {fileID: 1659115856}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: Pos5
+      value: 
+      objectReference: {fileID: 1329310756}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: Pos6
+      value: 
+      objectReference: {fileID: 1711764393}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: Pos7
+      value: 
+      objectReference: {fileID: 1532479480}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: Pos8
+      value: 
+      objectReference: {fileID: 448634393}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: Pos9
+      value: 
+      objectReference: {fileID: 183476851}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: Pos10
+      value: 
+      objectReference: {fileID: 1917279276}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: fired0
       value: 
       objectReference: {fileID: 7743215215500529939}
@@ -51693,6 +51733,10 @@ PrefabInstance:
       propertyPath: fired2
       value: 
       objectReference: {fileID: 7743215217202978228}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: fired3
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: fireText0
       value: 

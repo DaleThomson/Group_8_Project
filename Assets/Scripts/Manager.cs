@@ -89,6 +89,23 @@ public class Manager : MonoBehaviour
             Debug.Log("Exit");
         }
         moneyText.text = "Money: £" + money;
+
+        if (lineWorker1Instance.GetComponent<Worker>().returnMorale() < 10 || lineWorker1Instance.GetComponent<Worker>().returnProductivity() <= 0)
+        {
+            fireLineWorker(0);
+        }
+        if (lineWorker2Instance.GetComponent<Worker>().returnMorale() < 10 || lineWorker2Instance.GetComponent<Worker>().returnProductivity() <= 0)
+        {
+            fireLineWorker(1);
+        }
+        if (lineWorker3Instance.GetComponent<Worker>().returnMorale() < 10 || lineWorker3Instance.GetComponent<Worker>().returnProductivity() <= 0)
+        {
+            fireLineWorker(2);
+        }
+        if (lineWorker4Instance.GetComponent<Worker>().returnMorale() < 10 || lineWorker4Instance.GetComponent<Worker>().returnProductivity() <= 0)
+        {
+            fireLineWorker(3);
+        }
     }
 
     public void hireLineWorker()

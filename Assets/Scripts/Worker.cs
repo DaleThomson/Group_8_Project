@@ -78,11 +78,6 @@ public class Worker : MonoBehaviour
             DecreaseMoraleTimer();
             workTimer = workT[level];
         }
-        if (morale < 10 || productivity <= 0)
-        {
-            FireCounter = player.GetComponent<Manager>().setFireCounter(FireCounter += 1);
-            Destroy(gameObject);
-        }
         if (working)
         {
             packageTimer -= Time.deltaTime;

@@ -88,7 +88,7 @@ public class SelectionManager : MonoBehaviour
             {
                 workerText.gameObject.SetActive(true);
                 worker = hit.collider.gameObject;
-                workerText.text = "Name: " + worker.GetComponent<Worker>().returnName() + "\nMorale: " + worker.GetComponent<Worker>().returnMorale().ToString() + "\nProductivity: " + worker.GetComponent<Worker>().returnProductivity().ToString() + "\n1. Bully\n2. Encourage\n3. Fire\n4. Upgrade";
+                workerText.text = "Name: " + worker.GetComponent<Worker>().returnName() + "\nMorale: " + worker.GetComponent<Worker>().returnMorale().ToString() + "\nProductivity: " + worker.GetComponent<Worker>().returnProductivity().ToString() + "\n1. Bully\n2. Encourage\n3. Upgrade";
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
                 {
@@ -153,25 +153,12 @@ public class SelectionManager : MonoBehaviour
                 var worker = selection.gameObject;
                 if (selection.CompareTag("Worker"))
                 {
-                    names[stringCount].text = stringCount + ". " + worker.GetComponent<Worker>().returnName();
-                    stringCount++;
-                    worker.GetComponent<Worker>().fire();
-                }
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
-            {
-                var selection = hit.transform;
-                var worker = selection.gameObject;
-                if (selection.CompareTag("Worker"))
-                {
                     worker.GetComponent<Worker>().upgrade();
                 }
             }
         }
+
+
 
         //if (Input.GetKeyDown(KeyCode.Alpha3))
         //{

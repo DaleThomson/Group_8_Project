@@ -34,9 +34,13 @@ public class Worker : MonoBehaviour
     public GameObject player;
     public int money;
     public int FireCounter = 0;
+    public GameObject CSV;
+
     // Start is called before the first frame update
     void Start()
     {
+        CSV = GameObject.Find("/CSV");
+        int random = Random.Range(0, 20);
         player = GameObject.FindGameObjectWithTag("Player");
         workT = new float[6];
         setTime = new float[6];
@@ -60,6 +64,7 @@ public class Worker : MonoBehaviour
         packageTimer = setTime[level];
         rend.material = material1;
         money = player.GetComponent<Manager>().returnMoney();
+        name = CSV.GetComponent<WorkerStats>().GetAt(random).Name;
     }
 
     // Update is called once per frame

@@ -91,23 +91,6 @@ public class Manager : MonoBehaviour
             Debug.Log("Exit");
         }
         moneyText.text = "Money: £" + money;
-
-        if (lineWorker1Instance.GetComponent<Worker>().returnMorale() < 10 || lineWorker1Instance.GetComponent<Worker>().returnProductivity() <= 0)
-        {
-            fireLineWorker(0);
-        }
-        if (lineWorker2Instance.GetComponent<Worker>().returnMorale() < 10 || lineWorker2Instance.GetComponent<Worker>().returnProductivity() <= 0)
-        {
-            fireLineWorker(1);
-        }
-        if (lineWorker3Instance.GetComponent<Worker>().returnMorale() < 10 || lineWorker3Instance.GetComponent<Worker>().returnProductivity() <= 0)
-        {
-            fireLineWorker(2);
-        }
-        if (lineWorker4Instance.GetComponent<Worker>().returnMorale() < 10 || lineWorker4Instance.GetComponent<Worker>().returnProductivity() <= 0)
-        {
-            fireLineWorker(3);
-        }
     }
 
     public void hireLineWorker(int input)
@@ -119,6 +102,7 @@ public class Manager : MonoBehaviour
                 case 0:
                     if (lineWorker1Instance == null)
                     {
+                        workerNumber = 0;
                         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
                         lineWorkerCount++;
                         money -= 100;
@@ -129,16 +113,18 @@ public class Manager : MonoBehaviour
                 case 1:
                     if (lineWorker2Instance == null)
                     {
+                        workerNumber = 1;
                         lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
                         lineWorkerCount++;
                         money -= 100;
-                        fireText1.text = employeeText.text;
+                        fireText1.text = employeeText.text; 
                         fired1.SetActive(false);
                     }
                     break;
                 case 2:
                     if (lineWorker3Instance == null)
                     {
+                        workerNumber = 2;
                         lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
                         lineWorkerCount++;
                         money -= 100;
@@ -149,6 +135,7 @@ public class Manager : MonoBehaviour
                 case 3:
                     if (lineWorker4Instance == null)
                     {
+                        workerNumber = 3;
                         lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
                         lineWorkerCount++;
                         money -= 100;
@@ -197,8 +184,6 @@ public class Manager : MonoBehaviour
                 if (lineWorker1Instance != null)
                 {
                     money += 50;
-                    names[stringCount].text = stringCount + ". " + lineWorker1Instance.GetComponent<Worker>().returnName();
-                    stringCount++;
                     Destroy(lineWorker1Instance);
                     lineWorkerCount--;
                     fired0.SetActive(true);
@@ -208,8 +193,6 @@ public class Manager : MonoBehaviour
                 if (lineWorker2Instance != null)
                 {
                     money += 50;
-                    names[stringCount].text = stringCount + ". " + lineWorker2Instance.GetComponent<Worker>().returnName();
-                    stringCount++;
                     Destroy(lineWorker2Instance);
                     lineWorkerCount--;
                     fired1.SetActive(true);
@@ -219,8 +202,6 @@ public class Manager : MonoBehaviour
                 if (lineWorker3Instance != null)
                 {
                     money += 50;
-                    names[stringCount].text = stringCount + ". " + lineWorker3Instance.GetComponent<Worker>().returnName();
-                    stringCount++;
                     Destroy(lineWorker3Instance);
                     lineWorkerCount--;
                     fired2.SetActive(true);
@@ -230,8 +211,6 @@ public class Manager : MonoBehaviour
                 if (lineWorker4Instance != null)
                 {
                     money += 50;
-                    names[stringCount].text = stringCount + ". " + lineWorker4Instance.GetComponent<Worker>().returnName();
-                    stringCount++;
                     Destroy(lineWorker4Instance);
                     lineWorkerCount--;
                     fired3.SetActive(true);
@@ -344,8 +323,31 @@ public class Manager : MonoBehaviour
         return workerProductivity;
     }
 
-    public int returnWorkerNumber()
+    public int getWorkerNumber()
     {
         return workerNumber;
+    }
+
+    public void addNameToBoard(string name, int number)
+    {
+        switch (number)
+        {
+            case 0:
+                names[stringCount].text = stringCount + ". " + lineWorker1Instance.GetComponent<Worker>().returnName();
+                stringCount++;
+                break;
+            case 1:
+                names[stringCount].text = stringCount + ". " + lineWorker2Instance.GetComponent<Worker>().returnName();
+                stringCount++;
+                break;
+            case 2:
+                names[stringCount].text = stringCount + ". " + lineWorker3Instance.GetComponent<Worker>().returnName();
+                stringCount++;
+                break;
+            case 3:
+                names[stringCount].text = stringCount + ". " + lineWorker4Instance.GetComponent<Worker>().returnName();
+                stringCount++;
+                break;
+        }    
     }
 }

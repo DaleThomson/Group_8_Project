@@ -34,7 +34,7 @@ public class Worker : MonoBehaviour
     public GameObject player;
     public int money;
     public int FireCounter = 0;
-
+    public int workerNumber;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +64,7 @@ public class Worker : MonoBehaviour
         name = player.GetComponent<Manager>().getWorkerName();
         morale = player.GetComponent<Manager>().getWorkerMorale();
         productivity = player.GetComponent<Manager>().getWorkerProductivity();
+        workerNumber = player.GetComponent<Manager>().getWorkerNumber();
         player.GetComponent<Manager>().generateWorker();
     }
 
@@ -79,6 +80,12 @@ public class Worker : MonoBehaviour
         {
             DecreaseMoraleTimer();
             workTimer = workT[level];
+        }
+        if (productivity <= 0 || morale < 10)
+        {
+            player.GetComponent<Manager>().addNameToBoard(name, workerNumber);
+            player.GetComponent<Manager>().fireLineWorker(workerNumber);
+
         }
         if (working)
         {

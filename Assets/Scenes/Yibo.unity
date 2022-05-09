@@ -51682,6 +51682,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7743215216692659208}
     - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: fired0
+      value: 
+      objectReference: {fileID: 7743215215500529939}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: fired1
+      value: 
+      objectReference: {fileID: 7743215216357964348}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: fired2
+      value: 
+      objectReference: {fileID: 7743215217202978228}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: fireText0
+      value: 
+      objectReference: {fileID: 7743215216894247807}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: fireText1
+      value: 
+      objectReference: {fileID: 7743215215845929284}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: fireText2
+      value: 
+      objectReference: {fileID: 7743215215865326607}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 1017899623}
@@ -86758,6 +86782,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1404585724}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: fireLineWorker
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
 --- !u!114 &7743215215292386992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87510,6 +87546,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1404585724}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: fireLineWorker
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
 --- !u!224 &7743215215457435915
 RectTransform:
   m_ObjectHideFlags: 0
@@ -90192,14 +90240,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Worker 2 - Olivia
-
-    Loyalty: 56%
-
-    Morale: 43%
-
-    Productivity:
-    78%'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -90360,14 +90401,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Worker 2 - Olivia
-
-    Loyalty: 56%
-
-    Morale: 43%
-
-    Productivity:
-    78%'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -93844,7 +93878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &7743215216357964350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94191,19 +94225,19 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+        m_CallState: 1
+      - m_Target: {fileID: 1404585724}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: fireLineWorker
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!224 &7743215216437215295
 RectTransform:
   m_ObjectHideFlags: 0
@@ -99422,7 +99456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &7743215217202978230
 MonoBehaviour:
   m_ObjectHideFlags: 0

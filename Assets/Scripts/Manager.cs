@@ -39,6 +39,8 @@ public class Manager : MonoBehaviour
     public int fireCounter;
     public Text moneyText;
     public TextMeshProUGUI employeeText;
+    public TextMeshProUGUI fireText0, fireText1, fireText2, fireText3;
+    public GameObject fired0, fired1, fired2, fired3;
     int workerNumber;
     GameObject CSV;
     string workerName;
@@ -49,6 +51,8 @@ public class Manager : MonoBehaviour
     {
         CSV = GameObject.Find("/CSV");
         money = 500;
+        generateWorker();
+        fireText0.text = employeeText.text;
         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
         lineWorkerCount++;
     }
@@ -76,21 +80,29 @@ public class Manager : MonoBehaviour
                         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
                         lineWorkerCount++;
                         money -= 100;
+                        fireText0.text = employeeText.text;
+                        fired0.SetActive(false);
                         break;
                     case 1:
                         lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
                         lineWorkerCount++;
                         money -= 100;
+                        fireText1.text = employeeText.text;
+                        fired1.SetActive(false);
                         break;
                     case 2:
                         lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
                         lineWorkerCount++;
                         money -= 100;
+                        fireText2.text = employeeText.text;
+                        fired2.SetActive(false);
                         break;
                     case 3:
                         lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
                         lineWorkerCount++;
                         money -= 100;
+                        fireText3.text = employeeText.text;
+                        fired3.SetActive(false);
                         break;
                 }
             }
@@ -126,33 +138,46 @@ public class Manager : MonoBehaviour
         }
     }
 
-    public void fireLineWorker()
+    public void fireLineWorker(int input)
     {
-        if (lineWorkerCount > 0)
+        switch (input)
         {
-            switch (lineWorkerCount)
-            {
-                case 1:
+            case 0:
+                if (lineWorker1Instance != null)
+                {
                     money += 50;
                     Destroy(lineWorker1Instance);
                     lineWorkerCount--;
-                    break;
-                case 2:
+                    fired0.SetActive(true);
+                }
+                break;
+            case 1:
+                if (lineWorker2Instance != null)
+                {
                     money += 50;
                     Destroy(lineWorker2Instance);
                     lineWorkerCount--;
-                    break;
-                case 3:
+                    fired1.SetActive(true);
+                }
+                break;
+            case 2:
+                if (lineWorker3Instance != null)
+                {
                     money += 50;
                     Destroy(lineWorker3Instance);
                     lineWorkerCount--;
-                    break;
-                case 4:
+                    fired2.SetActive(true);
+                }
+                break;
+            case 3:
+                if (lineWorker4Instance != null)
+                {
                     money += 50;
                     Destroy(lineWorker4Instance);
                     lineWorkerCount--;
-                    break;
-            }
+                    fired3.SetActive(true);
+                }
+                break;
         }
     }
 

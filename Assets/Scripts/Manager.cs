@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Manager : MonoBehaviour
 {
@@ -37,10 +38,16 @@ public class Manager : MonoBehaviour
     public int money;
     public int fireCounter;
     public Text moneyText;
+    public TextMeshProUGUI employeeText;
+    int workerNumber;
+    GameObject CSV;
+    string workerName;
+    int randomWorker;
 
     // Start is called before the first frame update
     void Start()
     {
+        CSV = GameObject.Find("/CSV");
         money = 500;
         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
         lineWorkerCount++;
@@ -221,5 +228,28 @@ public class Manager : MonoBehaviour
     {
         fireCounter = newFireCounter;
         return fireCounter;
+    }
+
+    public void generateWorker()
+    {
+        generateRandom();
+        employeeText.text = CSV.GetComponent<WorkerStats>().GetAt(randomWorker).Name;
+    }
+
+    public int generateRandom()
+    {
+        randomWorker = Random.Range(0, 20);
+        return randomWorker;
+    }
+
+    public string getWorkerDetails()
+    {
+        workerName = CSV.GetComponent<WorkerStats>().GetAt(randomWorker).Name;
+        return workerName;
+    }
+
+    public int returnWorkerNumber()
+    {
+        return workerNumber;
     }
 }

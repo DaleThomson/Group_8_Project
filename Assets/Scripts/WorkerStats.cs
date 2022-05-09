@@ -11,6 +11,7 @@ public class WorkerStats : MonoBehaviour
     void Start()
     {
         Load(file);
+
     }
 
 

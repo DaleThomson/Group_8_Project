@@ -108,43 +108,52 @@ public class Manager : MonoBehaviour
         }
     }
 
-    public void hireLineWorker()
+    public void hireLineWorker(int input)
     {
         if (money >= 100)
         {
-            if (lineWorkerCount < 4)
+            switch (input)
             {
-                switch (lineWorkerCount)
-                {
-                    case 0:
+                case 0:
+                    if (lineWorker1Instance == null)
+                    {
                         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
                         lineWorkerCount++;
                         money -= 100;
                         fireText0.text = employeeText.text;
                         fired0.SetActive(false);
-                        break;
-                    case 1:
+                    }
+                    break;
+                case 1:
+                    if (lineWorker2Instance == null)
+                    {
                         lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
                         lineWorkerCount++;
                         money -= 100;
                         fireText1.text = employeeText.text;
                         fired1.SetActive(false);
-                        break;
-                    case 2:
+                    }
+                    break;
+                case 2:
+                    if (lineWorker3Instance == null)
+                    {
                         lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
                         lineWorkerCount++;
                         money -= 100;
                         fireText2.text = employeeText.text;
                         fired2.SetActive(false);
-                        break;
-                    case 3:
+                    }
+                    break;
+                case 3:
+                    if (lineWorker4Instance == null)
+                    {
                         lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
                         lineWorkerCount++;
                         money -= 100;
                         fireText3.text = employeeText.text;
                         fired3.SetActive(false);
-                        break;
-                }
+                    }
+                    break;
             }
         }
 

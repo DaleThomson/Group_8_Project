@@ -1030,7 +1030,6 @@ GameObject:
   - component: {fileID: 13794222}
   - component: {fileID: 13794221}
   - component: {fileID: 13794220}
-  - component: {fileID: 13794219}
   m_Layer: 5
   m_Name: Button Resume
   m_TagString: Untagged
@@ -1058,57 +1057,6 @@ RectTransform:
   m_AnchoredPosition: {x: -7, y: -219}
   m_SizeDelta: {x: 118.4807, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &13794219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13794217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 823be0c8d505da049b4e24e2f7b3ff15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineWorker1: {fileID: 0}
-  lineWorker2: {fileID: 0}
-  lineWorker3: {fileID: 0}
-  lineWorker4: {fileID: 0}
-  deliveryWorker: {fileID: 0}
-  lineWorkerPos1: {fileID: 0}
-  lineWorkerPos2: {fileID: 0}
-  lineWorkerPos3: {fileID: 0}
-  lineWorkerPos4: {fileID: 0}
-  deliveryWorkerPos1: {fileID: 0}
-  deliveryWorkerPos2: {fileID: 0}
-  deliveryWorkerPos3: {fileID: 0}
-  deliveryWorkerPos4: {fileID: 0}
-  hireUI: {fileID: 0}
-  money: 0
-  packageCounter: 0
-  failedPackageCounter: 0
-  moneyText: {fileID: 0}
-  dayText: {fileID: 0}
-  employeeText: {fileID: 0}
-  fireText0: {fileID: 0}
-  fireText1: {fileID: 0}
-  fireText2: {fileID: 0}
-  fireText3: {fileID: 0}
-  fired0: {fileID: 0}
-  fired1: {fileID: 0}
-  fired2: {fileID: 0}
-  fired3: {fileID: 0}
-  Pos1: {fileID: 0}
-  Pos2: {fileID: 0}
-  Pos3: {fileID: 0}
-  Pos4: {fileID: 0}
-  Pos5: {fileID: 0}
-  Pos6: {fileID: 0}
-  Pos7: {fileID: 0}
-  Pos8: {fileID: 0}
-  Pos9: {fileID: 0}
-  Pos10: {fileID: 0}
-  days: 0
 --- !u!114 &13794220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1153,19 +1101,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1031656718}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 13794219}
+      - m_Target: {fileID: 1404585724}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
         m_MethodName: unPause
         m_Mode: 1
@@ -1177,6 +1113,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1031656718}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &13794221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44088,7 +44036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1031656719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -101762,7 +101710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7743215216692659210
 MonoBehaviour:
   m_ObjectHideFlags: 0

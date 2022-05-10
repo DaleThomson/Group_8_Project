@@ -41,6 +41,7 @@ public class Worker : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         workT = new float[6];
         setTime = new float[6];
+        level = player.GetComponent<Manager>().getWorkerLevel();
         workT[1] = 10f;
         workT[2] = 12f;
         workT[3] = 14f;
@@ -64,7 +65,6 @@ public class Worker : MonoBehaviour
         morale = player.GetComponent<Manager>().getWorkerMorale();
         productivity = player.GetComponent<Manager>().getWorkerProductivity();
         workerNumber = player.GetComponent<Manager>().getWorkerNumber();
-        level = player.GetComponent<Manager>().getWorkerLevel();
         player.GetComponent<Manager>().generateWorker();
     }
 

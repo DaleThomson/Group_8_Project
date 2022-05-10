@@ -74,6 +74,7 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        workerLevel = 1;
         days = 0;
         dayChange(days);
         names[1] = Pos1;
@@ -516,5 +517,7 @@ public class Manager : MonoBehaviour
     public void unPause()
     {
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Player.camera = true;
     }
 }

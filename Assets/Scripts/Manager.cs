@@ -68,6 +68,8 @@ public class Manager : MonoBehaviour
 
     public int days;
 
+    bool camera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -101,12 +103,16 @@ public class Manager : MonoBehaviour
     {
         if (packageCounter >= 15)
         {
-            days++;
-            dayChange(days);
             hireUI.SetActive(true);
+            Player.camera = false;
             Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
             if (Input.GetKeyDown(KeyCode.P))
             {
+                Player.camera = true;
+                Cursor.lockState = CursorLockMode.Locked;
+                days++;
+                dayChange(days);
                 packageCounter = 0;
                 hireUI.SetActive(false);
                 Time.timeScale = 1;

@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] float stamina = 10.0f;
     [SerializeField] float exhaustion = 20.0f;
     [SerializeField] bool exhausted = false;
-    [SerializeField] bool camera = true;
+    [SerializeField] public static bool camera = true;
 
     public GameObject hireUI;
     float camPitch = 0.0f;

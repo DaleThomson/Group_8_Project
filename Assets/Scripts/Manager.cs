@@ -37,7 +37,7 @@ public class Manager : MonoBehaviour
     private int deliveryWorkerCount = 0;
 
     public int money;
-    public int fireCounter;
+    public static int fireCounter;
     public Text moneyText;
     public TextMeshProUGUI employeeText;
     public TextMeshProUGUI fireText0, fireText1, fireText2, fireText3;
@@ -77,9 +77,14 @@ public class Manager : MonoBehaviour
         names[10] = Pos10;
         CSV = GameObject.Find("/CSV");
         money = 500;
+        fireCounter = 0;
         generateWorker();
         fireText0.text = employeeText.text;
+        lineWorkerCount = 0;
         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
+        lineWorker2Instance = null;
+        lineWorker3Instance = null;
+        lineWorker4Instance = null;
         lineWorkerCount++;
     }
 

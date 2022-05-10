@@ -49,12 +49,14 @@ public class Player : MonoBehaviour
                 camera = true;
                 hireUI.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
+                Time.timeScale = 1;
             }
             else if(!hireUI.active)
             {
                 camera = false;
                 hireUI.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
+                Time.timeScale = 0;
             }
             
             

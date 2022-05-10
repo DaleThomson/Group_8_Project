@@ -81,7 +81,7 @@ public class Worker : MonoBehaviour
             DecreaseMoraleTimer();
             workTimer = workT[level];
         }
-        if (productivity <= 0 || morale < 10)
+        if (productivity <= 20 || morale < 45)
         {
             player.GetComponent<Manager>().fireLineWorker(workerNumber);
 

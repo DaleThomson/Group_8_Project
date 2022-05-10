@@ -11,6 +11,7 @@ public class EndGame : MonoBehaviour
     void Start()
     {
         fireAmount.text = "" + Manager.fireCounter;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame

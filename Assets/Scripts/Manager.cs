@@ -70,6 +70,7 @@ public class Manager : MonoBehaviour
     public int days;
 
     bool camera;
+    bool check;
 
     // Start is called before the first frame update
     void Start()
@@ -109,16 +110,17 @@ public class Manager : MonoBehaviour
             Player.camera = false;
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
-            if (Input.GetKeyDown(KeyCode.P))
+            if (check)
             {
+            	packageCounter = 0;
                 Player.camera = true;
                 Cursor.lockState = CursorLockMode.Locked;
                 days++;
                 dayChange(days);
-                packageCounter = 0;
                 hireUI.SetActive(false);
                 Time.timeScale = 1;
-            }
+                check = false;
+           }
         }
         moneyText.text = "Money: £" + money;
     }
@@ -519,5 +521,10 @@ public class Manager : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Player.camera = true;
+    }
+
+    public void checkTrue()
+    {
+	check = true;
     }
 }

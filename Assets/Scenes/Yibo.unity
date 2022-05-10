@@ -56122,6 +56122,10 @@ PrefabInstance:
       propertyPath: lineWorkerPos4
       value: 
       objectReference: {fileID: 1498202072}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: packageCounterThreshold
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
 --- !u!1 &1363729346
@@ -82711,6 +82715,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3497904128437149617, guid: b311af84a446b1d459a504ba5f5b494a, type: 3}
+      propertyPath: moraleFireThreshold
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3497904128437149617, guid: b311af84a446b1d459a504ba5f5b494a, type: 3}
+      propertyPath: productivityFireThreshold
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3497904128437149618, guid: b311af84a446b1d459a504ba5f5b494a, type: 3}
       propertyPath: m_Name
       value: Package

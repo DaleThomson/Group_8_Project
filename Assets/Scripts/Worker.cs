@@ -35,6 +35,10 @@ public class Worker : MonoBehaviour
     public int money;
     public int FireCounter = 0;
     public int workerNumber;
+
+    [SerializeField] int productivityFireThreshold;
+    [SerializeField] int moraleFireThreshold;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,7 +85,7 @@ public class Worker : MonoBehaviour
             DecreaseMoraleTimer();
             workTimer = workT[level];
         }
-        if (productivity <= 20 || morale < 45)
+        if (productivity <= productivityFireThreshold || morale < moraleFireThreshold)
         {
             player.GetComponent<Manager>().fireLineWorker(workerNumber);
 

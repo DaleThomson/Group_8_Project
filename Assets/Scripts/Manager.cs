@@ -72,6 +72,8 @@ public class Manager : MonoBehaviour
     bool camera;
     bool check;
 
+    [SerializeField] int packageCounterThreshold;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,7 +106,7 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (packageCounter >= 15)
+        if (packageCounter >= packageCounterThreshold)
         {
             hireUI.SetActive(true);
             Player.camera = false;

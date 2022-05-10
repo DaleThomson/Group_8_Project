@@ -152,7 +152,9 @@ MonoBehaviour:
   player: {fileID: 2443714534167421359, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
   money: 0
   FireCounter: 0
-  CSV: {fileID: 6453507309409835721, guid: 03118bfbc1c9e6c43b51a8f94eb5beba, type: 3}
+  workerNumber: 0
+  productivityFireThreshold: 20
+  moraleFireThreshold: 45
 --- !u!114 &4693080580622927973
 MonoBehaviour:
   m_ObjectHideFlags: 0

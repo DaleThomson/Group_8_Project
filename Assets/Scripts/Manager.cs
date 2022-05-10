@@ -47,6 +47,7 @@ public class Manager : MonoBehaviour
     public TextMeshProUGUI fireText0, fireText1, fireText2, fireText3;
     public GameObject fired0, fired1, fired2, fired3;
     int workerNumber;
+    int workerLevel;
     GameObject CSV;
     string workerName;
     int randomWorker;
@@ -156,6 +157,7 @@ public class Manager : MonoBehaviour
                     if (lineWorker1Instance == null)
                     {
                         workerNumber = 0;
+                        workerLevel = 2;
                         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
                         lineWorkerCount++;
                         money -= 100;
@@ -167,10 +169,11 @@ public class Manager : MonoBehaviour
                     if (lineWorker2Instance == null)
                     {
                         workerNumber = 1;
+                        workerLevel = 2;
                         lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
                         lineWorkerCount++;
                         money -= 100;
-                        fireText1.text = employeeText.text; 
+                        fireText1.text = employeeText.text;
                         fired1.SetActive(false);
                     }
                     break;
@@ -178,6 +181,7 @@ public class Manager : MonoBehaviour
                     if (lineWorker3Instance == null)
                     {
                         workerNumber = 2;
+                        workerLevel = 2;
                         lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
                         lineWorkerCount++;
                         money -= 100;
@@ -189,6 +193,7 @@ public class Manager : MonoBehaviour
                     if (lineWorker4Instance == null)
                     {
                         workerNumber = 3;
+                        workerLevel = 2;
                         lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
                         lineWorkerCount++;
                         money -= 100;
@@ -198,31 +203,118 @@ public class Manager : MonoBehaviour
                     break;
             }
         }
+    }
 
-        if (lineWorkerCount == 4)
+    public void hireLineWorkerDown(int input)
+    {
+        if (money >= 100)
         {
-            switch (lineWorkerCount)
+            switch (input)
             {
-                case 4:
+                case 0:
                     if (lineWorker1Instance == null)
                     {
+                        workerNumber = 0;
+                        workerLevel = 1;
                         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
-                        break;
+                        lineWorkerCount++;
+                        money -= 100;
+                        fireText0.text = employeeText.text;
+                        fired0.SetActive(false);
                     }
+                    break;
+                case 1:
                     if (lineWorker2Instance == null)
                     {
+                        workerNumber = 1;
+                        workerLevel = 1;
                         lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
-                        break;
+                        lineWorkerCount++;
+                        money -= 100;
+                        fireText1.text = employeeText.text;
+                        fired1.SetActive(false);
                     }
+                    break;
+                case 2:
                     if (lineWorker3Instance == null)
                     {
+                        workerNumber = 2;
+                        workerLevel = 1;
                         lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
-                        break;
+                        lineWorkerCount++;
+                        money -= 100;
+                        fireText2.text = employeeText.text;
+                        fired2.SetActive(false);
                     }
+                    break;
+                case 3:
                     if (lineWorker4Instance == null)
                     {
+                        workerNumber = 3;
+                        workerLevel = 1;
                         lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
-                        break;
+                        lineWorkerCount++;
+                        money -= 100;
+                        fireText3.text = employeeText.text;
+                        fired3.SetActive(false);
+                    }
+                    break;
+            }
+        }
+    }
+
+    public void hireLineWorkerSuper(int input)
+    {
+        if (money >= 100)
+        {
+            switch (input)
+            {
+                case 0:
+                    if (lineWorker1Instance == null)
+                    {
+                        workerNumber = 0;
+                        workerLevel = 3;
+                        lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
+                        lineWorkerCount++;
+                        money -= 100;
+                        fireText0.text = employeeText.text;
+                        fired0.SetActive(false);
+                    }
+                    break;
+                case 1:
+                    if (lineWorker2Instance == null)
+                    {
+                        workerNumber = 1;
+                        workerLevel = 3;
+                        lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
+                        lineWorkerCount++;
+                        money -= 100;
+                        fireText1.text = employeeText.text;
+                        fired1.SetActive(false);
+                    }
+                    break;
+                case 2:
+                    if (lineWorker3Instance == null)
+                    {
+                        workerNumber = 2;
+                        workerLevel = 3;
+                        lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
+                        lineWorkerCount++;
+                        money -= 100;
+                        fireText2.text = employeeText.text;
+                        fired2.SetActive(false);
+                    }
+                    break;
+                case 3:
+                    if (lineWorker4Instance == null)
+                    {
+                        workerNumber = 3;
+                        workerLevel = 3;
+                        lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
+                        lineWorkerCount++;
+                        money -= 100;
+                        fireText3.text = employeeText.text;
+                        fired3.SetActive(false);
                     }
                     break;
             }
@@ -393,6 +485,11 @@ public class Manager : MonoBehaviour
         return workerNumber;
     }
 
+    public int getWorkerLevel()
+    {
+        return workerLevel;
+    }
+
     public void addNameToBoard(string name, int number)
     {
         switch (number)
@@ -413,6 +510,11 @@ public class Manager : MonoBehaviour
                 names[stringCount].text = stringCount + ". " + lineWorker4Instance.GetComponent<Worker>().returnName();
                 stringCount++;
                 break;
-        }    
+        }
+    }
+
+    public void unPause()
+    {
+        Time.timeScale = 1;
     }
 }

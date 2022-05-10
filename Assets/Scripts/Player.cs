@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
     void hireMenu()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(hireUI.active)
             {

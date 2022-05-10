@@ -51,7 +51,6 @@ public class Worker : MonoBehaviour
         setTime[3] = 13f;
         setTime[4] = 12f;
         setTime[5] = 11f;
-        level = 1;
         rend = GetComponent<Renderer>();
         counter = 0;
         moraleDecreaser = 1;
@@ -65,6 +64,7 @@ public class Worker : MonoBehaviour
         morale = player.GetComponent<Manager>().getWorkerMorale();
         productivity = player.GetComponent<Manager>().getWorkerProductivity();
         workerNumber = player.GetComponent<Manager>().getWorkerNumber();
+        level = player.GetComponent<Manager>().getWorkerLevel();
         player.GetComponent<Manager>().generateWorker();
     }
 

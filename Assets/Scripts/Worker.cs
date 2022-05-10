@@ -83,7 +83,6 @@ public class Worker : MonoBehaviour
         }
         if (productivity <= 0 || morale < 10)
         {
-            player.GetComponent<Manager>().addNameToBoard(name, workerNumber);
             player.GetComponent<Manager>().fireLineWorker(workerNumber);
 
         }

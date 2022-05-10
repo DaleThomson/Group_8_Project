@@ -76,12 +76,14 @@ public class Package : MonoBehaviour
             GameObject clone = (GameObject)Instantiate(package, spawnLocation.position, Quaternion.identity);
             clone.tag = "Grabbable";
             player.GetComponent<Manager>().setMoney(money += 50);
+            player.GetComponent<Manager>().packageCounter++;
             Destroy(gameObject);
         }
         if (other.tag == "TeleporterN" && gameObject.tag == "Grabbable")
         {
             GameObject clone = (GameObject)Instantiate(package, spawnLocation.position, Quaternion.identity);
             clone.tag = "Grabbable";
+            player.GetComponent<Manager>().failedPackageCounter++;
             Destroy(gameObject);
         }
         if (other.tag == "TeleporterW")

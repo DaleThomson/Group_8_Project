@@ -33,12 +33,16 @@ public class Manager : MonoBehaviour
     public Transform deliveryWorkerPos3;
     public Transform deliveryWorkerPos4;
 
+    public GameObject hireUI;
+
     private int lineWorkerCount = 0;
     private int deliveryWorkerCount = 0;
 
     public int money;
     public static int fireCounter;
+    public int packageCounter, failedPackageCounter;
     public Text moneyText;
+    public Text dayText;
     public TextMeshProUGUI employeeText;
     public TextMeshProUGUI fireText0, fireText1, fireText2, fireText3;
     public GameObject fired0, fired1, fired2, fired3;
@@ -62,9 +66,13 @@ public class Manager : MonoBehaviour
     private TextMesh[] names = new TextMesh[11];
     int stringCount = 1;
 
+    public int days;
+
     // Start is called before the first frame update
     void Start()
     {
+        days = 0;
+        dayChange(days);
         names[1] = Pos1;
         names[2] = Pos2;
         names[3] = Pos3;
@@ -91,11 +99,45 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fireCounter >= 10)
+        if (packageCounter >= 15)
         {
-            SceneManager.LoadScene("EndScene");
+            days++;
+            dayChange(days);
+            hireUI.SetActive(true);
+            Time.timeScale = 0;
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                packageCounter = 0;
+                hireUI.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
         moneyText.text = "Money: £" + money;
+    }
+
+    public void dayChange(int day)
+    {
+        switch (day)
+        {
+            case 0:
+                dayText.text = "Monday";
+                break;
+            case 1:
+                dayText.text = "Tuesday";
+                break;
+            case 2:
+                dayText.text = "Wednesday";
+                break;
+            case 3:
+                dayText.text = "Thursday";
+                break;
+            case 4:
+                dayText.text = "Friday";
+                break;
+            case 5:
+                SceneManager.LoadScene("EndScene");
+                break;
+        }
     }
 
     public void hireLineWorker(int input)

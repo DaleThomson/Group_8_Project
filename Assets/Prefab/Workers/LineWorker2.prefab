@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6058388833911377392}
   - component: {fileID: 6058388833911377393}
   - component: {fileID: 6058388833911377398}
-  - component: {fileID: 6058388833911377399}
   - component: {fileID: 6058388833094867974}
   m_Layer: 0
   m_Name: LineWorker2
@@ -155,27 +154,6 @@ MonoBehaviour:
   workerNumber: 0
   productivityFireThreshold: 20
   moraleFireThreshold: 45
---- !u!114 &6058388833911377399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6058388833911377396}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3656730ed7288fd43a032e32e86591d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_thrust: 20
-  teleporterNExit: {fileID: 0}
-  teleporterWExit: {fileID: 0}
-  teleporterEExit: {fileID: 0}
-  teleporterSExit: {fileID: 0}
-  package: {fileID: 0}
-  spawnLocation: {fileID: 0}
-  player: {fileID: 0}
-  moneyIncrease: 50
 --- !u!65 &6058388833094867974
 BoxCollider:
   m_ObjectHideFlags: 0

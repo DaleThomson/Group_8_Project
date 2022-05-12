@@ -67,7 +67,7 @@ public class SelectionManager : MonoBehaviour
             {
                 workerText.gameObject.SetActive(true);
                 worker = hit.collider.gameObject;
-                workerText.text = "Name: " + worker.GetComponent<Worker>().returnName() + "\nMorale: " + worker.GetComponent<Worker>().returnMorale().ToString() + "\nProductivity: " + worker.GetComponent<Worker>().returnProductivity().ToString() + "\n1. Bully\n2. Encourage\n3. Upgrade";
+                workerText.text = "Name: " + worker.GetComponent<Worker>().returnName() + "\nMorale: " + worker.GetComponent<Worker>().returnMorale().ToString() + "\nProductivity: " + worker.GetComponent<Worker>().returnProductivity().ToString() + "\n1. Bully\n2. Encourage";
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
                 {
@@ -123,37 +123,6 @@ public class SelectionManager : MonoBehaviour
                 }
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
-            {
-                var selection = hit.transform;
-                var worker = selection.gameObject;
-                if (selection.CompareTag("Worker"))
-                {
-                    worker.GetComponent<Worker>().upgrade();
-                }
-            }
-        }
-
-        //if (Input.GetKeyDown(KeyCode.Alpha3))
-        //{
-        //    RaycastHit hit;
-        //    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
-        //    {
-        //        Debug.Log("Praise");
-        //    }
-        //}
-
-        //    if (Input.GetKeyDown(KeyCode.Alpha4))
-        //    {
-        //        RaycastHit hit;
-        //        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
-        //        {
-        //            Debug.Log("Congratulate");
-        //        }
-        //    }
     }
 
     void MoveObject()

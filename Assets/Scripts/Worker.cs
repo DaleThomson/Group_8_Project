@@ -44,6 +44,8 @@ public class Worker : MonoBehaviour
     [SerializeField] int productivityFireThreshold;
     [SerializeField] int moraleFireThreshold;
 
+    private int currentLevel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,6 +84,7 @@ public class Worker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        level = Mathf.Clamp(level, 1, 5);
         morale = Mathf.Clamp(morale, minX, maxX);
         productivity = Mathf.Clamp(productivity, minX, maxX);
         moraleDecreaser = Mathf.Clamp(moraleDecreaser, 1, 5);
@@ -155,6 +158,7 @@ public class Worker : MonoBehaviour
         FireCounter = player.GetComponent<Manager>().returnFireCounter();
         totalMoneySpentToday = player.GetComponent<Manager>().getMoneySpentToday();
         totalSpent = player.GetComponent<Manager>().getTotalSpent();
+        currentLevel = level;
     }
 
     void OnTriggerEnter(Collider other)
@@ -217,73 +221,14 @@ public class Worker : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void upgrade()
-    {
-        if (level < 5)
-        {
-            switch (level)
-            {
-                case 1:
-                    if (money >= 100)
-                    {
-                        level++;
-                        morale += 10;
-                        productivity += 10;
-                        player.GetComponent<Manager>().setMoney(money -= 100);
-                        player.GetComponent<Manager>().setMoneySpentToday(totalMoneySpentToday += 100);
-                        player.GetComponent<Manager>().setTotalSpent(totalSpent += 100);
-                    }
-                    break;
-                case 2:
-                    if (money >= 100)
-                    {
-                        level++;
-                        morale += 10;
-                        productivity += 10;
-                        money = player.GetComponent<Manager>().setMoney((money -= 100));
-                        player.GetComponent<Manager>().setMoneySpentToday(totalMoneySpentToday += 100);
-                        player.GetComponent<Manager>().setTotalSpent(totalSpent += 100);
-                    }
-                    break;
-                case 3:
-                    if (money >= 100)
-                    {
-                        level++;
-                        morale += 10;
-                        productivity += 10;
-                        money = player.GetComponent<Manager>().setMoney(money -= 100);
-                        player.GetComponent<Manager>().setMoneySpentToday(totalMoneySpentToday += 100);
-                        player.GetComponent<Manager>().setTotalSpent(totalSpent += 100);
-                    }
-                    break;
-                case 4:
-                    if (money >= 100)
-                    {
-                        level++;
-                        morale += 10;
-                        productivity += 10;
-                        money = player.GetComponent<Manager>().setMoney(money -= 100);
-                        player.GetComponent<Manager>().setMoneySpentToday(totalMoneySpentToday += 100);
-                        player.GetComponent<Manager>().setTotalSpent(totalSpent += 100);
-                    }
-                    break;
-                case 5:
-                    if (money >= 100)
-                    {
-                        level++;
-                        morale += 10;
-                        productivity += 10;
-                        money = player.GetComponent<Manager>().setMoney(money -= 100);
-                        player.GetComponent<Manager>().setMoneySpentToday(totalMoneySpentToday += 100);
-                        player.GetComponent<Manager>().setTotalSpent(totalSpent += 100);
-                    }
-                    break;
-            }
-        }
-    }
-
     public int getMorale()
     {
+        return morale;
+    }
+
+    public int setMorale(int newMorale)
+    {
+        morale = newMorale;
         return morale;
     }
 
@@ -291,6 +236,24 @@ public class Worker : MonoBehaviour
     {
         return productivity;
     }
+
+    public int setProductivity(int newProductivity)
+    {
+        productivity = newProductivity;
+        return productivity;
+    }
+
+    public int getLevel()
+    {
+        return currentLevel;
+    }
+
+    public int setLevel(int newLevel)
+    {
+        level = newLevel;
+        return level;
+    }
+
 
     public void DecreaseMoraleTimer()
     {

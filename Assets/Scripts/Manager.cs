@@ -52,8 +52,10 @@ public class Manager : MonoBehaviour
     public TextMeshProUGUI employeeBrokenText, employeeBrokenText2, employeeBrokenText3;
     public TextMeshProUGUI employeeBelowFiftyText, employeeBelowFiftyText2;
     public TextMeshProUGUI employeeHiredText, employeeHiredText2;
+    public TextMeshProUGUI upgradeText1, upgradeText2, upgradeText3, upgradeText4;
     public TextMeshProUGUI fireText0, fireText1, fireText2, fireText3;
     public GameObject fired0, fired1, fired2, fired3;
+    public GameObject upgradeFired0, upgradeFired1, upgradeFired2, upgradeFired3;
     int workerNumber;
     int workerLevel;
     GameObject CSV;
@@ -90,9 +92,13 @@ public class Manager : MonoBehaviour
     public int below50;
     public int brokenSpirit;
     public int hireCounter;
+    private int workerInstance1Level, workerInstance2Level, workerInstance3Level, workerInstance4Level;
+    private int workerInstanceMorale1, workerInstanceMorale2, workerInstanceMorale3, workerInstanceMorale4;
+    private int workerInstanceProductivity1, workerInstanceProductivity2, workerInstanceProductivity3, workerInstanceProductivity4;
 
     public Slider morale1, morale2, morale3, morale4;
     public Slider productivity1, productivity2, productivity3, productivity4;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -125,6 +131,7 @@ public class Manager : MonoBehaviour
         generateWorker();
         fireText0.text = employeeText.text;
         lineWorkerCount = 0;
+        workerLevel = 2;
         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
         lineWorker2Instance = null;
         lineWorker3Instance = null;
@@ -169,26 +176,66 @@ public class Manager : MonoBehaviour
 
         if (lineWorker1Instance != null)
         {
+            workerInstance1Level = lineWorker1Instance.GetComponent<Worker>().getLevel();
+            workerInstanceMorale1 = lineWorker1Instance.GetComponent<Worker>().getMorale();
+            workerInstanceProductivity1 = lineWorker1Instance.GetComponent<Worker>().getProductivity();
+            upgradeFired0.SetActive(false);
+            upgradeText1.text = "Level: " + lineWorker1Instance.GetComponent<Worker>().getLevel() + "/5";
             morale1.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
             productivity1.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
         }
 
         if (lineWorker2Instance != null)
         {
+            workerInstance2Level = lineWorker2Instance.GetComponent<Worker>().getLevel();
+            workerInstanceMorale2 = lineWorker2Instance.GetComponent<Worker>().getMorale();
+            workerInstanceProductivity2 = lineWorker2Instance.GetComponent<Worker>().getProductivity();
+            upgradeFired1.SetActive(false);
+            upgradeText2.text = "Level: " + lineWorker2Instance.GetComponent<Worker>().getLevel() + "/5";
             morale2.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
             productivity2.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
         }
 
         if (lineWorker3Instance != null)
         {
+            workerInstanceMorale3 = lineWorker3Instance.GetComponent<Worker>().getMorale();
+            workerInstance3Level = lineWorker3Instance.GetComponent<Worker>().getLevel();
+            workerInstanceProductivity3 = lineWorker3Instance.GetComponent<Worker>().getProductivity();
+            upgradeFired2.SetActive(false);
+            upgradeText3.text = "Level: " + lineWorker3Instance.GetComponent<Worker>().getLevel() + "/5";
             morale3.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
             productivity3.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
         }
 
         if (lineWorker4Instance != null)
         {
+            workerInstanceMorale4 = lineWorker4Instance.GetComponent<Worker>().getMorale();
+            workerInstance4Level = lineWorker4Instance.GetComponent<Worker>().getLevel();
+            workerInstanceProductivity4 = lineWorker4Instance.GetComponent<Worker>().getProductivity();
+            upgradeFired3.SetActive(false);
+            upgradeText4.text = "Level: " + lineWorker4Instance.GetComponent<Worker>().getLevel() + "/5";
             morale4.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
             productivity4.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
+        }
+
+        if (lineWorker1Instance == null)
+        {
+            upgradeFired0.SetActive(true);
+        }
+
+        if (lineWorker2Instance == null)
+        {
+            upgradeFired1.SetActive(true);
+        }
+
+        if (lineWorker3Instance == null)
+        {
+            upgradeFired2.SetActive(true);
+        }
+
+        if (lineWorker4Instance == null)
+        {
+            upgradeFired3.SetActive(true);
         }
     }
 
@@ -369,6 +416,61 @@ public class Manager : MonoBehaviour
                     }
                     break;
             }
+        }
+    }
+
+    public void upgradeWorker(int input)
+    {
+        switch (input)
+        {
+            case 0:
+                if (lineWorker1Instance != null && money >= 100 && workerInstance1Level < 5)
+                {
+                    lineWorker1Instance.GetComponent<Worker>().setLevel(workerInstance1Level + 1);
+                    lineWorker1Instance.GetComponent<Worker>().setMorale(workerInstanceMorale1 + 10);
+                    lineWorker1Instance.GetComponent<Worker>().setProductivity(workerInstanceProductivity1 + 10);
+                    money -= 100;
+                    totalSpent += 100;
+                    todayMoneySpent += 100;
+                    break;
+                }
+                break;
+            case 1:
+                if (lineWorker2Instance != null && money >=100 && workerInstance2Level < 5) 
+                {
+                    lineWorker2Instance.GetComponent<Worker>().setLevel(workerInstance2Level + 1);
+                    lineWorker2Instance.GetComponent<Worker>().setMorale(workerInstanceMorale2 + 10);
+                    lineWorker2Instance.GetComponent<Worker>().setProductivity(workerInstanceProductivity2 + 10);
+                    money -= 100;
+                    totalSpent += 100;
+                    todayMoneySpent += 100;
+                    break;
+                }
+                break;
+            case 2:
+                if (lineWorker3Instance != null && money >= 100 && workerInstance3Level < 5)
+                {
+                    lineWorker3Instance.GetComponent<Worker>().setLevel(workerInstance3Level + 1);
+                    lineWorker3Instance.GetComponent<Worker>().setMorale(workerInstanceMorale3 + 10);
+                    lineWorker3Instance.GetComponent<Worker>().setProductivity(workerInstanceProductivity3 + 10);
+                    money -= 100;
+                    totalSpent += 100;
+                    todayMoneySpent += 100;
+                    break;
+                }
+                break;
+            case 3:
+                if (lineWorker4Instance != null && money >= 100 && workerInstance4Level < 5)
+                {
+                    lineWorker4Instance.GetComponent<Worker>().setLevel(workerInstance4Level + 1);
+                    lineWorker4Instance.GetComponent<Worker>().setMorale(workerInstanceMorale4 + 10);
+                    lineWorker4Instance.GetComponent<Worker>().setProductivity(workerInstanceProductivity4 + 10);
+                    money -= 100;
+                    totalSpent += 100;
+                    todayMoneySpent += 100;
+                    break;
+                }
+                break;
         }
     }
 

@@ -8978,12 +8978,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1404585724}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: hireLineWorker
+        m_MethodName: hireLineWorkerSuper
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -21594,12 +21594,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1404585724}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: hireLineWorker
+        m_MethodName: hireLineWorkerDown
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -30888,12 +30888,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1404585724}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: hireLineWorker
+        m_MethodName: hireLineWorkerDown
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -37554,7 +37554,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1404585724}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: hireLineWorker
+        m_MethodName: hireLineWorkerDown
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39593,7 +39593,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -46210,7 +46210,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -48196,12 +48196,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1404585724}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: hireLineWorker
+        m_MethodName: hireLineWorkerSuper
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -70440,12 +70440,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1404585724}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: hireLineWorker
+        m_MethodName: hireLineWorkerSuper
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -95046,12 +95046,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1404585724}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: hireLineWorker
+        m_MethodName: hireLineWorkerDown
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -101578,7 +101578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &7743215216692659210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102043,7 +102043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7743215216721988955
 RectTransform:
   m_ObjectHideFlags: 0
@@ -103543,7 +103543,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1404585724}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: hireLineWorker
+        m_MethodName: hireLineWorkerSuper
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -105159,7 +105159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7743215217235166475
 RectTransform:
   m_ObjectHideFlags: 0
@@ -105329,7 +105329,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

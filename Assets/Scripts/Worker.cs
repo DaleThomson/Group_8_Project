@@ -37,6 +37,9 @@ public class Worker : MonoBehaviour
     public int workerNumber;
     private int totalMoneySpentToday;
     private int totalSpent;
+    private int below50;
+    private bool below;
+    private int brokenSpirit;
 
     [SerializeField] int productivityFireThreshold;
     [SerializeField] int moraleFireThreshold;
@@ -71,7 +74,10 @@ public class Worker : MonoBehaviour
         morale = player.GetComponent<Manager>().getWorkerMorale();
         productivity = player.GetComponent<Manager>().getWorkerProductivity();
         workerNumber = player.GetComponent<Manager>().getWorkerNumber();
+        below50 = player.GetComponent<Manager>().getBelow50();
+        brokenSpirit = player.GetComponent<Manager>().getBrokenSpirit();
         player.GetComponent<Manager>().generateWorker();
+        
     }
 
     // Update is called once per frame
@@ -89,8 +95,22 @@ public class Worker : MonoBehaviour
         }
         if (productivity <= productivityFireThreshold || morale < moraleFireThreshold)
         {
+            if (below)
+            {
+                player.GetComponent<Manager>().setBelow50(below50--);
+            }
+            player.GetComponent<Manager>().setBrokenSpirit(brokenSpirit += 1);
             player.GetComponent<Manager>().fireLineWorker(workerNumber);
-
+        }
+        if (productivity <= 50 || morale <= 50 && !below) 
+        {
+            below = true;
+            player.GetComponent<Manager>().setBelow50(below50 + 1);
+        }
+        if (productivity > 50 && morale > 50 && below)
+        {
+            below = false;
+            player.GetComponent<Manager>().setBelow50(below50--);
         }
         if (working)
         {

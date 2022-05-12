@@ -48,6 +48,10 @@ public class Manager : MonoBehaviour
     public TextMeshProUGUI fundsTotalText, fundsTotalText2;
     public TextMeshProUGUI todaysProfitText;
     public TextMeshProUGUI totalMoney;
+    public TextMeshProUGUI employeeFiredText, employeeFiredText2, employeeFiredText3;
+    public TextMeshProUGUI employeeBrokenText, employeeBrokenText2, employeeBrokenText3;
+    public TextMeshProUGUI employeeBelowFiftyText, employeeBelowFiftyText2;
+    public TextMeshProUGUI employeeHiredText, employeeHiredText2;
     public TextMeshProUGUI fireText0, fireText1, fireText2, fireText3;
     public GameObject fired0, fired1, fired2, fired3;
     int workerNumber;
@@ -83,7 +87,9 @@ public class Manager : MonoBehaviour
     public int totalEarned;
     public int totalSpent;
     public int totalProfit;
-
+    public int below50;
+    public int brokenSpirit;
+    public int hireCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -109,6 +115,9 @@ public class Manager : MonoBehaviour
         totalSpent = 0;
         totalEarned = 0;
         fireCounter = 0;
+        hireCounter = 0;
+        below50 = 0;
+        brokenSpirit = 0;
         generateWorker();
         fireText0.text = employeeText.text;
         lineWorkerCount = 0;
@@ -149,6 +158,16 @@ public class Manager : MonoBehaviour
         fundsTotalText2.text = fundsTotalText.text;
         todaysProfitText.text = "Total Profit Made: £" + todayMoneyProfit;
         totalMoney.text = "Total Funds: £" + money;
+        employeeFiredText.text = "Total Employees Fired: " + fireCounter;
+        employeeFiredText2.text = employeeFiredText.text;
+        employeeFiredText3.text = employeeFiredText.text;
+        employeeBelowFiftyText.text = below50 + " Employees Below 50% Efficiency";
+        employeeBelowFiftyText2.text = employeeBelowFiftyText.text;
+        employeeBrokenText.text = brokenSpirit + " Employees Breakdowns";
+        employeeBrokenText2.text = employeeBrokenText.text;
+        employeeBrokenText3.text = employeeBrokenText.text;
+        employeeHiredText.text = "Total Employees Hired: " + hireCounter;
+        employeeHiredText2.text = employeeHiredText.text;
     }
 
     public void dayChange(int day)
@@ -207,6 +226,7 @@ public class Manager : MonoBehaviour
                         money -= 100;
                         todayMoneySpent += 100;
                         totalSpent += 100;
+                        hireCounter++;
                         fireText0.text = employeeText.text;
                         fired0.SetActive(false);
                     }
@@ -221,6 +241,7 @@ public class Manager : MonoBehaviour
                         money -= 100;
                         todayMoneySpent += 100;
                         totalSpent += 100;
+                        hireCounter++;
                         fireText1.text = employeeText.text;
                         fired1.SetActive(false);
                     }
@@ -235,6 +256,7 @@ public class Manager : MonoBehaviour
                         money -= 100;
                         todayMoneySpent += 100;
                         totalSpent += 100;
+                        hireCounter++;
                         fireText2.text = employeeText.text;
                         fired2.SetActive(false);
                     }
@@ -249,6 +271,7 @@ public class Manager : MonoBehaviour
                         money -= 100;
                         todayMoneySpent += 100;
                         totalSpent += 100;
+                        hireCounter++;
                         fireText3.text = employeeText.text;
                         fired3.SetActive(false);
                     }
@@ -273,6 +296,7 @@ public class Manager : MonoBehaviour
                         money -= 50;
                         todayMoneySpent += 50;
                         totalSpent += 50;
+                        hireCounter++;
                         fireText0.text = employeeText.text;
                         fired0.SetActive(false);
                     }
@@ -287,6 +311,7 @@ public class Manager : MonoBehaviour
                         money -= 50;
                         todayMoneySpent += 50;
                         totalSpent += 50;
+                        hireCounter++;
                         fireText1.text = employeeText.text;
                         fired1.SetActive(false);
                     }
@@ -301,6 +326,7 @@ public class Manager : MonoBehaviour
                         money -= 50;
                         todayMoneySpent += 50;
                         totalSpent += 50;
+                        hireCounter++;
                         fireText2.text = employeeText.text;
                         fired2.SetActive(false);
                     }
@@ -315,6 +341,7 @@ public class Manager : MonoBehaviour
                         money -= 50;
                         todayMoneySpent += 50;
                         totalSpent += 50;
+                        hireCounter++;
                         fireText3.text = employeeText.text;
                         fired3.SetActive(false);
                     }
@@ -339,6 +366,7 @@ public class Manager : MonoBehaviour
                         money -= 200;
                         todayMoneySpent += 200;
                         totalSpent += 200;
+                        hireCounter++;
                         fireText0.text = employeeText.text;
                         fired0.SetActive(false);
                     }
@@ -353,6 +381,7 @@ public class Manager : MonoBehaviour
                         money -= 200;
                         todayMoneySpent += 200;
                         totalSpent += 200;
+                        hireCounter++;
                         fireText1.text = employeeText.text;
                         fired1.SetActive(false);
                     }
@@ -367,6 +396,7 @@ public class Manager : MonoBehaviour
                         money -= 200;
                         todayMoneySpent += 200;
                         totalSpent += 200;
+                        hireCounter++;
                         fireText2.text = employeeText.text;
                         fired2.SetActive(false);
                     }
@@ -381,6 +411,7 @@ public class Manager : MonoBehaviour
                         money -= 200;
                         todayMoneySpent += 200;
                         totalSpent += 200;
+                        hireCounter++;
                         fireText3.text = employeeText.text;
                         fired3.SetActive(false);
                     }
@@ -638,6 +669,28 @@ public class Manager : MonoBehaviour
     {
         totalSpent = newMoney;
         return totalSpent;
+    }
+
+    public int getBelow50()
+    {
+        return below50;
+    }
+
+    public int setBelow50(int newBelow50)
+    {
+        below50 = newBelow50;
+        return below50;
+    }
+
+    public int getBrokenSpirit()
+    {
+        return brokenSpirit;
+    }
+
+    public int setBrokenSpirit(int newBrokenSpirit)
+    {
+        brokenSpirit = newBrokenSpirit;
+        return brokenSpirit;
     }
 
     public void checkTrue()

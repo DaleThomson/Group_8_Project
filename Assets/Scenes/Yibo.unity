@@ -18167,7 +18167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2 Employee at 50% productivity
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -28254,7 +28254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 Employee broken in spirit
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -41992,7 +41992,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 Employee fired
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -56362,6 +56362,46 @@ PrefabInstance:
       propertyPath: todaysProfitText
       value: 
       objectReference: {fileID: 7743215215583870757}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: employeeFiredText
+      value: 
+      objectReference: {fileID: 978121795}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: employeeHiredText
+      value: 
+      objectReference: {fileID: 1778367072}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: employeeBrokenText
+      value: 
+      objectReference: {fileID: 650095236}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: employeeFiredText2
+      value: 
+      objectReference: {fileID: 7743215216294708646}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: employeeFiredText3
+      value: 
+      objectReference: {fileID: 7743215216229900753}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: employeeHiredText2
+      value: 
+      objectReference: {fileID: 7743215215673019412}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: employeeBrokenText2
+      value: 
+      objectReference: {fileID: 7743215216057548602}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: employeeBrokenText3
+      value: 
+      objectReference: {fileID: 7743215215424538309}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: employeeBelowFiftyText
+      value: 
+      objectReference: {fileID: 379729082}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: employeeBelowFiftyText2
+      value: 
+      objectReference: {fileID: 7743215216485053037}
     - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: packageCounterThreshold
       value: 25
@@ -75035,9 +75075,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Total employees:
-
-    8'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -93654,7 +93692,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -28.389587, w: 0}
+  m_margin: {x: 0, y: 0, z: -140.23303, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -95511,9 +95549,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Total employees:
-
-    8'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -95576,7 +95612,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -139.78094, w: 0}
+  m_margin: {x: 0, y: 0, z: -198.64465, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -98068,7 +98104,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 Employee broken in spirit
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -98131,7 +98167,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -114.120605, w: 0}
+  m_margin: {x: 0, y: 0, z: -184.63257, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -99165,7 +99201,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -24.05841, y: 0, z: 0, w: 0}
+  m_margin: {x: -24.05841, y: 0, z: -116.22656, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -99556,7 +99592,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 Employee fired
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -99619,7 +99655,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -24.05841, y: 0, z: 0, w: 0}
+  m_margin: {x: -24.05841, y: 0, z: -166.932, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -100885,7 +100921,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2 Employee at 50% productivity
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -100948,7 +100984,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -139.78094, w: 0}
+  m_margin: {x: 0, y: 0, z: -185.34644, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

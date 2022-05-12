@@ -254,6 +254,10 @@ public class Worker : MonoBehaviour
         return level;
     }
 
+    public string getName()
+    {
+        return name;
+    }
 
     public void DecreaseMoraleTimer()
     {

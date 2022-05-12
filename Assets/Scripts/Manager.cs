@@ -180,7 +180,7 @@ public class Manager : MonoBehaviour
             workerInstanceMorale1 = lineWorker1Instance.GetComponent<Worker>().getMorale();
             workerInstanceProductivity1 = lineWorker1Instance.GetComponent<Worker>().getProductivity();
             upgradeFired0.SetActive(false);
-            upgradeText1.text = "Level: " + lineWorker1Instance.GetComponent<Worker>().getLevel() + "/5";
+            upgradeText1.text = lineWorker1Instance.GetComponent<Worker>().getName() + ": Level: " + lineWorker1Instance.GetComponent<Worker>().getLevel() + "/5";
             morale1.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
             productivity1.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
         }
@@ -191,7 +191,7 @@ public class Manager : MonoBehaviour
             workerInstanceMorale2 = lineWorker2Instance.GetComponent<Worker>().getMorale();
             workerInstanceProductivity2 = lineWorker2Instance.GetComponent<Worker>().getProductivity();
             upgradeFired1.SetActive(false);
-            upgradeText2.text = "Level: " + lineWorker2Instance.GetComponent<Worker>().getLevel() + "/5";
+            upgradeText2.text = lineWorker2Instance.GetComponent<Worker>().getName() + ": Level: " + lineWorker2Instance.GetComponent<Worker>().getLevel() + "/5";
             morale2.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
             productivity2.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
         }
@@ -202,7 +202,7 @@ public class Manager : MonoBehaviour
             workerInstance3Level = lineWorker3Instance.GetComponent<Worker>().getLevel();
             workerInstanceProductivity3 = lineWorker3Instance.GetComponent<Worker>().getProductivity();
             upgradeFired2.SetActive(false);
-            upgradeText3.text = "Level: " + lineWorker3Instance.GetComponent<Worker>().getLevel() + "/5";
+            upgradeText3.text = lineWorker3Instance.GetComponent<Worker>().getName() + ": Level: " + lineWorker3Instance.GetComponent<Worker>().getLevel() + "/5";
             morale3.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
             productivity3.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
         }
@@ -213,7 +213,7 @@ public class Manager : MonoBehaviour
             workerInstance4Level = lineWorker4Instance.GetComponent<Worker>().getLevel();
             workerInstanceProductivity4 = lineWorker4Instance.GetComponent<Worker>().getProductivity();
             upgradeFired3.SetActive(false);
-            upgradeText4.text = "Level: " + lineWorker4Instance.GetComponent<Worker>().getLevel() + "/5";
+            upgradeText4.text = lineWorker4Instance.GetComponent<Worker>().getName() + ": Level: " + lineWorker4Instance.GetComponent<Worker>().getLevel() + "/5";
             morale4.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
             productivity4.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
         }

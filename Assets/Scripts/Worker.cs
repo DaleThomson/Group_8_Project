@@ -77,7 +77,6 @@ public class Worker : MonoBehaviour
         below50 = player.GetComponent<Manager>().getBelow50();
         brokenSpirit = player.GetComponent<Manager>().getBrokenSpirit();
         player.GetComponent<Manager>().generateWorker();
-        
     }
 
     // Update is called once per frame
@@ -281,6 +280,16 @@ public class Worker : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public int getMorale()
+    {
+        return morale;
+    }
+
+    public int getProductivity()
+    {
+        return productivity;
     }
 
     public void DecreaseMoraleTimer()

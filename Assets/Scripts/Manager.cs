@@ -90,6 +90,9 @@ public class Manager : MonoBehaviour
     public int below50;
     public int brokenSpirit;
     public int hireCounter;
+
+    public Slider morale1, morale2, morale3, morale4;
+    public Slider productivity1, productivity2, productivity3, productivity4;
     // Start is called before the first frame update
     void Start()
     {
@@ -163,6 +166,30 @@ public class Manager : MonoBehaviour
         employeeBrokenText3.text = employeeBrokenText.text;
         employeeHiredText.text = "Total Employees Hired: " + hireCounter;
         employeeHiredText2.text = employeeHiredText.text;
+
+        if (lineWorker1Instance != null)
+        {
+            morale1.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
+            productivity1.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
+        }
+
+        if (lineWorker2Instance != null)
+        {
+            morale2.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
+            productivity2.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
+        }
+
+        if (lineWorker3Instance != null)
+        {
+            morale3.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
+            productivity3.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
+        }
+
+        if (lineWorker4Instance != null)
+        {
+            morale4.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
+            productivity4.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
+        }
     }
 
     public void dayChange(int day)

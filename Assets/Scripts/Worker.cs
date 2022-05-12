@@ -35,6 +35,8 @@ public class Worker : MonoBehaviour
     public int money;
     public int FireCounter = 0;
     public int workerNumber;
+    private int totalMoneySpentToday;
+    private int totalSpent;
 
     [SerializeField] int productivityFireThreshold;
     [SerializeField] int moraleFireThreshold;
@@ -132,6 +134,8 @@ public class Worker : MonoBehaviour
 
         money = player.GetComponent<Manager>().returnMoney();
         FireCounter = player.GetComponent<Manager>().returnFireCounter();
+        totalMoneySpentToday = player.GetComponent<Manager>().getMoneySpentToday();
+        totalSpent = player.GetComponent<Manager>().getTotalSpent();
     }
 
     void OnTriggerEnter(Collider other)
@@ -191,7 +195,6 @@ public class Worker : MonoBehaviour
     public void fire()
     {
         FireCounter = player.GetComponent<Manager>().setFireCounter(FireCounter += 1);
-        player.GetComponent<Manager>().setMoney(money += 50);
         Destroy(gameObject);
     }
 
@@ -208,6 +211,8 @@ public class Worker : MonoBehaviour
                         morale += 10;
                         productivity += 10;
                         player.GetComponent<Manager>().setMoney(money -= 100);
+                        player.GetComponent<Manager>().setMoneySpentToday(totalMoneySpentToday += 100);
+                        player.GetComponent<Manager>().setTotalSpent(totalSpent += 100);
                     }
                     break;
                 case 2:
@@ -217,6 +222,8 @@ public class Worker : MonoBehaviour
                         morale += 10;
                         productivity += 10;
                         money = player.GetComponent<Manager>().setMoney((money -= 100));
+                        player.GetComponent<Manager>().setMoneySpentToday(totalMoneySpentToday += 100);
+                        player.GetComponent<Manager>().setTotalSpent(totalSpent += 100);
                     }
                     break;
                 case 3:
@@ -226,6 +233,8 @@ public class Worker : MonoBehaviour
                         morale += 10;
                         productivity += 10;
                         money = player.GetComponent<Manager>().setMoney(money -= 100);
+                        player.GetComponent<Manager>().setMoneySpentToday(totalMoneySpentToday += 100);
+                        player.GetComponent<Manager>().setTotalSpent(totalSpent += 100);
                     }
                     break;
                 case 4:
@@ -235,6 +244,8 @@ public class Worker : MonoBehaviour
                         morale += 10;
                         productivity += 10;
                         money = player.GetComponent<Manager>().setMoney(money -= 100);
+                        player.GetComponent<Manager>().setMoneySpentToday(totalMoneySpentToday += 100);
+                        player.GetComponent<Manager>().setTotalSpent(totalSpent += 100);
                     }
                     break;
                 case 5:
@@ -244,6 +255,8 @@ public class Worker : MonoBehaviour
                         morale += 10;
                         productivity += 10;
                         money = player.GetComponent<Manager>().setMoney(money -= 100);
+                        player.GetComponent<Manager>().setMoneySpentToday(totalMoneySpentToday += 100);
+                        player.GetComponent<Manager>().setTotalSpent(totalSpent += 100);
                     }
                     break;
             }

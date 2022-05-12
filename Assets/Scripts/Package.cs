@@ -20,6 +20,10 @@ public class Package : MonoBehaviour
     public Transform spawnLocation;
     public GameObject player;
     private int money;
+    private int moneyTotal;
+    private int totalFunds;
+    [SerializeField] int moneyIncrease;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +34,8 @@ public class Package : MonoBehaviour
     void Update()
     {
         money = player.GetComponent<Manager>().returnMoney();
+        moneyTotal = player.GetComponent<Manager>().getMoneyTotal();
+        totalFunds = player.GetComponent<Manager>().getTotalFunds();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -75,7 +81,9 @@ public class Package : MonoBehaviour
         {
             GameObject clone = (GameObject)Instantiate(package, spawnLocation.position, Quaternion.identity);
             clone.tag = "Grabbable";
-            player.GetComponent<Manager>().setMoney(money += 50);
+            player.GetComponent<Manager>().setMoney(money += moneyIncrease);
+            player.GetComponent<Manager>().setMoneyTotal(moneyTotal += moneyIncrease);
+            player.GetComponent<Manager>().setTotalFunds(totalFunds += moneyIncrease);
             player.GetComponent<Manager>().packageCounter++;
             Destroy(gameObject);
         }

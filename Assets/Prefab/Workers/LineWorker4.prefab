@@ -175,6 +175,7 @@ MonoBehaviour:
   package: {fileID: 0}
   spawnLocation: {fileID: 0}
   player: {fileID: 0}
+  moneyIncrease: 50
 --- !u!65 &5632492860603290051
 BoxCollider:
   m_ObjectHideFlags: 0

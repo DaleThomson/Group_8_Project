@@ -44,6 +44,10 @@ public class Manager : MonoBehaviour
     public Text moneyText;
     public Text dayText;
     public TextMeshProUGUI employeeText;
+    public TextMeshProUGUI moneyTotalText, moneyTotalText2;
+    public TextMeshProUGUI fundsTotalText, fundsTotalText2;
+    public TextMeshProUGUI todaysProfitText;
+    public TextMeshProUGUI totalMoney;
     public TextMeshProUGUI fireText0, fireText1, fireText2, fireText3;
     public GameObject fired0, fired1, fired2, fired3;
     int workerNumber;
@@ -73,6 +77,12 @@ public class Manager : MonoBehaviour
     bool check;
 
     [SerializeField] int packageCounterThreshold;
+    public int todayMoneyTotal;
+    public int todayMoneySpent;
+    public int todayMoneyProfit;
+    public int totalEarned;
+    public int totalSpent;
+    public int totalProfit;
 
     // Start is called before the first frame update
     void Start()
@@ -92,6 +102,12 @@ public class Manager : MonoBehaviour
         names[10] = Pos10;
         CSV = GameObject.Find("/CSV");
         money = 500;
+        todayMoneyTotal = 0;
+        todayMoneyProfit = 0;
+        todayMoneySpent = 0;
+        totalProfit = 0;
+        totalSpent = 0;
+        totalEarned = 0;
         fireCounter = 0;
         generateWorker();
         fireText0.text = employeeText.text;
@@ -114,7 +130,7 @@ public class Manager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             if (check)
             {
-            	packageCounter = 0;
+                packageCounter = 0;
                 Player.camera = true;
                 Cursor.lockState = CursorLockMode.Locked;
                 days++;
@@ -122,9 +138,17 @@ public class Manager : MonoBehaviour
                 hireUI.SetActive(false);
                 Time.timeScale = 1;
                 check = false;
-           }
+            }
         }
+        todayMoneyProfit = todayMoneyTotal - todayMoneySpent;
+        totalProfit = totalEarned - totalSpent;
         moneyText.text = "Money: £" + money;
+        moneyTotalText.text = "Funds Gained:\n£50 Per Package\nTotal Money Earned Today: £" + todayMoneyTotal + "\nTotal Money Spent Today: £" + todayMoneySpent + "\nTodays Profit: £" + todayMoneyProfit;
+        moneyTotalText2.text = moneyTotalText.text;
+        fundsTotalText.text = "Total Earned: £" + totalEarned + "\nTotal Spent: £" + totalSpent + "\nTotal Profit: £" + totalProfit;
+        fundsTotalText2.text = fundsTotalText.text;
+        todaysProfitText.text = "Total Profit Made: £" + todayMoneyProfit;
+        totalMoney.text = "Total Funds: £" + money;
     }
 
     public void dayChange(int day)
@@ -135,18 +159,33 @@ public class Manager : MonoBehaviour
                 dayText.text = "Monday";
                 break;
             case 1:
+                todayMoneyTotal = 0;
+                todayMoneyProfit = 0;
+                todayMoneySpent = 0;
                 dayText.text = "Tuesday";
                 break;
             case 2:
+                todayMoneyTotal = 0;
+                todayMoneyProfit = 0;
+                todayMoneySpent = 0;
                 dayText.text = "Wednesday";
                 break;
             case 3:
+                todayMoneyTotal = 0;
+                todayMoneyProfit = 0;
+                todayMoneySpent = 0;
                 dayText.text = "Thursday";
                 break;
             case 4:
+                todayMoneyTotal = 0;
+                todayMoneyProfit = 0;
+                todayMoneySpent = 0;
                 dayText.text = "Friday";
                 break;
             case 5:
+                todayMoneyTotal = 0;
+                todayMoneyProfit = 0;
+                todayMoneySpent = 0;
                 SceneManager.LoadScene("EndScene");
                 break;
         }
@@ -166,6 +205,8 @@ public class Manager : MonoBehaviour
                         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
                         lineWorkerCount++;
                         money -= 100;
+                        todayMoneySpent += 100;
+                        totalSpent += 100;
                         fireText0.text = employeeText.text;
                         fired0.SetActive(false);
                     }
@@ -178,6 +219,8 @@ public class Manager : MonoBehaviour
                         lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
                         lineWorkerCount++;
                         money -= 100;
+                        todayMoneySpent += 100;
+                        totalSpent += 100;
                         fireText1.text = employeeText.text;
                         fired1.SetActive(false);
                     }
@@ -190,6 +233,8 @@ public class Manager : MonoBehaviour
                         lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
                         lineWorkerCount++;
                         money -= 100;
+                        todayMoneySpent += 100;
+                        totalSpent += 100;
                         fireText2.text = employeeText.text;
                         fired2.SetActive(false);
                     }
@@ -202,6 +247,8 @@ public class Manager : MonoBehaviour
                         lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
                         lineWorkerCount++;
                         money -= 100;
+                        todayMoneySpent += 100;
+                        totalSpent += 100;
                         fireText3.text = employeeText.text;
                         fired3.SetActive(false);
                     }
@@ -223,7 +270,9 @@ public class Manager : MonoBehaviour
                         workerLevel = 1;
                         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
                         lineWorkerCount++;
-                        money -= 100;
+                        money -= 50;
+                        todayMoneySpent += 50;
+                        totalSpent += 50;
                         fireText0.text = employeeText.text;
                         fired0.SetActive(false);
                     }
@@ -235,7 +284,9 @@ public class Manager : MonoBehaviour
                         workerLevel = 1;
                         lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
                         lineWorkerCount++;
-                        money -= 100;
+                        money -= 50;
+                        todayMoneySpent += 50;
+                        totalSpent += 50;
                         fireText1.text = employeeText.text;
                         fired1.SetActive(false);
                     }
@@ -247,7 +298,9 @@ public class Manager : MonoBehaviour
                         workerLevel = 1;
                         lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
                         lineWorkerCount++;
-                        money -= 100;
+                        money -= 50;
+                        todayMoneySpent += 50;
+                        totalSpent += 50;
                         fireText2.text = employeeText.text;
                         fired2.SetActive(false);
                     }
@@ -259,7 +312,9 @@ public class Manager : MonoBehaviour
                         workerLevel = 1;
                         lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
                         lineWorkerCount++;
-                        money -= 100;
+                        money -= 50;
+                        todayMoneySpent += 50;
+                        totalSpent += 50;
                         fireText3.text = employeeText.text;
                         fired3.SetActive(false);
                     }
@@ -281,7 +336,9 @@ public class Manager : MonoBehaviour
                         workerLevel = 3;
                         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
                         lineWorkerCount++;
-                        money -= 100;
+                        money -= 200;
+                        todayMoneySpent += 200;
+                        totalSpent += 200;
                         fireText0.text = employeeText.text;
                         fired0.SetActive(false);
                     }
@@ -293,7 +350,9 @@ public class Manager : MonoBehaviour
                         workerLevel = 3;
                         lineWorker2Instance = Instantiate(lineWorker2, lineWorkerPos2);
                         lineWorkerCount++;
-                        money -= 100;
+                        money -= 200;
+                        todayMoneySpent += 200;
+                        totalSpent += 200;
                         fireText1.text = employeeText.text;
                         fired1.SetActive(false);
                     }
@@ -305,7 +364,9 @@ public class Manager : MonoBehaviour
                         workerLevel = 3;
                         lineWorker3Instance = Instantiate(lineWorker3, lineWorkerPos3);
                         lineWorkerCount++;
-                        money -= 100;
+                        money -= 200;
+                        todayMoneySpent += 200;
+                        totalSpent += 200;
                         fireText2.text = employeeText.text;
                         fired2.SetActive(false);
                     }
@@ -317,7 +378,9 @@ public class Manager : MonoBehaviour
                         workerLevel = 3;
                         lineWorker4Instance = Instantiate(lineWorker4, lineWorkerPos4);
                         lineWorkerCount++;
-                        money -= 100;
+                        money -= 200;
+                        todayMoneySpent += 200;
+                        totalSpent += 200;
                         fireText3.text = employeeText.text;
                         fired3.SetActive(false);
                     }
@@ -337,6 +400,8 @@ public class Manager : MonoBehaviour
                     names[stringCount].text = stringCount + ". " + lineWorker1Instance.GetComponent<Worker>().returnName();
                     stringCount++;
                     money += 50;
+                    todayMoneyTotal += 50;
+                    totalEarned += 50;
                     Destroy(lineWorker1Instance);
                     lineWorkerCount--;
                     fired0.SetActive(true);
@@ -349,6 +414,8 @@ public class Manager : MonoBehaviour
                     names[stringCount].text = stringCount + ". " + lineWorker2Instance.GetComponent<Worker>().returnName();
                     stringCount++;
                     money += 50;
+                    todayMoneyTotal += 50;
+                    totalEarned += 50;
                     Destroy(lineWorker2Instance);
                     lineWorkerCount--;
                     fired1.SetActive(true);
@@ -361,6 +428,8 @@ public class Manager : MonoBehaviour
                     names[stringCount].text = stringCount + ". " + lineWorker3Instance.GetComponent<Worker>().returnName();
                     stringCount++;
                     money += 50;
+                    todayMoneyTotal += 50;
+                    totalEarned += 50;
                     Destroy(lineWorker3Instance);
                     lineWorkerCount--;
                     fired2.SetActive(true);
@@ -373,6 +442,8 @@ public class Manager : MonoBehaviour
                     names[stringCount].text = stringCount + ". " + lineWorker4Instance.GetComponent<Worker>().returnName();
                     stringCount++;
                     money += 50;
+                    todayMoneyTotal += 50;
+                    totalEarned += 50;
                     Destroy(lineWorker4Instance);
                     lineWorkerCount--;
                     fired3.SetActive(true);
@@ -525,8 +596,52 @@ public class Manager : MonoBehaviour
         Player.camera = true;
     }
 
+    public int getMoneyTotal()
+    {
+        return todayMoneyTotal;
+    }
+
+    public int setMoneyTotal(int newMoney)
+    {
+        todayMoneyTotal = newMoney;
+        return todayMoneyTotal;
+    }
+
+    public int getTotalFunds()
+    {
+        return totalEarned;
+    }
+
+    public int setTotalFunds(int newMoney)
+    {
+        totalEarned = newMoney;
+        return totalEarned;
+    }
+
+    public int getMoneySpentToday()
+    {
+        return todayMoneySpent;
+    }
+
+    public int setMoneySpentToday(int newMoney)
+    {
+        todayMoneySpent = newMoney;
+        return todayMoneySpent;
+    }
+
+    public int getTotalSpent()
+    {
+        return totalSpent;
+    }
+
+    public int setTotalSpent(int newMoney)
+    {
+        totalSpent = newMoney;
+        return totalSpent;
+    }
+
     public void checkTrue()
     {
-	check = true;
+        check = true;
     }
 }

@@ -43326,13 +43326,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Funds gained:
-
-
-    100 for full position
-
-
-    200 for the packages processes'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -43362,8 +43356,8 @@ MonoBehaviour:
   m_fontSize: 24
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 24
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
@@ -56309,6 +56303,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1017899623}
     - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: totalMoney
+      value: 
+      objectReference: {fileID: 7743215216611145231}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: lineWorker1
       value: 
       objectReference: {fileID: 4693080580622927974, guid: ed615938cb7c3994fb0de84ed34a89eb, type: 3}
@@ -56329,6 +56327,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7743215215711504384}
     - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: fundsTotalText
+      value: 
+      objectReference: {fileID: 1703376470}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: lineWorkerPos1
       value: 
       objectReference: {fileID: 1069655356}
@@ -56344,6 +56346,22 @@ PrefabInstance:
       propertyPath: lineWorkerPos4
       value: 
       objectReference: {fileID: 1498202072}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: moneyTotalText
+      value: 
+      objectReference: {fileID: 1012490415}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: fundsTotalText2
+      value: 
+      objectReference: {fileID: 7743215216723497533}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: moneyTotalText2
+      value: 
+      objectReference: {fileID: 7743215217212629638}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: todaysProfitText
+      value: 
+      objectReference: {fileID: 7743215215583870757}
     - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: packageCounterThreshold
       value: 25
@@ -71021,9 +71039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Total funds:
-
-    1500'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -71053,8 +71069,8 @@ MonoBehaviour:
   m_fontSize: 24
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 24
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
@@ -71086,7 +71102,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -53.075134, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -94953,9 +94969,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Funds gained
-
-    +500'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -95018,7 +95032,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -24.05841, y: 0, z: 0, w: 0}
+  m_margin: {x: -24.05841, y: 0, z: -70.12805, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -101487,9 +101501,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Total funds:
-
-    1500'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -101552,7 +101564,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -99.14136, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -105892,13 +105904,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Funds gained:
-
-
-    100 for full position
-
-
-    200 for the packages processes'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

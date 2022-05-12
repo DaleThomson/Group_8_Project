@@ -93,6 +93,7 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        check = false;
         workerLevel = 1;
         days = 0;
         dayChange(days);
@@ -126,6 +127,10 @@ public class Manager : MonoBehaviour
         lineWorker3Instance = null;
         lineWorker4Instance = null;
         lineWorkerCount++;
+        Player.camera = false;
+        Cursor.lockState = CursorLockMode.None;
+        hireUI.SetActive(true);
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
@@ -137,18 +142,8 @@ public class Manager : MonoBehaviour
             Player.camera = false;
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
-            if (check)
-            {
-                packageCounter = 0;
-                Player.camera = true;
-                Cursor.lockState = CursorLockMode.Locked;
-                days++;
-                dayChange(days);
-                hireUI.SetActive(false);
-                Time.timeScale = 1;
-                check = false;
-            }
         }
+
         todayMoneyProfit = todayMoneyTotal - todayMoneySpent;
         totalProfit = totalEarned - totalSpent;
         moneyText.text = "Money: £" + money;
@@ -163,7 +158,7 @@ public class Manager : MonoBehaviour
         employeeFiredText3.text = employeeFiredText.text;
         employeeBelowFiftyText.text = below50 + " Employees Below 50% Efficiency";
         employeeBelowFiftyText2.text = employeeBelowFiftyText.text;
-        employeeBrokenText.text = brokenSpirit + " Employees Breakdowns";
+        employeeBrokenText.text = brokenSpirit + " Employee Breakdowns";
         employeeBrokenText2.text = employeeBrokenText.text;
         employeeBrokenText3.text = employeeBrokenText.text;
         employeeHiredText.text = "Total Employees Hired: " + hireCounter;
@@ -620,11 +615,27 @@ public class Manager : MonoBehaviour
         }
     }
 
+    public void unPauseNextDay()
+    {
+        packageCounter = 0;
+        Player.camera = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        if (check == true)
+        {
+            days++;
+            dayChange(days);
+        }
+        hireUI.SetActive(false);
+        Time.timeScale = 1;
+        check = true;
+    }
+
     public void unPause()
     {
-        Time.timeScale = 1;
-        Cursor.lockState = CursorLockMode.Locked;
         Player.camera = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        hireUI.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public int getMoneyTotal()
@@ -691,10 +702,5 @@ public class Manager : MonoBehaviour
     {
         brokenSpirit = newBrokenSpirit;
         return brokenSpirit;
-    }
-
-    public void checkTrue()
-    {
-        check = true;
     }
 }

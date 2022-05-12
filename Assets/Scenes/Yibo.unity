@@ -57022,7 +57022,7 @@ PrefabInstance:
     - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: fired3
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509373194}
     - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: hireUI
       value: 
@@ -57044,6 +57044,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7743215216606302058}
     - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: morale4
+      value: 
+      objectReference: {fileID: 157263378}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: fireText0
       value: 
       objectReference: {fileID: 7743215216894247807}
@@ -57055,6 +57059,10 @@ PrefabInstance:
       propertyPath: fireText2
       value: 
       objectReference: {fileID: 7743215215865326607}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: fireText3
+      value: 
+      objectReference: {fileID: 397238246}
     - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: moneyText
       value: 
@@ -57095,6 +57103,10 @@ PrefabInstance:
       propertyPath: productivity3
       value: 
       objectReference: {fileID: 7743215216875008747}
+    - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
+      propertyPath: productivity4
+      value: 
+      objectReference: {fileID: 1104335836}
     - target: {fileID: 2443714534512169014, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
       propertyPath: fundsTotalText
       value: 
@@ -61657,7 +61669,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -63880,7 +63892,7 @@ GameObject:
   - component: {fileID: 1509373197}
   - component: {fileID: 1509373196}
   m_Layer: 5
-  m_Name: FIRED (2)
+  m_Name: FIRED (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85468,7 +85480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2014498070}
   m_Layer: 5
-  m_Name: Employee 3
+  m_Name: Employee 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89410,7 +89422,7 @@ GameObject:
   - component: {fileID: 2097034875}
   - component: {fileID: 2097034874}
   m_Layer: 5
-  m_Name: Employee 3 (1)
+  m_Name: Employee 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

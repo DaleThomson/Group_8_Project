@@ -86027,14 +86027,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: moraleFireThreshold
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: productivityFireThreshold
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3497904128437149618, guid: b311af84a446b1d459a504ba5f5b494a, type: 3}
       propertyPath: m_Name
       value: Package
@@ -93666,7 +93658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1466565728813989476
 MonoBehaviour:
   m_ObjectHideFlags: 0

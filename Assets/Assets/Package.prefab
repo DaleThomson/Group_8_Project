@@ -13,9 +13,7 @@ GameObject:
   - component: {fileID: 3497904128437149628}
   - component: {fileID: 3497904128437149631}
   - component: {fileID: 3497904128437149630}
-  - component: {fileID: 3497904128437149617}
   - component: {fileID: 3497904128437149616}
-  - component: {fileID: 3497904128437149619}
   m_Layer: 0
   m_Name: Package
   m_TagString: Grabbable
@@ -115,46 +113,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3497904128437149617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3497904128437149618}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7174ae6523905d4dac87ef212954bb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Fred
-  morale: 100
-  productivity: 100
-  workTimer: 10
-  setTime: []
-  package: {fileID: 0}
-  working: 0
-  packageTimer: 5
-  packagePoint: {fileID: 0}
-  returnPoint: {fileID: 0}
-  m_collider: {fileID: 0}
-  moraleDecreaser: 0
-  productivityDecreaser: 0
-  counter: 0
-  minX: 0
-  maxX: 100
-  material1: {fileID: 0}
-  material2: {fileID: 0}
-  material3: {fileID: 0}
-  level: 0
-  lerp: 0
-  check: 0
-  player: {fileID: 0}
-  money: 0
-  FireCounter: 0
-  workerNumber: 0
-  productivityFireThreshold: 0
-  moraleFireThreshold: 0
 --- !u!114 &3497904128437149616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,16 +134,3 @@ MonoBehaviour:
   spawnLocation: {fileID: 5435991006224075749, guid: 5bc7a7267aad7b64da5573d9392f259f, type: 3}
   player: {fileID: 0}
   moneyIncrease: 50
---- !u!65 &3497904128437149619
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3497904128437149618}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 5.316366, y: 4.335795, z: 3.6687136}
-  m_Center: {x: 3.986946, y: 1.6678975, z: 0.20793867}

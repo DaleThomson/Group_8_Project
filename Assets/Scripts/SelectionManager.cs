@@ -7,6 +7,7 @@ public class SelectionManager : MonoBehaviour
 {
     [SerializeField] string grabbableTag = "Grabbable";
     [SerializeField] string workerTag = "Worker";
+    [SerializeField] string finishedTag = "Finished";
     [SerializeField] Material highLightMaterial;
     [SerializeField] Material defaultMaterial;
 
@@ -40,7 +41,7 @@ public class SelectionManager : MonoBehaviour
         {
             var selection = hit.transform;
 
-            if (selection.CompareTag(grabbableTag))
+            if (selection.CompareTag(grabbableTag) || selection.CompareTag(finishedTag))
             {
                 UIText.SetActive(true);
                 var selectionRenderer = selection.GetComponent<Renderer>();

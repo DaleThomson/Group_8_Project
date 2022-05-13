@@ -18,20 +18,20 @@ public class Manager : MonoBehaviour
     private GameObject lineWorker3Instance;
     private GameObject lineWorker4Instance;
 
-    public GameObject deliveryWorker;
-    private GameObject deliveryWorker1;
-    private GameObject deliveryWorker2;
-    private GameObject deliveryWorker3;
-    private GameObject deliveryWorker4;
+    //public GameObject deliveryWorker;
+    //private GameObject deliveryWorker1;
+    //private GameObject deliveryWorker2;
+    //private GameObject deliveryWorker3;
+    //private GameObject deliveryWorker4;
 
     public Transform lineWorkerPos1;
     public Transform lineWorkerPos2;
     public Transform lineWorkerPos3;
     public Transform lineWorkerPos4;
-    public Transform deliveryWorkerPos1;
-    public Transform deliveryWorkerPos2;
-    public Transform deliveryWorkerPos3;
-    public Transform deliveryWorkerPos4;
+    //public Transform deliveryWorkerPos1;
+    //public Transform deliveryWorkerPos2;
+    //public Transform deliveryWorkerPos3;
+    //public Transform deliveryWorkerPos4;
 
     public GameObject hireUI;
 
@@ -607,57 +607,57 @@ public class Manager : MonoBehaviour
         }
     }
 
-    public void hireDeliveryWorker()
-    {
-        if (deliveryWorkerCount < 4)
-        {
-            switch (deliveryWorkerCount)
-            {
-                case 0:
-                    deliveryWorker1 = Instantiate(deliveryWorker, deliveryWorkerPos1);
-                    deliveryWorkerCount++;
-                    break;
-                case 1:
-                    deliveryWorker2 = Instantiate(deliveryWorker, deliveryWorkerPos2);
-                    deliveryWorkerCount++;
-                    break;
-                case 2:
-                    deliveryWorker3 = Instantiate(deliveryWorker, deliveryWorkerPos3);
-                    deliveryWorkerCount++;
-                    break;
-                case 3:
-                    deliveryWorker4 = Instantiate(deliveryWorker, deliveryWorkerPos4);
-                    deliveryWorkerCount++;
-                    break;
-            }
-        }
-    }
+    //public void hireDeliveryWorker()
+    //{
+    //    if (deliveryWorkerCount < 4)
+    //    {
+    //        switch (deliveryWorkerCount)
+    //        {
+    //            case 0:
+    //                deliveryWorker1 = Instantiate(deliveryWorker, deliveryWorkerPos1);
+    //                deliveryWorkerCount++;
+    //                break;
+    //            case 1:
+    //                deliveryWorker2 = Instantiate(deliveryWorker, deliveryWorkerPos2);
+    //                deliveryWorkerCount++;
+    //                break;
+    //            case 2:
+    //                deliveryWorker3 = Instantiate(deliveryWorker, deliveryWorkerPos3);
+    //                deliveryWorkerCount++;
+    //                break;
+    //            case 3:
+    //                deliveryWorker4 = Instantiate(deliveryWorker, deliveryWorkerPos4);
+    //                deliveryWorkerCount++;
+    //                break;
+    //        }
+    //    }
+    //}
 
-    public void fireDeliveryWorker()
-    {
-        if (deliveryWorkerCount > 0)
-        {
-            switch (deliveryWorkerCount)
-            {
-                case 1:
-                    Destroy(deliveryWorker1);
-                    deliveryWorkerCount--;
-                    break;
-                case 2:
-                    Destroy(deliveryWorker2);
-                    deliveryWorkerCount--;
-                    break;
-                case 3:
-                    Destroy(deliveryWorker3);
-                    deliveryWorkerCount--;
-                    break;
-                case 4:
-                    Destroy(deliveryWorker4);
-                    deliveryWorkerCount--;
-                    break;
-            }
-        }
-    }
+    //public void fireDeliveryWorker()
+    //{
+    //    if (deliveryWorkerCount > 0)
+    //    {
+    //        switch (deliveryWorkerCount)
+    //        {
+    //            case 1:
+    //                Destroy(deliveryWorker1);
+    //                deliveryWorkerCount--;
+    //                break;
+    //            case 2:
+    //                Destroy(deliveryWorker2);
+    //                deliveryWorkerCount--;
+    //                break;
+    //            case 3:
+    //                Destroy(deliveryWorker3);
+    //                deliveryWorkerCount--;
+    //                break;
+    //            case 4:
+    //                Destroy(deliveryWorker4);
+    //                deliveryWorkerCount--;
+    //                break;
+    //        }
+    //    }
+    //}
 
     public int returnMoney()
     {

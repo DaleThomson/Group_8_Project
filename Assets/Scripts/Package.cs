@@ -33,7 +33,7 @@ public class Package : MonoBehaviour
 
     void Update()
     {
-        money = player.GetComponent<Manager>().returnMoney();
+        money = player.GetComponent<Manager>().getMoney();
         moneyTotal = player.GetComponent<Manager>().getMoneyTotal();
         totalFunds = player.GetComponent<Manager>().getTotalFunds();
     }
@@ -89,6 +89,7 @@ public class Package : MonoBehaviour
         }
         if (other.tag == "TeleporterN" && gameObject.tag == "Grabbable")
         {
+            player.GetComponent<Manager>().setMoney(money -= 10);
             GameObject clone = (GameObject)Instantiate(package, spawnLocation.position, Quaternion.identity);
             clone.tag = "Grabbable";
             player.GetComponent<Manager>().failedPackageCounter++;

@@ -36,6 +36,7 @@ public class Worker : MonoBehaviour
     private int below50;
     private bool below;
     private int brokenSpirit;
+    private int money;
 
     [SerializeField] int productivityFireThreshold;
     [SerializeField] int moraleFireThreshold;
@@ -67,6 +68,7 @@ public class Worker : MonoBehaviour
         productivity = 100;
         packageTimer = setTime[level];
         rend.material = material1;
+        money = player.GetComponent<Manager>().getMoney();
         name = player.GetComponent<Manager>().getWorkerName();
         morale = player.GetComponent<Manager>().getWorkerMorale();
         productivity = player.GetComponent<Manager>().getWorkerProductivity();
@@ -96,6 +98,7 @@ public class Worker : MonoBehaviour
             {
                 player.GetComponent<Manager>().setBelow50(below50--);
             }
+            player.GetComponent<Manager>().setMoney(money -= 100);
             player.GetComponent<Manager>().setBrokenSpirit(brokenSpirit += 1);
             player.GetComponent<Manager>().fireLineWorker(workerNumber);
         }

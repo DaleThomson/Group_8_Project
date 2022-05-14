@@ -687,14 +687,9 @@ public class Manager : MonoBehaviour
     //    }
     //}
 
-    public int returnMoney()
+    public int getMoney()
     {
         return money;
-    }
-
-    public int returnFireCounter()
-    {
-        return fireCounter;
     }
 
     public int setMoney(int newMoney)

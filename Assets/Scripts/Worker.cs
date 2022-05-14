@@ -32,11 +32,7 @@ public class Worker : MonoBehaviour
     bool change2 = false;
     private float[] workT;
     public GameObject player;
-    public int money;
-    public int FireCounter = 0;
     public int workerNumber;
-    private int totalMoneySpentToday;
-    private int totalSpent;
     private int below50;
     private bool below;
     private int brokenSpirit;
@@ -71,7 +67,6 @@ public class Worker : MonoBehaviour
         productivity = 100;
         packageTimer = setTime[level];
         rend.material = material1;
-        money = player.GetComponent<Manager>().returnMoney();
         name = player.GetComponent<Manager>().getWorkerName();
         morale = player.GetComponent<Manager>().getWorkerMorale();
         productivity = player.GetComponent<Manager>().getWorkerProductivity();
@@ -153,11 +148,6 @@ public class Worker : MonoBehaviour
                 change2 = true;
             }
         }
-
-        money = player.GetComponent<Manager>().returnMoney();
-        FireCounter = player.GetComponent<Manager>().returnFireCounter();
-        totalMoneySpentToday = player.GetComponent<Manager>().getMoneySpentToday();
-        totalSpent = player.GetComponent<Manager>().getTotalSpent();
         currentLevel = level;
     }
 
@@ -217,7 +207,6 @@ public class Worker : MonoBehaviour
 
     public void fire()
     {
-        FireCounter = player.GetComponent<Manager>().setFireCounter(FireCounter += 1);
         Destroy(gameObject);
     }
 

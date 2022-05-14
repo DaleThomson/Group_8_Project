@@ -74,7 +74,21 @@ public class Manager : MonoBehaviour
     public TextMesh Pos8;
     public TextMesh Pos9;
     public TextMesh Pos10;
-    private TextMesh[] names = new TextMesh[11];
+    public TextMesh Pos11;
+    public TextMesh Pos12;
+    public TextMesh Pos13;
+    public TextMesh Pos14;
+    public TextMesh Pos15;
+    public TextMesh Pos16;
+    public TextMesh Pos17;
+    public TextMesh Pos18;
+    public TextMesh Pos19;
+    public TextMesh Pos20;
+    public TextMesh Pos21;
+    public TextMesh Pos22;
+    public TextMesh Pos23;
+    public TextMesh Pos24;
+    private TextMesh[] names = new TextMesh[25];
     int stringCount = 1;
 
     public int days;
@@ -116,6 +130,20 @@ public class Manager : MonoBehaviour
         names[8] = Pos8;
         names[9] = Pos9;
         names[10] = Pos10;
+        names[11] = Pos11;
+        names[12] = Pos12;
+        names[13] = Pos13;
+        names[14] = Pos14;
+        names[15] = Pos15;
+        names[16] = Pos16;
+        names[17] = Pos17;
+        names[18] = Pos18;
+        names[19] = Pos19;
+        names[20] = Pos20;
+        names[21] = Pos21;
+        names[22] = Pos22;
+        names[23] = Pos23;
+        names[24] = Pos24;
         CSV = GameObject.Find("/CSV");
         money = 500;
         todayMoneyTotal = 0;
@@ -351,7 +379,7 @@ public class Manager : MonoBehaviour
 
     public void hireLineWorkerDown(int input)
     {
-        if (money >= 100)
+        if (money >= 50)
         {
             switch (input)
             {
@@ -476,7 +504,7 @@ public class Manager : MonoBehaviour
 
     public void hireLineWorkerSuper(int input)
     {
-        if (money >= 100)
+        if (money >= 200)
         {
             switch (input)
             {
@@ -552,8 +580,8 @@ public class Manager : MonoBehaviour
                 if (lineWorker1Instance != null)
                 {
                     fireCounter++;
-                    names[stringCount].text = stringCount + ". " + lineWorker1Instance.GetComponent<Worker>().returnName();
-                    stringCount++;
+                    workerName = lineWorker1Instance.GetComponent<Worker>().getName();
+                    addNameToBoard(workerName, input);
                     money += 50;
                     todayMoneyTotal += 50;
                     totalEarned += 50;
@@ -566,8 +594,8 @@ public class Manager : MonoBehaviour
                 if (lineWorker2Instance != null)
                 {
                     fireCounter++;
-                    names[stringCount].text = stringCount + ". " + lineWorker2Instance.GetComponent<Worker>().returnName();
-                    stringCount++;
+                    workerName = lineWorker2Instance.GetComponent<Worker>().getName();
+                    addNameToBoard(workerName, input);
                     money += 50;
                     todayMoneyTotal += 50;
                     totalEarned += 50;
@@ -580,8 +608,8 @@ public class Manager : MonoBehaviour
                 if (lineWorker3Instance != null)
                 {
                     fireCounter++;
-                    names[stringCount].text = stringCount + ". " + lineWorker3Instance.GetComponent<Worker>().returnName();
-                    stringCount++;
+                    workerName = lineWorker3Instance.GetComponent<Worker>().getName();
+                    addNameToBoard(workerName, input);
                     money += 50;
                     todayMoneyTotal += 50;
                     totalEarned += 50;
@@ -594,8 +622,8 @@ public class Manager : MonoBehaviour
                 if (lineWorker4Instance != null)
                 {
                     fireCounter++;
-                    names[stringCount].text = stringCount + ". " + lineWorker4Instance.GetComponent<Worker>().returnName();
-                    stringCount++;
+                    workerName = lineWorker4Instance.GetComponent<Worker>().getName();
+                    addNameToBoard(workerName, input);
                     money += 50;
                     todayMoneyTotal += 50;
                     totalEarned += 50;

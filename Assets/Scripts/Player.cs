@@ -37,7 +37,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         player = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void hireMenu()
@@ -49,6 +48,7 @@ public class Player : MonoBehaviour
                 camera = true;
                 hireUI.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 Time.timeScale = 1;
             }
             else if(!hireUI.active)
@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
                 camera = false;
                 hireUI.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 Time.timeScale = 0;
             }
             

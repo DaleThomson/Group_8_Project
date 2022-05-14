@@ -167,6 +167,7 @@ public class Manager : MonoBehaviour
         lineWorkerCount++;
         Player.camera = false;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         hireUI.SetActive(true);
         Time.timeScale = 0;
     }
@@ -176,10 +177,12 @@ public class Manager : MonoBehaviour
     {
         if (packageCounter >= packageCounterThreshold)
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             hireUI.SetActive(true);
             Player.camera = false;
             Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.None;
+
         }
 
         todayMoneyProfit = todayMoneyTotal - todayMoneySpent;
@@ -771,6 +774,7 @@ public class Manager : MonoBehaviour
     {
         packageCounter = 0;
         Player.camera = true;
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         if (check == true)
         {
@@ -785,8 +789,9 @@ public class Manager : MonoBehaviour
     public void unPause()
     {
         Player.camera = true;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         hireUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
     }
 

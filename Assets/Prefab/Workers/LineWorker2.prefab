@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: c2adf84bd102daa42894a95cc50f0e17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,8 +149,6 @@ MonoBehaviour:
   lerp: 0
   check: 0
   player: {fileID: 0}
-  money: 0
-  FireCounter: 0
   workerNumber: 0
   productivityFireThreshold: 20
   moraleFireThreshold: 45

@@ -15,6 +15,7 @@ public class SelectionManager : MonoBehaviour
     public float moveForce = 250;
     public Transform holdParent;
     public GameObject UIText;
+    public GameObject workerUIText;
     public Text workerText;
     public GameObject worker;
     private GameObject heldObj;
@@ -68,6 +69,7 @@ public class SelectionManager : MonoBehaviour
             {
                 workerText.gameObject.SetActive(true);
                 worker = hit.collider.gameObject;
+                workerUIText.SetActive(true);
                 workerText.text = "Name: " + worker.GetComponent<Worker>().returnName() + "\nMorale: " + worker.GetComponent<Worker>().returnMorale().ToString() + "\nProductivity: " + worker.GetComponent<Worker>().returnProductivity().ToString() + "\n1. Bully\n2. Encourage";
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
@@ -81,6 +83,7 @@ public class SelectionManager : MonoBehaviour
             {
                 worker = null;
                 workerText.gameObject.SetActive(false);
+                workerUIText.SetActive(false);
                 //UIText.SetActive(false);
             }
         }
@@ -88,6 +91,7 @@ public class SelectionManager : MonoBehaviour
         {
             worker = null;
             workerText.gameObject.SetActive(false);
+            workerUIText.SetActive(false);
             UIText.SetActive(false);
         }
 

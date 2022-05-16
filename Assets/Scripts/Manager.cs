@@ -88,7 +88,7 @@ public class Manager : MonoBehaviour
     public TextMesh Pos22;
     public TextMesh Pos23;
     public TextMesh Pos24;
-    private TextMesh[] names = new TextMesh[25];
+    private TextMesh[] names = new TextMesh[30];
     int stringCount = 1;
 
     public int days;
@@ -204,6 +204,10 @@ public class Manager : MonoBehaviour
                 Time.timeScale = 0;
                 check2 = true;
             }
+        }
+        if (fireCounter > 24)
+        {
+            SceneManager.LoadScene("EndScene");
         }
 
 

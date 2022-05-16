@@ -212,6 +212,7 @@ MonoBehaviour:
   lowMorale: {fileID: 8300000, guid: ee77e18ee3ddff84db3b5146943a708c, type: 3}
   lowProductivity: {fileID: 8300000, guid: a8ef24a3933e9404ba76b9a3ee6f5ca3, type: 3}
   workingOnBox: {fileID: 8300000, guid: d7f4a9f4a040c3b41934f139620c7a15, type: 3}
+  fired: {fileID: 8300000, guid: ec7e0a147af7d9b4ab6f7d6d17948f11, type: 3}
   productivityFireThreshold: 20
   moraleFireThreshold: 45
 --- !u!65 &2266514344613472727

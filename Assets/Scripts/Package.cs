@@ -22,11 +22,14 @@ public class Package : MonoBehaviour
     private int money;
     private int moneyTotal;
     private int totalFunds;
+    private AudioSource managerSound;
+    public AudioClip success, fail;
     [SerializeField] int moneyIncrease;
     
     // Start is called before the first frame update
     void Start()
     {
+        managerSound = player.GetComponent<Manager>().managerAudio;
         player = GameObject.FindGameObjectWithTag("Player");
         m_Rigidbody = GetComponent<Rigidbody>();
     }
@@ -79,6 +82,8 @@ public class Package : MonoBehaviour
         //}
         if (other.tag == "TeleporterN" && gameObject.tag == "Finished")
         {
+            managerSound.clip = success;
+            managerSound.Play();
             GameObject clone = (GameObject)Instantiate(package, spawnLocation.position, Quaternion.identity);
             clone.tag = "Grabbable";
             player.GetComponent<Manager>().setMoney(money += moneyIncrease);
@@ -89,6 +94,8 @@ public class Package : MonoBehaviour
         }
         if (other.tag == "TeleporterN" && gameObject.tag == "Grabbable")
         {
+            managerSound.clip = fail;
+            managerSound.Play();
             player.GetComponent<Manager>().setMoney(money -= 10);
             GameObject clone = (GameObject)Instantiate(package, spawnLocation.position, Quaternion.identity);
             clone.tag = "Grabbable";

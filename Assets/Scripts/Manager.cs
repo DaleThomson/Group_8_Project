@@ -113,6 +113,9 @@ public class Manager : MonoBehaviour
     public Slider morale1, morale2, morale3, morale4;
     public Slider productivity1, productivity2, productivity3, productivity4;
 
+    public AudioSource managerAudio;
+    public AudioClip nextDay;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -784,6 +787,8 @@ public class Manager : MonoBehaviour
         hireUI.SetActive(false);
         Time.timeScale = 1;
         check = true;
+        managerAudio.clip = nextDay;
+        managerAudio.Play();
     }
 
     public void unPause()

@@ -38,7 +38,8 @@ public class Worker : MonoBehaviour
     private float saturationValue = 1f;
     private float targetSaturationValue = 1f;
     public AudioSource workerVoice;
-    public AudioClip packageDone, bullyReaction, encourageReaction, lowMorale, lowProductivity, workingOnBox;
+    public AudioClip packageDone, bullyReaction, encourageReaction, lowMorale, lowProductivity, workingOnBox, fired, lowStats;
+    private AudioSource managerSound;
 
     [SerializeField] int productivityFireThreshold;
     [SerializeField] int moraleFireThreshold;
@@ -78,6 +79,7 @@ public class Worker : MonoBehaviour
         below50 = player.GetComponent<Manager>().getBelow50();
         brokenSpirit = player.GetComponent<Manager>().getBrokenSpirit();
         player.GetComponent<Manager>().generateWorker();
+        managerSound = player.GetComponent<Manager>().managerAudio;
     }
 
     // Update is called once per frame
@@ -103,6 +105,8 @@ public class Worker : MonoBehaviour
             {
                 player.GetComponent<Manager>().setBelow50(below50--);
             }
+            managerSound.clip = fired;
+            managerSound.Play();
             player.GetComponent<Manager>().setMoney(money -= 100);
             player.GetComponent<Manager>().setBrokenSpirit(brokenSpirit += 1);
             player.GetComponent<Manager>().fireLineWorker(workerNumber);
@@ -111,6 +115,14 @@ public class Worker : MonoBehaviour
         {
             below = true;
             player.GetComponent<Manager>().setBelow50(below50 + 1);
+        }
+        if (below)
+        {
+            if (!managerSound.isPlaying)
+            {
+                managerSound.clip = lowStats;
+                managerSound.Play();
+            }
         }
         if (productivity > 50 && morale > 50 && below)
         {

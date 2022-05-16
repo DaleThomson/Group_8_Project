@@ -133,4 +133,6 @@ MonoBehaviour:
   package: {fileID: 3497904128437149618}
   spawnLocation: {fileID: 5435991006224075749, guid: 5bc7a7267aad7b64da5573d9392f259f, type: 3}
   player: {fileID: 0}
+  success: {fileID: 8300000, guid: 3cadf7925e891c64eb4920e097cfe396, type: 3}
+  fail: {fileID: 8300000, guid: f2e1ce7b571b15a4bbd724f6296c2506, type: 3}
   moneyIncrease: 50

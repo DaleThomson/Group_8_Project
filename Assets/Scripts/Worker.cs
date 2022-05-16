@@ -108,6 +108,7 @@ public class Worker : MonoBehaviour
             managerSound.clip = fired;
             managerSound.Play();
             player.GetComponent<Manager>().setMoney(money - 100);
+            player.GetComponent<Manager>().addNameToBoard(name, workerNumber);
             player.GetComponent<Manager>().setBrokenSpirit(brokenSpirit += 1);
             Destroy(gameObject);
         }

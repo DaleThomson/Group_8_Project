@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_text: "           Artists: Yue Zhao\n                       Manuel Sanchez \n\n     
     Designer: Filippo Casola\n\t            Yibo Wang\n\nProgrammer: Dale Thomson\n\nSounds
     taken from  site\n\nModels for warhouse sourced from the Quixel Library under
-    educational license\n\n"
+    educational license\nSounds under CC license from Universal Sound FX\r\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1327,7 +1327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.9568628, g: 0.5764706, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

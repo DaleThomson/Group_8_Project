@@ -29,8 +29,8 @@ public class Package : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        managerSound = player.GetComponent<Manager>().managerAudio;
         player = GameObject.FindGameObjectWithTag("Player");
+        managerSound = player.GetComponent<Manager>().managerAudio;
         m_Rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -89,7 +89,7 @@ public class Package : MonoBehaviour
             player.GetComponent<Manager>().setMoney(money += moneyIncrease);
             player.GetComponent<Manager>().setMoneyTotal(moneyTotal += moneyIncrease);
             player.GetComponent<Manager>().setTotalFunds(totalFunds += moneyIncrease);
-            player.GetComponent<Manager>().packageCounter++;
+            Manager.packageCounter++;
             Destroy(gameObject);
         }
         if (other.tag == "TeleporterN" && gameObject.tag == "Grabbable")
@@ -99,7 +99,7 @@ public class Package : MonoBehaviour
             player.GetComponent<Manager>().setMoney(money -= 10);
             GameObject clone = (GameObject)Instantiate(package, spawnLocation.position, Quaternion.identity);
             clone.tag = "Grabbable";
-            player.GetComponent<Manager>().failedPackageCounter++;
+            Manager.failedPackageCounter++;
             Destroy(gameObject);
         }
         if (other.tag == "TeleporterW")

@@ -801,6 +801,7 @@ MonoBehaviour:
   lowProductivity: {fileID: 8300000, guid: a8ef24a3933e9404ba76b9a3ee6f5ca3, type: 3}
   workingOnBox: {fileID: 8300000, guid: d7f4a9f4a040c3b41934f139620c7a15, type: 3}
   fired: {fileID: 8300000, guid: ec7e0a147af7d9b4ab6f7d6d17948f11, type: 3}
+  lowStats: {fileID: 0}
   productivityFireThreshold: 20
   moraleFireThreshold: 45
 --- !u!65 &5960212482584257311
@@ -826,7 +827,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 766127f50575a4f4e8d89d4151fbe3da, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d7f4a9f4a040c3b41934f139620c7a15, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

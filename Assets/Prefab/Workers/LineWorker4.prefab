@@ -57,7 +57,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7fd689fd69dcda42b9d4d8a58a99d5f, type: 2}
+  - {fileID: 2100000, guid: 8fa591b947690654fbcb736d004b3852, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
   check: 0
   player: {fileID: 2443714534167421359, guid: c88f35ab2e01ca3409b4ad85ae43a4f0, type: 3}
   workerNumber: 0
-  workerVoice: {fileID: -9084337989934110141, guid: 9278fd1276fd1564fa5341ef59e08556, type: 3}
+  workerVoice: {fileID: 5281378867569952232}
   packageDone: {fileID: 8300000, guid: 766127f50575a4f4e8d89d4151fbe3da, type: 3}
   bullyReaction: {fileID: 8300000, guid: 6f1b0077e5cde8e47b63a6fd10e6fcd9, type: 3}
   encourageReaction: {fileID: 8300000, guid: 54a50ae17d8f7a84fbca071e189e2d87, type: 3}
@@ -213,6 +213,7 @@ MonoBehaviour:
   lowProductivity: {fileID: 8300000, guid: a8ef24a3933e9404ba76b9a3ee6f5ca3, type: 3}
   workingOnBox: {fileID: 8300000, guid: d7f4a9f4a040c3b41934f139620c7a15, type: 3}
   fired: {fileID: 8300000, guid: ec7e0a147af7d9b4ab6f7d6d17948f11, type: 3}
+  lowStats: {fileID: 0}
   productivityFireThreshold: 20
   moraleFireThreshold: 45
 --- !u!65 &2266514344613472727
@@ -240,7 +241,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 766127f50575a4f4e8d89d4151fbe3da, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

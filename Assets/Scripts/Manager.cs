@@ -40,7 +40,7 @@ public class Manager : MonoBehaviour
 
     public int money;
     public static int fireCounter;
-    public int packageCounter, failedPackageCounter;
+    public static int packageCounter, failedPackageCounter, totalPackageCounter, earlyCloses;
     public Text moneyText;
     public Text dayText;
     public TextMeshProUGUI employeeText;
@@ -94,7 +94,7 @@ public class Manager : MonoBehaviour
     public int days;
 
     bool camera;
-    bool check;
+    bool check, check2;
 
     [SerializeField] int packageCounterThreshold;
     public int todayMoneyTotal;
@@ -102,7 +102,7 @@ public class Manager : MonoBehaviour
     public int todayMoneyProfit;
     public int totalEarned;
     public int totalSpent;
-    public int totalProfit;
+    public static int totalProfit;
     public int below50;
     public int brokenSpirit;
     public int hireCounter;
@@ -119,7 +119,10 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        earlyCloses = 0;
+        totalPackageCounter = 0;
         check = false;
+        check2 = false;
         workerLevel = 1;
         days = 0;
         dayChange(days);
@@ -185,8 +188,24 @@ public class Manager : MonoBehaviour
             hireUI.SetActive(true);
             Player.camera = false;
             Time.timeScale = 0;
-
         }
+        if (check == true)
+        {
+            if (lineWorker1Instance == null && lineWorker2Instance == null && lineWorker3Instance == null && lineWorker4Instance == null && !hireUI.active)
+            {
+                if (check2)
+                {
+                    earlyCloses++;
+                }
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                hireUI.SetActive(true);
+                Player.camera = false;
+                Time.timeScale = 0;
+                check2 = true;
+            }
+        }
+
 
         todayMoneyProfit = todayMoneyTotal - todayMoneySpent;
         totalProfit = totalEarned - totalSpent;
@@ -775,6 +794,7 @@ public class Manager : MonoBehaviour
 
     public void unPauseNextDay()
     {
+        totalPackageCounter += packageCounter;
         packageCounter = 0;
         Player.camera = true;
         Cursor.visible = false;

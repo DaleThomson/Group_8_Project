@@ -31,7 +31,7 @@ public class SelectionManager : MonoBehaviour
         if (_selection != null)
         {
             var selectionRenderer = _selection.GetComponent<Renderer>();
-            selectionRenderer.material = defaultMaterial;
+            //selectionRenderer.material = defaultMaterial;
             _selection = null;
         }
 
@@ -47,8 +47,8 @@ public class SelectionManager : MonoBehaviour
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
                 {
-                    defaultMaterial = selectionRenderer.material;
-                    selectionRenderer.material = highLightMaterial;
+                    //defaultMaterial = selectionRenderer.material;
+                    //selectionRenderer.material = highLightMaterial;
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -72,8 +72,8 @@ public class SelectionManager : MonoBehaviour
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
                 {
-                    defaultMaterial = selectionRenderer.material;
-                    selectionRenderer.material = highLightMaterial;
+                    //defaultMaterial = selectionRenderer.material;
+                    //selectionRenderer.material = highLightMaterial;
                 }
                 _selection = selection;
             }
@@ -81,7 +81,7 @@ public class SelectionManager : MonoBehaviour
             {
                 worker = null;
                 workerText.gameObject.SetActive(false);
-                UIText.SetActive(false);
+                //UIText.SetActive(false);
             }
         }
         else

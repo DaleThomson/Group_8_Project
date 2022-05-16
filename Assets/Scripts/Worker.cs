@@ -71,7 +71,6 @@ public class Worker : MonoBehaviour
         morale = 100;
         productivity = 100;
         packageTimer = setTime[level];
-        money = player.GetComponent<Manager>().getMoney();
         name = player.GetComponent<Manager>().getWorkerName();
         morale = player.GetComponent<Manager>().getWorkerMorale();
         productivity = player.GetComponent<Manager>().getWorkerProductivity();
@@ -85,6 +84,7 @@ public class Worker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        money = player.GetComponent<Manager>().getMoney();
         level = Mathf.Clamp(level, 1, 5);
         morale = Mathf.Clamp(morale, minX, maxX);
         productivity = Mathf.Clamp(productivity, minX, maxX);
@@ -107,9 +107,9 @@ public class Worker : MonoBehaviour
             }
             managerSound.clip = fired;
             managerSound.Play();
-            player.GetComponent<Manager>().setMoney(money -= 100);
+            player.GetComponent<Manager>().setMoney(money - 100);
             player.GetComponent<Manager>().setBrokenSpirit(brokenSpirit += 1);
-            player.GetComponent<Manager>().fireLineWorker(workerNumber);
+            Destroy(gameObject);
         }
         if (productivity <= 50 || morale <= 50 && !below)
         {

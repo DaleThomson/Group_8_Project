@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Worker : MonoBehaviour
 {
+    Animator animator;
     public string name;
     public int morale;
     public int productivity;
@@ -45,6 +46,7 @@ public class Worker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         workT = new float[6];
         setTime = new float[6];
@@ -119,6 +121,7 @@ public class Worker : MonoBehaviour
         }
         if (packageTimer <= 0)
         {
+            animator.SetBool("Working", false);
             package.tag = "Finished";
             working = false;
             m_collider.enabled = true;
@@ -144,6 +147,7 @@ public class Worker : MonoBehaviour
     {
         if (other.tag == "Grabbable")
         {
+            animator.SetBool("Working", true);
             package = other.gameObject;
             package.transform.position = packagePoint.position;
             packBody = package.GetComponent<Rigidbody>();

@@ -37,6 +37,8 @@ public class Worker : MonoBehaviour
     private int money;
     private float saturationValue = 1f;
     private float targetSaturationValue = 1f;
+    public AudioSource workerVoice;
+    public AudioClip packageDone, bullyReaction, encourageReaction, lowMorale, lowProductivity, workingOnBox;
 
     [SerializeField] int productivityFireThreshold;
     [SerializeField] int moraleFireThreshold;
@@ -105,7 +107,7 @@ public class Worker : MonoBehaviour
             player.GetComponent<Manager>().setBrokenSpirit(brokenSpirit += 1);
             player.GetComponent<Manager>().fireLineWorker(workerNumber);
         }
-        if (productivity <= 50 || morale <= 50 && !below) 
+        if (productivity <= 50 || morale <= 50 && !below)
         {
             below = true;
             player.GetComponent<Manager>().setBelow50(below50 + 1);
@@ -117,10 +119,44 @@ public class Worker : MonoBehaviour
         }
         if (working)
         {
+            if (!workerVoice.isPlaying)
+            {
+                workerVoice.clip = workingOnBox;
+                workerVoice.Play();
+                workerVoice.loop = true;
+            }
             packageTimer -= Time.deltaTime;
         }
         if (packageTimer <= 0)
         {
+            workerVoice.Stop();
+            workerVoice.loop = false;
+
+            if (productivity >= 80)
+            {
+                if (!workerVoice.isPlaying)
+                {
+                    workerVoice.clip = packageDone;
+                    workerVoice.Play();
+                }
+            }
+            if (productivity >= 60 && productivity < 80)
+            {
+                if (!workerVoice.isPlaying)
+                {
+                    workerVoice.clip = lowProductivity;
+                    workerVoice.Play();
+                }
+            }
+            if (productivity >= 45 && productivity < 60)
+            {
+                if (!workerVoice.isPlaying)
+                {
+                    workerVoice.clip = lowProductivity;
+                    workerVoice.Play();
+                }
+            }
+
             animator.SetBool("Working", false);
             package.tag = "Finished";
             working = false;
@@ -129,17 +165,6 @@ public class Worker : MonoBehaviour
             package.transform.position = returnPoint.position;
             packageFinish();
         }
-        //if (productivity <= 80 && !change)
-        //{
-        //    targetSaturationValue = 0.78f;
-
-        //}
-        //if (productivity <= 60  && !change2)
-        //{
-        //    targetSaturationValue = 0.4f;
-        //    saturationValue = Mathf.Lerp(saturationValue, targetSaturationValue, 2f * Time.deltaTime);
-        //    rend.material.SetFloat("_Saturation", saturationValue);
-        //}
         currentLevel = level;
     }
 
@@ -177,6 +202,9 @@ public class Worker : MonoBehaviour
     {
         if (productivity < 100 && moraleDecreaser < 5)
         {
+            workerVoice.loop = false;
+            workerVoice.clip = bullyReaction;
+            workerVoice.Play();
             moraleDecreaser++;
             productivity += 5;
             productivityDecreaser += 2;
@@ -193,6 +221,9 @@ public class Worker : MonoBehaviour
     {
         if (counter < 5 && morale < 100 & productivity < 100)
         {
+            workerVoice.loop = false;
+            workerVoice.clip = encourageReaction;
+            workerVoice.Play();
             counter++;
             morale += 3;
             productivity += 5;

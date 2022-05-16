@@ -108,9 +108,8 @@ public class Worker : MonoBehaviour
             managerSound.clip = fired;
             managerSound.Play();
             player.GetComponent<Manager>().setMoney(money - 100);
-            player.GetComponent<Manager>().addNameToBoard(name, workerNumber);
             player.GetComponent<Manager>().setBrokenSpirit(brokenSpirit += 1);
-            Destroy(gameObject);
+            fire();
         }
         if (productivity <= 50 || morale <= 50 && !below)
         {
@@ -245,6 +244,29 @@ public class Worker : MonoBehaviour
 
     public void fire()
     {
+        Manager.fireCounter++;
+        player.GetComponent<Manager>().addNameToBoard(name, workerNumber);
+        switch (workerNumber)
+        {
+            case 0:
+                player.GetComponent<Manager>().fired0.SetActive(true);
+                Destroy(gameObject);
+                break;
+            case 1:
+                player.GetComponent<Manager>().fired1.SetActive(true);
+                Destroy(gameObject);
+                break;
+            case 2:
+                player.GetComponent<Manager>().fired2.SetActive(true);
+                Destroy(gameObject);
+                break;
+            case 3:
+                player.GetComponent<Manager>().fired3.SetActive(true);
+                Destroy(gameObject);
+                break;
+            default:
+                break;
+        }
         Destroy(gameObject);
     }
 

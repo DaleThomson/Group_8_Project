@@ -58,7 +58,7 @@ public class Manager : MonoBehaviour
     public GameObject upgradeFired0, upgradeFired1, upgradeFired2, upgradeFired3;
     int workerNumber;
     int workerLevel;
-    GameObject CSV;
+    public GameObject CSV;
     string workerName;
     int randomWorker;
     int workerMorale;
@@ -150,7 +150,6 @@ public class Manager : MonoBehaviour
         names[22] = Pos22;
         names[23] = Pos23;
         names[24] = Pos24;
-        CSV = GameObject.Find("/CSV");
         money = 500;
         todayMoneyTotal = 0;
         todayMoneyProfit = 0;

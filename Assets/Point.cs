@@ -30,7 +30,7 @@ public class Point : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Finished")
+        if (other.tag == "Finished" || other.tag == "Grabbable")
         {
             on = false;
             m_collider.enabled = false;

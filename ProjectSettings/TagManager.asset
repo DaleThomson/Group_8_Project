@@ -25,6 +25,10 @@ TagManager:
   - Point1
   - Movable
   - inProgress
+  - Carpet
+  - Concrete
+  - Metal
+  - Walkway
   layers:
   - Default
   - TransparentFX

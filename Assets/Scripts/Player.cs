@@ -20,8 +20,11 @@ public class Player : MonoBehaviour
     [SerializeField] float exhaustion = 20.0f;
     [SerializeField] bool exhausted = false;
     [SerializeField] public static bool camera = true;
+    private bool playerMoving;
 
     public GameObject hireUI;
+    public AudioSource playerAudio, surfaceAudio;
+    public AudioClip jumpSound, exhaustionSound, carpetWalk, concreteWalk, metalWalk, currentClip;
     float camPitch = 0.0f;
     float velY = 0.0f;
     CharacterController player;
@@ -43,7 +46,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(hireUI.active)
+            if (hireUI.active)
             {
                 camera = true;
                 hireUI.SetActive(false);
@@ -51,7 +54,7 @@ public class Player : MonoBehaviour
                 Cursor.visible = false;
                 Time.timeScale = 1;
             }
-            else if(!hireUI.active)
+            else if (!hireUI.active)
             {
                 camera = false;
                 hireUI.SetActive(true);
@@ -59,8 +62,8 @@ public class Player : MonoBehaviour
                 Cursor.visible = true;
                 Time.timeScale = 0;
             }
-            
-            
+
+
         }
     }
 
@@ -70,6 +73,7 @@ public class Player : MonoBehaviour
         hireMenu();
         updateMouseLook();
         updatePlayerMovement();
+        currentClip = playerAudio.clip;
     }
 
     bool onSlope()
@@ -81,7 +85,7 @@ public class Player : MonoBehaviour
             if (hit.normal != Vector3.up)
             {
                 return true;
-            }    
+            }
         }
         return false;
     }
@@ -96,6 +100,60 @@ public class Player : MonoBehaviour
             }
         }
         return false;
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit col)
+    {
+        if (col.gameObject.tag == "Carpet")
+        {
+            if (playerMoving && player.isGrounded)
+            {
+                surfaceAudio.clip = carpetWalk;
+                if (!surfaceAudio.isPlaying)
+                {
+                    surfaceAudio.Play();
+                }
+            }
+        }
+
+        if (col.gameObject.tag == "Concrete")
+        {
+            if (playerMoving && player.isGrounded)
+            {
+                surfaceAudio.clip = concreteWalk;
+                if (!surfaceAudio.isPlaying)
+                {
+                    surfaceAudio.Play();
+                }
+            }
+        }
+
+        if (col.gameObject.tag == "Metal")
+        {
+            if (gameObject.transform.position.y >= col.gameObject.transform.position.y + 2)
+            {
+                if (playerMoving && player.isGrounded)
+                {
+                    surfaceAudio.clip = metalWalk;
+                    if (!surfaceAudio.isPlaying)
+                    {
+                        surfaceAudio.Play();
+                    }
+                }
+            }
+        }
+
+        if (col.gameObject.tag == "Walkway")
+        {
+            if (playerMoving && player.isGrounded)
+            {
+                surfaceAudio.clip = metalWalk;
+                if (!surfaceAudio.isPlaying)
+                {
+                    surfaceAudio.Play();
+                }
+            }
+        }
     }
 
     void updateMouseLook()
@@ -121,8 +179,21 @@ public class Player : MonoBehaviour
         Vector2 target = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         target.Normalize();
 
-        currDirection = Vector2.SmoothDamp(currDirection, target, ref currDirectionVel, moveSmooth);
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            playerMoving = true;
+        }
+        if (Input.GetAxisRaw("Vertical") != 0)
+        {
+            playerMoving = true;
+        }
 
+        if (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+        {
+            playerMoving = false;
+        }
+
+        currDirection = Vector2.SmoothDamp(currDirection, target, ref currDirectionVel, moveSmooth);
 
         if ((currDirection.x != 0 || currDirection.y != 0) && onSlope())
         {
@@ -133,15 +204,17 @@ public class Player : MonoBehaviour
         float velY = velocity.y;
         velocity = (transform.forward * currDirection.y + transform.right * currDirection.x) * walkSpeed;
         velocity.y = velY;
-        
-        if (player.isGrounded)
+
+        if (player.isGrounded && !exhausted)
         {
             if (Input.GetButtonDown("Jump"))
             {
+                playerAudio.clip = jumpSound;
+                playerAudio.Play();
                 velocity.y = jumpForce;
             }
         }
-        
+
 
         //velY += Physics.gravity.y * Time.deltaTime;
 
@@ -161,14 +234,20 @@ public class Player : MonoBehaviour
         if (stamina <= 0)
         {
             exhaustion = 20.0f;
-            exhausted = true;  
+            exhausted = true;
         }
 
         if (exhausted)
         {
             exhaustion -= Time.deltaTime;
+            if (!playerAudio.isPlaying)
+            {
+                playerAudio.clip = exhaustionSound;
+                playerAudio.Play();
+            }
             if (exhaustion <= 0)
             {
+                playerAudio.Stop();
                 exhausted = false;
                 exhaustion = 20.0f;
             }

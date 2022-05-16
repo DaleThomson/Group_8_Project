@@ -20,9 +20,6 @@ public class Worker : MonoBehaviour
     public int productivityDecreaser;
     public int counter;
     public int minX = 0, maxX = 100;
-    public Material material1;
-    public Material material2;
-    public Material material3;
     public int level;
     float duration = 20.0f;
     Renderer rend;
@@ -37,6 +34,8 @@ public class Worker : MonoBehaviour
     private bool below;
     private int brokenSpirit;
     private int money;
+    private float saturationValue = 1f;
+    private float targetSaturationValue = 1f;
 
     [SerializeField] int productivityFireThreshold;
     [SerializeField] int moraleFireThreshold;
@@ -67,7 +66,6 @@ public class Worker : MonoBehaviour
         morale = 100;
         productivity = 100;
         packageTimer = setTime[level];
-        rend.material = material1;
         money = player.GetComponent<Manager>().getMoney();
         name = player.GetComponent<Manager>().getWorkerName();
         morale = player.GetComponent<Manager>().getWorkerMorale();
@@ -87,6 +85,9 @@ public class Worker : MonoBehaviour
         moraleDecreaser = Mathf.Clamp(moraleDecreaser, 1, 5);
         productivityDecreaser = Mathf.Clamp(productivityDecreaser, 1, 10);
         workTimer -= Time.deltaTime;
+        saturationValue = Mathf.Lerp(saturationValue, ((float)productivity + (float)morale) / 200, 2f * Time.deltaTime);
+        Debug.Log(saturationValue);
+        rend.material.SetFloat("_Saturation", saturationValue);
         if (workTimer <= 0)
         {
             DecreaseMoraleTimer();
@@ -125,32 +126,17 @@ public class Worker : MonoBehaviour
             package.transform.position = returnPoint.position;
             packageFinish();
         }
-        if (productivity <= 75 && !change)
-        {
-            check += 0.01f;
-            lerp = Mathf.PingPong(check, duration) / duration;
-            rend.material.Lerp(material1, material2, lerp);
-            if (lerp >= 0.99f)
-            {
-                check = 0;
-                lerp = 0;
-                rend.material = material2;
-                change = true;
-            }
-        }
-        if (productivity <= 40 && !change2)
-        {
-            check += 0.01f;
-            lerp = Mathf.PingPong(check, duration) / duration;
-            rend.material.Lerp(material2, material3, lerp);
-            if (lerp >= 0.99f)
-            {
-                check = 0;
-                lerp = 0;
-                rend.material = material3;
-                change2 = true;
-            }
-        }
+        //if (productivity <= 80 && !change)
+        //{
+        //    targetSaturationValue = 0.78f;
+
+        //}
+        //if (productivity <= 60  && !change2)
+        //{
+        //    targetSaturationValue = 0.4f;
+        //    saturationValue = Mathf.Lerp(saturationValue, targetSaturationValue, 2f * Time.deltaTime);
+        //    rend.material.SetFloat("_Saturation", saturationValue);
+        //}
         currentLevel = level;
     }
 
@@ -203,7 +189,7 @@ public class Worker : MonoBehaviour
         if (counter < 5 && morale < 100 & productivity < 100)
         {
             counter++;
-            morale += 2;
+            morale += 3;
             productivity += 5;
         }
     }

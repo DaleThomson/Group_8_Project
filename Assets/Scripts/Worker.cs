@@ -149,6 +149,7 @@ public class Worker : MonoBehaviour
         {
             animator.SetBool("Working", true);
             package = other.gameObject;
+            package.tag = "inProgress";
             package.transform.position = packagePoint.position;
             packBody = package.GetComponent<Rigidbody>();
             packBody.velocity = new Vector3(0, 0, 0);

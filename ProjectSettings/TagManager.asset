@@ -24,6 +24,7 @@ TagManager:
   - ConveyorSE
   - Point1
   - Movable
+  - inProgress
   layers:
   - Default
   - TransparentFX

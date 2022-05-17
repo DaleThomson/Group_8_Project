@@ -247,6 +247,25 @@ public class Worker : MonoBehaviour
         resetPackage();
         Manager.fireCounter++;
         player.GetComponent<Manager>().addNameToBoard(name, workerNumber);
+        switch (workerNumber)
+        {
+            case 0:
+                player.GetComponent<Manager>().upgradeFired0.SetActive(true);
+                player.GetComponent<Manager>().fired0.SetActive(true);
+                break;
+            case 1:
+                player.GetComponent<Manager>().upgradeFired1.SetActive(true);
+                player.GetComponent<Manager>().fired1.SetActive(true);
+                break;
+            case 2:
+                player.GetComponent<Manager>().upgradeFired2.SetActive(true);
+                player.GetComponent<Manager>().fired2.SetActive(true);
+                break;
+            case 3:
+                player.GetComponent<Manager>().upgradeFired3.SetActive(true);
+                player.GetComponent<Manager>().fired3.SetActive(true);
+                break;
+        }
         Destroy(gameObject);
     }
 

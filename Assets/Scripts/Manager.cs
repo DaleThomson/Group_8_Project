@@ -115,12 +115,15 @@ public class Manager : MonoBehaviour
 
     public AudioSource managerAudio;
     public AudioClip nextDay;
+    public int packageCount;
 
     // Start is called before the first frame update
     void Start()
     {
+        employeeText.text = null;
         earlyCloses = 0;
         totalPackageCounter = 0;
+        packageCounter = 0;
         check = false;
         check2 = false;
         workerLevel = 1;
@@ -161,8 +164,6 @@ public class Manager : MonoBehaviour
         hireCounter = 0;
         below50 = 0;
         brokenSpirit = 0;
-        generateWorker();
-        fireText0.text = employeeText.text;
         lineWorkerCount = 0;
         workerLevel = 2;
         lineWorker1Instance = Instantiate(lineWorker1, lineWorkerPos1);
@@ -175,6 +176,8 @@ public class Manager : MonoBehaviour
         Cursor.visible = true;
         hireUI.SetActive(true);
         Time.timeScale = 0;
+        generateWorker();
+        fireText0.text = employeeText.text;
     }
 
     // Update is called once per frame
@@ -192,16 +195,19 @@ public class Manager : MonoBehaviour
         {
             if (lineWorker1Instance == null && lineWorker2Instance == null && lineWorker3Instance == null && lineWorker4Instance == null && !hireUI.active)
             {
-                if (check2)
+                if (days < 5)
                 {
-                    earlyCloses++;
+                    if (check2)
+                    {
+                        earlyCloses++;
+                    }
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    hireUI.SetActive(true);
+                    Player.camera = false;
+                    Time.timeScale = 0;
+                    check2 = true;
                 }
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                hireUI.SetActive(true);
-                Player.camera = false;
-                Time.timeScale = 0;
-                check2 = true;
             }
         }
         if (fireCounter > 24)
@@ -230,6 +236,8 @@ public class Manager : MonoBehaviour
         employeeHiredText.text = "Total Employees Hired: " + hireCounter;
         employeeHiredText2.text = employeeHiredText.text;
 
+        packageCount = packageCounter;
+
         if (lineWorker1Instance != null)
         {
             workerInstance1Level = lineWorker1Instance.GetComponent<Worker>().getLevel();
@@ -248,8 +256,8 @@ public class Manager : MonoBehaviour
             workerInstanceProductivity2 = lineWorker2Instance.GetComponent<Worker>().getProductivity();
             upgradeFired1.SetActive(false);
             upgradeText2.text = lineWorker2Instance.GetComponent<Worker>().getName() + ": Level: " + lineWorker2Instance.GetComponent<Worker>().getLevel() + "/5";
-            morale2.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
-            productivity2.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
+            morale2.value = lineWorker2Instance.GetComponent<Worker>().getMorale();
+            productivity2.value = lineWorker2Instance.GetComponent<Worker>().getProductivity();
         }
 
         if (lineWorker3Instance != null)
@@ -259,8 +267,8 @@ public class Manager : MonoBehaviour
             workerInstanceProductivity3 = lineWorker3Instance.GetComponent<Worker>().getProductivity();
             upgradeFired2.SetActive(false);
             upgradeText3.text = lineWorker3Instance.GetComponent<Worker>().getName() + ": Level: " + lineWorker3Instance.GetComponent<Worker>().getLevel() + "/5";
-            morale3.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
-            productivity3.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
+            morale3.value = lineWorker3Instance.GetComponent<Worker>().getMorale();
+            productivity3.value = lineWorker3Instance.GetComponent<Worker>().getProductivity();
         }
 
         if (lineWorker4Instance != null)
@@ -270,8 +278,8 @@ public class Manager : MonoBehaviour
             workerInstanceProductivity4 = lineWorker4Instance.GetComponent<Worker>().getProductivity();
             upgradeFired3.SetActive(false);
             upgradeText4.text = lineWorker4Instance.GetComponent<Worker>().getName() + ": Level: " + lineWorker4Instance.GetComponent<Worker>().getLevel() + "/5";
-            morale4.value = lineWorker1Instance.GetComponent<Worker>().getMorale();
-            productivity4.value = lineWorker1Instance.GetComponent<Worker>().getProductivity();
+            morale4.value = lineWorker4Instance.GetComponent<Worker>().getMorale();
+            productivity4.value = lineWorker4Instance.GetComponent<Worker>().getProductivity();
         }
 
         if (lineWorker1Instance == null)
@@ -492,7 +500,7 @@ public class Manager : MonoBehaviour
                 }
                 break;
             case 1:
-                if (lineWorker2Instance != null && money >=100 && workerInstance2Level < 5) 
+                if (lineWorker2Instance != null && money >= 100 && workerInstance2Level < 5)
                 {
                     lineWorker2Instance.GetComponent<Worker>().setLevel(workerInstance2Level + 1);
                     lineWorker2Instance.GetComponent<Worker>().setMorale(workerInstanceMorale2 + 10);
@@ -613,6 +621,7 @@ public class Manager : MonoBehaviour
                     money += 50;
                     todayMoneyTotal += 50;
                     totalEarned += 50;
+                    lineWorker1Instance.GetComponent<Worker>().resetPackage();
                     Destroy(lineWorker1Instance);
                     lineWorkerCount--;
                     fired0.SetActive(true);
@@ -627,6 +636,7 @@ public class Manager : MonoBehaviour
                     money += 50;
                     todayMoneyTotal += 50;
                     totalEarned += 50;
+                    lineWorker2Instance.GetComponent<Worker>().resetPackage();
                     Destroy(lineWorker2Instance);
                     lineWorkerCount--;
                     fired1.SetActive(true);
@@ -641,6 +651,7 @@ public class Manager : MonoBehaviour
                     money += 50;
                     todayMoneyTotal += 50;
                     totalEarned += 50;
+                    lineWorker3Instance.GetComponent<Worker>().resetPackage();
                     Destroy(lineWorker3Instance);
                     lineWorkerCount--;
                     fired2.SetActive(true);
@@ -797,21 +808,44 @@ public class Manager : MonoBehaviour
 
     public void unPauseNextDay()
     {
-        totalPackageCounter += packageCounter;
-        packageCounter = 0;
-        Player.camera = true;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        if (check == true)
+        if (days >= 4)
         {
+            check = true;
+            check2 = true;
+            totalPackageCounter += packageCounter;
+            packageCounter = 0;
+            hireUI.SetActive(false);
+            Player.camera = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1;
             days++;
             dayChange(days);
         }
-        hireUI.SetActive(false);
-        Time.timeScale = 1;
-        check = true;
-        managerAudio.clip = nextDay;
-        managerAudio.Play();
+
+        if (lineWorker1Instance != null || lineWorker2Instance != null || lineWorker3Instance != null || lineWorker4Instance != null && days < 4)
+        {
+            if (check == true)
+            {
+                days++;
+                dayChange(days);
+            }
+            check = true;
+            check2 = true;
+            totalPackageCounter += packageCounter;
+            packageCounter = 0;
+            hireUI.SetActive(false);
+            Player.camera = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1;
+        }
+
+        if (!hireUI.active)
+        {
+            managerAudio.clip = nextDay;
+            managerAudio.Play();
+        }
     }
 
     public void unPause()

@@ -39,6 +39,7 @@ public class Worker : MonoBehaviour
     private float targetSaturationValue = 1f;
     public AudioSource workerVoice;
     public AudioClip packageDone, bullyReaction, encourageReaction, lowMorale, lowProductivity, workingOnBox, fired, lowStats;
+    public GameObject spawnLocation;
     private AudioSource managerSound;
 
     [SerializeField] int productivityFireThreshold;
@@ -49,6 +50,7 @@ public class Worker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spawnLocation = GameObject.Find("/SpawnLocation");
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         workT = new float[6];
@@ -75,8 +77,6 @@ public class Worker : MonoBehaviour
         morale = player.GetComponent<Manager>().getWorkerMorale();
         productivity = player.GetComponent<Manager>().getWorkerProductivity();
         workerNumber = player.GetComponent<Manager>().getWorkerNumber();
-        below50 = player.GetComponent<Manager>().getBelow50();
-        brokenSpirit = player.GetComponent<Manager>().getBrokenSpirit();
         player.GetComponent<Manager>().generateWorker();
         managerSound = player.GetComponent<Manager>().managerAudio;
     }
@@ -84,6 +84,8 @@ public class Worker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        below50 = player.GetComponent<Manager>().getBelow50();
+        brokenSpirit = player.GetComponent<Manager>().getBrokenSpirit();
         money = player.GetComponent<Manager>().getMoney();
         moneySpentToday = player.GetComponent<Manager>().getMoneySpentToday();
         level = Mathf.Clamp(level, 1, 5);
@@ -252,24 +254,37 @@ public class Worker : MonoBehaviour
         {
             case 0:
                 player.GetComponent<Manager>().fired0.SetActive(true);
+                resetPackage();
                 Destroy(gameObject);
                 break;
             case 1:
                 player.GetComponent<Manager>().fired1.SetActive(true);
+                resetPackage();
                 Destroy(gameObject);
                 break;
             case 2:
                 player.GetComponent<Manager>().fired2.SetActive(true);
+                resetPackage();
                 Destroy(gameObject);
                 break;
             case 3:
                 player.GetComponent<Manager>().fired3.SetActive(true);
+                resetPackage();
                 Destroy(gameObject);
                 break;
             default:
                 break;
         }
         Destroy(gameObject);
+    }
+
+    public void resetPackage()
+    {
+        if (package != null)
+        {
+            package.tag = "Grabbable";
+            package.transform.position = spawnLocation.transform.position;
+        }
     }
 
     public int getMorale()

@@ -106,12 +106,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabbableTag: Grabbable
   workerTag: Worker
+  finishedTag: Finished
   highLightMaterial: {fileID: 0}
   defaultMaterial: {fileID: 0}
   pickUpRange: 5
   moveForce: 10
   holdParent: {fileID: 2443714533630372230}
   UIText: {fileID: 0}
+  workerUIText: {fileID: 0}
   workerText: {fileID: 0}
   worker: {fileID: 0}
 --- !u!1 &2443714534506586467
@@ -377,8 +379,15 @@ MonoBehaviour:
   stamina: 10
   exhaustion: 20
   exhausted: 0
-  camera: 1
   hireUI: {fileID: 0}
+  playerAudio: {fileID: 0}
+  surfaceAudio: {fileID: 0}
+  jumpSound: {fileID: 0}
+  exhaustionSound: {fileID: 0}
+  carpetWalk: {fileID: 0}
+  concreteWalk: {fileID: 0}
+  metalWalk: {fileID: 0}
+  currentClip: {fileID: 0}
 --- !u!114 &2443714534512169014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,13 +404,90 @@ MonoBehaviour:
   lineWorker2: {fileID: 6902873087720750368, guid: 542b92847fa329740be71ee4553e6ee8, type: 3}
   lineWorker3: {fileID: 5663155247757777662, guid: 95777caa7950dc44788adfa82d7c97d1, type: 3}
   lineWorker4: {fileID: 6073476760741567117, guid: 2169a3f9c6663944cb7acf7af651b99a, type: 3}
-  deliveryWorker: {fileID: 8339681464961025355, guid: cec66393eced59d4e916acf2933d2039, type: 3}
   lineWorkerPos1: {fileID: 0}
   lineWorkerPos2: {fileID: 0}
   lineWorkerPos3: {fileID: 0}
   lineWorkerPos4: {fileID: 0}
-  deliveryWorkerPos1: {fileID: 0}
-  deliveryWorkerPos2: {fileID: 0}
-  deliveryWorkerPos3: {fileID: 0}
-  deliveryWorkerPos4: {fileID: 0}
+  hireUI: {fileID: 0}
   money: 500
+  moneyText: {fileID: 0}
+  dayText: {fileID: 0}
+  employeeText: {fileID: 0}
+  moneyTotalText: {fileID: 0}
+  moneyTotalText2: {fileID: 0}
+  fundsTotalText: {fileID: 0}
+  fundsTotalText2: {fileID: 0}
+  todaysProfitText: {fileID: 0}
+  totalMoney: {fileID: 0}
+  employeeFiredText: {fileID: 0}
+  employeeFiredText2: {fileID: 0}
+  employeeFiredText3: {fileID: 0}
+  employeeBrokenText: {fileID: 0}
+  employeeBrokenText2: {fileID: 0}
+  employeeBrokenText3: {fileID: 0}
+  employeeBelowFiftyText: {fileID: 0}
+  employeeBelowFiftyText2: {fileID: 0}
+  employeeHiredText: {fileID: 0}
+  employeeHiredText2: {fileID: 0}
+  upgradeText1: {fileID: 0}
+  upgradeText2: {fileID: 0}
+  upgradeText3: {fileID: 0}
+  upgradeText4: {fileID: 0}
+  fireText0: {fileID: 0}
+  fireText1: {fileID: 0}
+  fireText2: {fileID: 0}
+  fireText3: {fileID: 0}
+  fired0: {fileID: 0}
+  fired1: {fileID: 0}
+  fired2: {fileID: 0}
+  fired3: {fileID: 0}
+  upgradeFired0: {fileID: 0}
+  upgradeFired1: {fileID: 0}
+  upgradeFired2: {fileID: 0}
+  upgradeFired3: {fileID: 0}
+  CSV: {fileID: 2228290445039369735, guid: 2ee38178d79b8564b9aa277641935c5f, type: 3}
+  Pos1: {fileID: 0}
+  Pos2: {fileID: 0}
+  Pos3: {fileID: 0}
+  Pos4: {fileID: 0}
+  Pos5: {fileID: 0}
+  Pos6: {fileID: 0}
+  Pos7: {fileID: 0}
+  Pos8: {fileID: 0}
+  Pos9: {fileID: 0}
+  Pos10: {fileID: 0}
+  Pos11: {fileID: 0}
+  Pos12: {fileID: 0}
+  Pos13: {fileID: 0}
+  Pos14: {fileID: 0}
+  Pos15: {fileID: 0}
+  Pos16: {fileID: 0}
+  Pos17: {fileID: 0}
+  Pos18: {fileID: 0}
+  Pos19: {fileID: 0}
+  Pos20: {fileID: 0}
+  Pos21: {fileID: 0}
+  Pos22: {fileID: 0}
+  Pos23: {fileID: 0}
+  Pos24: {fileID: 0}
+  days: 0
+  packageCounterThreshold: 0
+  todayMoneyTotal: 0
+  todayMoneySpent: 0
+  todayMoneyProfit: 0
+  totalEarned: 0
+  totalSpent: 0
+  below50: 0
+  brokenSpirit: 0
+  hireCounter: 0
+  morale1: {fileID: 0}
+  morale2: {fileID: 0}
+  morale3: {fileID: 0}
+  morale4: {fileID: 0}
+  productivity1: {fileID: 0}
+  productivity2: {fileID: 0}
+  productivity3: {fileID: 0}
+  productivity4: {fileID: 0}
+  managerAudio: {fileID: 0}
+  nextDay: {fileID: 0}
+  packageCount: 0

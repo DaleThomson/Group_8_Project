@@ -7,7 +7,7 @@ Shader "Manuel ORM"
 		[HideInInspector] _AlphaCutoff("Alpha Cutoff ", Range(0, 1)) = 0.5
 		[HideInInspector] _EmissionColor("Emission Color", Color) = (1,1,1,1)
 		[ASEBegin]_Base("Base", 2D) = "white" {}
-		_Basket_ColourPaint_Basket_Normal("Basket_ColourPaint_Basket_Normal", 2D) = "white" {}
+		_Normal("Normal", 2D) = "white" {}
 		[ASEEnd]_O("O", 2D) = "white" {}
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 
@@ -238,7 +238,7 @@ Shader "Manuel ORM"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _Base_ST;
-			float4 _Basket_ColourPaint_Basket_Normal_ST;
+			float4 _Normal_ST;
 			float4 _O_ST;
 			#ifdef _TRANSMISSION_ASE
 				float _TransmissionShadow;
@@ -261,7 +261,7 @@ Shader "Manuel ORM"
 			#endif
 			CBUFFER_END
 			sampler2D _Base;
-			sampler2D _Basket_ColourPaint_Basket_Normal;
+			sampler2D _Normal;
 			sampler2D _O;
 
 
@@ -464,13 +464,13 @@ Shader "Manuel ORM"
 
 				float2 uv_Base = IN.ase_texcoord7.xy * _Base_ST.xy + _Base_ST.zw;
 				
-				float2 uv_Basket_ColourPaint_Basket_Normal = IN.ase_texcoord7.xy * _Basket_ColourPaint_Basket_Normal_ST.xy + _Basket_ColourPaint_Basket_Normal_ST.zw;
+				float2 uv_Normal = IN.ase_texcoord7.xy * _Normal_ST.xy + _Normal_ST.zw;
 				
 				float2 uv_O = IN.ase_texcoord7.xy * _O_ST.xy + _O_ST.zw;
 				float4 tex2DNode10 = tex2D( _O, uv_O );
 				
 				float3 Albedo = tex2D( _Base, uv_Base ).rgb;
-				float3 Normal = tex2D( _Basket_ColourPaint_Basket_Normal, uv_Basket_ColourPaint_Basket_Normal ).rgb;
+				float3 Normal = tex2D( _Normal, uv_Normal ).rgb;
 				float3 Emission = 0;
 				float3 Specular = 0.5;
 				float Metallic = tex2DNode10.b;
@@ -691,7 +691,7 @@ Shader "Manuel ORM"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _Base_ST;
-			float4 _Basket_ColourPaint_Basket_Normal_ST;
+			float4 _Normal_ST;
 			float4 _O_ST;
 			#ifdef _TRANSMISSION_ASE
 				float _TransmissionShadow;
@@ -972,7 +972,7 @@ Shader "Manuel ORM"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _Base_ST;
-			float4 _Basket_ColourPaint_Basket_Normal_ST;
+			float4 _Normal_ST;
 			float4 _O_ST;
 			#ifdef _TRANSMISSION_ASE
 				float _TransmissionShadow;
@@ -1224,7 +1224,7 @@ Shader "Manuel ORM"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _Base_ST;
-			float4 _Basket_ColourPaint_Basket_Normal_ST;
+			float4 _Normal_ST;
 			float4 _O_ST;
 			#ifdef _TRANSMISSION_ASE
 				float _TransmissionShadow;
@@ -1479,7 +1479,7 @@ Shader "Manuel ORM"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _Base_ST;
-			float4 _Basket_ColourPaint_Basket_Normal_ST;
+			float4 _Normal_ST;
 			float4 _O_ST;
 			#ifdef _TRANSMISSION_ASE
 				float _TransmissionShadow;
@@ -1725,7 +1725,7 @@ Shader "Manuel ORM"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _Base_ST;
-			float4 _Basket_ColourPaint_Basket_Normal_ST;
+			float4 _Normal_ST;
 			float4 _O_ST;
 			#ifdef _TRANSMISSION_ASE
 				float _TransmissionShadow;
@@ -2011,7 +2011,7 @@ Shader "Manuel ORM"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _Base_ST;
-			float4 _Basket_ColourPaint_Basket_Normal_ST;
+			float4 _Normal_ST;
 			float4 _O_ST;
 			#ifdef _TRANSMISSION_ASE
 				float _TransmissionShadow;
@@ -2034,7 +2034,7 @@ Shader "Manuel ORM"
 			#endif
 			CBUFFER_END
 			sampler2D _Base;
-			sampler2D _Basket_ColourPaint_Basket_Normal;
+			sampler2D _Normal;
 			sampler2D _O;
 
 
@@ -2236,13 +2236,13 @@ Shader "Manuel ORM"
 
 				float2 uv_Base = IN.ase_texcoord7.xy * _Base_ST.xy + _Base_ST.zw;
 				
-				float2 uv_Basket_ColourPaint_Basket_Normal = IN.ase_texcoord7.xy * _Basket_ColourPaint_Basket_Normal_ST.xy + _Basket_ColourPaint_Basket_Normal_ST.zw;
+				float2 uv_Normal = IN.ase_texcoord7.xy * _Normal_ST.xy + _Normal_ST.zw;
 				
 				float2 uv_O = IN.ase_texcoord7.xy * _O_ST.xy + _O_ST.zw;
 				float4 tex2DNode10 = tex2D( _O, uv_O );
 				
 				float3 Albedo = tex2D( _Base, uv_Base ).rgb;
-				float3 Normal = tex2D( _Basket_ColourPaint_Basket_Normal, uv_Basket_ColourPaint_Basket_Normal ).rgb;
+				float3 Normal = tex2D( _Normal, uv_Normal ).rgb;
 				float3 Emission = 0;
 				float3 Specular = 0.5;
 				float Metallic = tex2DNode10.b;
@@ -2403,11 +2403,11 @@ Shader "Manuel ORM"
 }
 /*ASEBEGIN
 Version=18935
--308.4445;1066.667;1706.667;939;875.3333;283.5;1;True;True
+0;1072.667;1707;933;875.4998;277.5;1;True;True
 Node;AmplifyShaderEditor.SamplerNode;10;-335.3333,354.5;Inherit;True;Property;_O;O;2;0;Create;True;0;0;0;False;0;False;-1;4c95f2c5ce8bf4a4a8f9f8ccb0f1f2fa;4c95f2c5ce8bf4a4a8f9f8ccb0f1f2fa;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SamplerNode;8;-351.3333,-172.5;Inherit;True;Property;_Base;Base;0;0;Create;True;0;0;0;False;0;False;-1;d5ff956661a7aad498f3d4901546cbae;d5ff956661a7aad498f3d4901546cbae;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SamplerNode;9;-338.3333,81.5;Inherit;True;Property;_Basket_ColourPaint_Basket_Normal;Basket_ColourPaint_Basket_Normal;1;0;Create;True;0;0;0;False;0;False;-1;01a128e5810d7464ebefc9dc298f7a12;01a128e5810d7464ebefc9dc298f7a12;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.OneMinusNode;11;30.66669,516.5;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.SamplerNode;9;-338.3333,81.5;Inherit;True;Property;_Normal;Normal;1;0;Create;True;0;0;0;False;0;False;-1;01a128e5810d7464ebefc9dc298f7a12;01a128e5810d7464ebefc9dc298f7a12;True;0;True;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraph.PBRMasterGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;ExtraPrePass;0;0;ExtraPrePass;5;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;-1;False;True;0;False;-1;False;False;False;False;False;False;False;False;False;True;False;255;False;-1;255;False;-1;255;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;False;False;False;False;True;3;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;0;True;17;d3d9;d3d11;glcore;gles;gles3;metal;vulkan;xbox360;xboxone;xboxseries;ps4;playstation;psp2;n3ds;wiiu;switch;nomrt;0;False;True;1;1;False;-1;0;False;-1;0;1;False;-1;0;False;-1;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;-1;False;True;True;True;True;True;0;False;-1;False;False;False;False;False;False;False;True;False;255;False;-1;255;False;-1;255;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;False;True;1;False;-1;True;3;False;-1;True;True;0;False;-1;0;False;-1;True;0;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;2;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraph.PBRMasterGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;ShadowCaster;0;2;ShadowCaster;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;-1;False;True;0;False;-1;False;False;False;False;False;False;False;False;False;True;False;255;False;-1;255;False;-1;255;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;False;False;False;False;True;3;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;0;True;17;d3d9;d3d11;glcore;gles;gles3;metal;vulkan;xbox360;xboxone;xboxseries;ps4;playstation;psp2;n3ds;wiiu;switch;nomrt;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;-1;False;False;False;True;False;False;False;False;0;False;-1;False;False;False;False;False;False;False;False;False;True;1;False;-1;True;3;False;-1;False;True;1;LightMode=ShadowCaster;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;3;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraph.PBRMasterGUI;0;1;New Amplify Shader;94348b07e5e8bab40bd6c8a1e3df54cd;True;DepthOnly;0;3;DepthOnly;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;-1;False;True;0;False;-1;False;False;False;False;False;False;False;False;False;True;False;255;False;-1;255;False;-1;255;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;False;False;False;False;True;3;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;0;True;17;d3d9;d3d11;glcore;gles;gles3;metal;vulkan;xbox360;xboxone;xboxseries;ps4;playstation;psp2;n3ds;wiiu;switch;nomrt;0;False;False;False;False;False;False;False;False;False;False;False;False;True;0;False;-1;False;False;False;True;False;False;False;False;0;False;-1;False;False;False;False;False;False;False;False;False;True;1;False;-1;False;False;True;1;LightMode=DepthOnly;False;False;0;Hidden/InternalErrorShader;0;0;Standard;0;False;0
@@ -2423,4 +2423,4 @@ WireConnection;1;3;10;3
 WireConnection;1;4;11;0
 WireConnection;1;5;10;1
 ASEEND*/
-//CHKSM=EF936885987CCDE32C62BAC18ABFC477F5EE38CB
+//CHKSM=E02E81C7877DC613E47E8AFB83575BCFE1235819

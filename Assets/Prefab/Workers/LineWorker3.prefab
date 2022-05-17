@@ -323,6 +323,10 @@ PrefabInstance:
       propertyPath: encourageReaction
       value: 
       objectReference: {fileID: 8300000, guid: 54a50ae17d8f7a84fbca071e189e2d87, type: 3}
+    - target: {fileID: 7772281547955928303, guid: 9278fd1276fd1564fa5341ef59e08556, type: 3}
+      propertyPath: moraleFireThreshold
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9278fd1276fd1564fa5341ef59e08556, type: 3}
 --- !u!1 &2557023867794470362 stripped

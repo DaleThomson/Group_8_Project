@@ -214,8 +214,9 @@ MonoBehaviour:
   workingOnBox: {fileID: 8300000, guid: d7f4a9f4a040c3b41934f139620c7a15, type: 3}
   fired: {fileID: 8300000, guid: ec7e0a147af7d9b4ab6f7d6d17948f11, type: 3}
   lowStats: {fileID: 0}
+  spawnLocation: {fileID: 0}
   productivityFireThreshold: 20
-  moraleFireThreshold: 45
+  moraleFireThreshold: 35
 --- !u!65 &2266514344613472727
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class Worker : MonoBehaviour
     public GameObject player;
     public int workerNumber;
     private int below50;
-    private bool below;
+    public bool below;
     private int brokenSpirit;
     private int money, moneySpentToday;
     private float saturationValue = 1f;
@@ -104,10 +104,6 @@ public class Worker : MonoBehaviour
         }
         if (productivity <= productivityFireThreshold || morale < moraleFireThreshold)
         {
-            if (below)
-            {
-                player.GetComponent<Manager>().setBelow50(below50--);
-            }
             managerSound.clip = fired;
             managerSound.Play();
             player.GetComponent<Manager>().setMoney(money - 100);
@@ -115,7 +111,7 @@ public class Worker : MonoBehaviour
             player.GetComponent<Manager>().setBrokenSpirit(brokenSpirit += 1);
             fire();
         }
-        if (productivity <= 50 || morale <= 50 && !below)
+        if (productivity <= 50 && morale <= 50 && !below)
         {
             below = true;
             player.GetComponent<Manager>().setBelow50(below50 + 1);
@@ -248,33 +244,9 @@ public class Worker : MonoBehaviour
 
     public void fire()
     {
+        resetPackage();
         Manager.fireCounter++;
         player.GetComponent<Manager>().addNameToBoard(name, workerNumber);
-        switch (workerNumber)
-        {
-            case 0:
-                player.GetComponent<Manager>().fired0.SetActive(true);
-                resetPackage();
-                Destroy(gameObject);
-                break;
-            case 1:
-                player.GetComponent<Manager>().fired1.SetActive(true);
-                resetPackage();
-                Destroy(gameObject);
-                break;
-            case 2:
-                player.GetComponent<Manager>().fired2.SetActive(true);
-                resetPackage();
-                Destroy(gameObject);
-                break;
-            case 3:
-                player.GetComponent<Manager>().fired3.SetActive(true);
-                resetPackage();
-                Destroy(gameObject);
-                break;
-            default:
-                break;
-        }
         Destroy(gameObject);
     }
 

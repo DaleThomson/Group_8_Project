@@ -34,7 +34,7 @@ public class Worker : MonoBehaviour
     private int below50;
     private bool below;
     private int brokenSpirit;
-    private int money;
+    private int money, moneySpentToday;
     private float saturationValue = 1f;
     private float targetSaturationValue = 1f;
     public AudioSource workerVoice;
@@ -85,6 +85,7 @@ public class Worker : MonoBehaviour
     void Update()
     {
         money = player.GetComponent<Manager>().getMoney();
+        moneySpentToday = player.GetComponent<Manager>().getMoneySpentToday();
         level = Mathf.Clamp(level, 1, 5);
         morale = Mathf.Clamp(morale, minX, maxX);
         productivity = Mathf.Clamp(productivity, minX, maxX);
@@ -108,6 +109,7 @@ public class Worker : MonoBehaviour
             managerSound.clip = fired;
             managerSound.Play();
             player.GetComponent<Manager>().setMoney(money - 100);
+            player.GetComponent<Manager>().setMoneySpentToday(moneySpentToday + 100);
             player.GetComponent<Manager>().setBrokenSpirit(brokenSpirit += 1);
             fire();
         }
